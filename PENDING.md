@@ -69,15 +69,20 @@ support — that is the fastest way to hand a critic a free hit.
 "Former academic" is true under every version, so the card uses that. An HTML
 comment on the card records why, so it doesn't get "corrected" later.
 
-**To close:** if you have a source that settles the rank, say so and the card can
-name it precisely.
+**Owner: Nick**, as of 2026-08-14 — asking Bart Kay directly. His own answer
+settles it better than any third-party bio, and the card can then name the rank
+precisely. Until then the card stays as it is.
 
 ### Dave Mac's interview count
 The card says "well over a thousand". Public sources range from 1,000+ to 1,900+;
 the channel's own framing is higher still. The lowest verifiable figure was
 chosen because it does not age and cannot be challenged.
 
-**To close:** confirm the real number if known.
+**Owner: Nick**, as of 2026-08-14 — asking Dave Mac directly.
+
+Note when the answer comes back: a hard number dates the moment it ships, because
+he keeps recording. Either phrase it as of a date ("1,900+ as of 2026") or keep a
+floor like "well over a thousand" that stays true without maintenance.
 
 ### Directory size — settled at nine
 Nine cards, a flush 3 × 3 on desktop, 3 × 2 at tablet width, single column on
