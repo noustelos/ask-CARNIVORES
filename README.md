@@ -113,6 +113,7 @@ final list replaces it. Every URL below was checked and returns 200:
 | Dr. Anthony Chaffee | `youtube.com/@anthonychaffeemd` |
 | Kelly Hogan | `youtube.com/@MyZeroCarbLife` |
 | Judy Cho | `youtube.com/@NutritionwithJudy` |
+| Ben Bikman (ninth card) | `youtube.com/@benbikman` · `benbikman.com` |
 | Stories section | `youtube.com/@zerocarb` (Dave Mac — No Carb Life) |
 
 `@zerocarb` appears **twice on purpose**: as the first directory card and as the

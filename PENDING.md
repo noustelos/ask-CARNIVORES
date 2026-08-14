@@ -97,16 +97,13 @@ chosen because it does not age and cannot be challenged.
 
 **To close:** confirm the real number if known.
 
-### Directory size — currently eight cards
-Eight cards gives 3 + 3 + 2 on desktop. The orphan single-card row is gone; the
-last row is still short of full. At three columns only 6 or 9 land perfectly
-clean, so **one more card would make it a flush 3 × 3**.
+### Directory size — settled at nine
+Nine cards, a flush 3 × 3 on desktop, 3 × 2 at tablet width, single column on
+mobile. Nothing pending here.
 
-Verified spare, checked and live: **Laura Spath**, `youtube.com/@LauraSpath` —
-long-term carnivore who also documents the stretches that didn't go to plan.
-
-**To close:** add one more (→ 9, flush) or leave it. Not decided unilaterally,
-because who appears in the directory is an editorial call, not a layout one.
+If a card is ever added or removed the grid goes ragged again — only 6 and 9 land
+clean at three columns. Verified spare if a replacement is ever needed:
+**Laura Spath**, `youtube.com/@LauraSpath`.
 
 ---
 
