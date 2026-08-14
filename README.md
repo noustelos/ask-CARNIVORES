@@ -55,9 +55,19 @@ production.
 Cards live in `index.html` between the `DIRECTORY — EDIT HERE` comment markers.
 Mirror every change into `gr/index.html`.
 
-Two rules, both non-negotiable:
+Three rules, all non-negotiable:
 
-1. **Every external link** carries `target="_blank" rel="noopener noreferrer"`.
+1. **Every external link** carries `target="_blank" rel="noopener"` — `noopener`
+   and nothing else. It must **not** carry `noreferrer`.
+
+   `noopener` is the security half: it stops the opened page from reaching back
+   through `window.opener`. `noreferrer` is a separate, privacy-side flag that
+   also strips the `Referer` header — and stripping it means a creator's
+   analytics cannot see that the visit came from askcarnivores.com.
+
+   Sending creators traffic they can *see* is the whole relationship play. It is
+   what makes the outreach email land, and it is why the referrer stays on.
+
 2. **Descriptions state a position or an experience, never a treatment claim.**
 
    | ✅ | ❌ |
@@ -116,9 +126,8 @@ Two details worth keeping if you touch it:
 
 - The `/>` is the studio's mark, not punctuation. It carries `aria-hidden="true"`
   so a screen reader announces "A NOUSTELOS_STUDIO PROJECT" and not a stray slash.
-- The link is `rel="noopener"` **without** `noreferrer`. Stripping the referrer
-  would hide where the traffic came from, and attribution is the entire point of
-  a credit line.
+- Like every other outbound link on the site, it is `rel="noopener"` with no
+  `noreferrer` (rule 1 above) — attribution is the entire point of a credit line.
 
 ## Changing the look
 
