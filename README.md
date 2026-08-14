@@ -106,6 +106,7 @@ final list replaces it. Every URL below was checked and returns 200:
 | Card | Links |
 | --- | --- |
 | Dave Mac (first card) | `youtube.com/@zerocarb` |
+| Bart Kay (second card) | `youtube.com/@bart-kay` |
 | Dr. Shawn Baker | `youtube.com/@ShawnBakerMD` · `revero.com` |
 | Dr. Ken Berry | `youtube.com/@KenDBerryMD` · `drberry.com` |
 | Dr. Anthony Chaffee | `youtube.com/@anthonychaffeemd` |

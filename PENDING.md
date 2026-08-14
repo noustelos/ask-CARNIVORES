@@ -69,6 +69,27 @@ this reopens: Get Started (7 days), per Concept Base §12.
 
 **To close:** decide whether Get Started ships in v1 or waits for v1.1.
 
+### Bart Kay's title — sources disagree
+Nick referred to him as "καθηγητή" (professor). The card says **"Former academic
+· physiology and nutrition"**, which avoids taking a side.
+
+| Source | Says |
+| --- | --- |
+| His own YouTube channel bio | "former professor" in cardiovascular and respiratory physiology |
+| His LinkedIn | "YouTube Based Educator and Private Consultant" |
+| Third-party bios and interview write-ups | "former **senior lecturer**", "retired senior lecturer" |
+
+Senior lecturer and professor are different ranks in UK/NZ/AU systems, which is
+where he taught. A site whose entire pitch is *"we point you to the source, judge
+it yourself"* cannot afford to hand someone a rank the record doesn't clearly
+support — that is the fastest way to hand a critic a free hit.
+
+"Former academic" is true under every version, so the card uses that. An HTML
+comment on the card records why, so it doesn't get "corrected" later.
+
+**To close:** if you have a source that settles the rank, say so and the card can
+name it precisely.
+
 ### Dave Mac's interview count
 The card says "well over a thousand". Public sources range from 1,000+ to 1,900+;
 the channel's own framing is higher still. The lowest verifiable figure was
@@ -76,11 +97,20 @@ chosen because it does not age and cannot be challenged.
 
 **To close:** confirm the real number if known.
 
-### Directory size
-Six cards, a clean 3 × 2 on desktop. If a card is ever removed, the grid goes
-ragged. Verified spare: **Laura Spath**, `youtube.com/@LauraSpath` — long-term
-carnivore who also documents the stretches that didn't go to plan. Not added,
-because who appears in the directory is an editorial call.
+### Directory size — currently seven cards
+Seven cards means the desktop grid runs 3 + 3 + 1, so the last card sits alone on
+its own row. It doesn't look broken, but it doesn't look finished either.
+
+At three columns, only 6 or 9 land clean. Eight would give 3 + 3 + 2, which is
+better than one orphan but still ragged.
+
+Verified spare already checked and live: **Laura Spath**,
+`youtube.com/@LauraSpath` — long-term carnivore who also documents the stretches
+that didn't go to plan.
+
+**To close:** either add two more (→ 9, clean 3 × 3), or accept the orphan row.
+Not decided unilaterally, because who appears in the directory is an editorial
+call, not a layout one.
 
 ---
 
