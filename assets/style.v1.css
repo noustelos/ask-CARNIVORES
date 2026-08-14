@@ -11,6 +11,7 @@
   --rule:      #e3ddd3;
   --accent:    #9a3b23;   /* muted rust */
   --accent-ink:#ffffff;
+  --wash:      #f4e9e4;   /* faint accent tint, for the notice strip */
   --focus:     #1c5f8f;
 
   --measure: 66ch;
@@ -32,6 +33,7 @@
     --rule:      #33302b;
     --accent:    #e0805f;
     --accent-ink:#1a1512;
+    --wash:      #251c18;
     --focus:     #7ab8e8;
   }
 }
@@ -164,6 +166,18 @@ p { margin: 0 0 1em; max-width: var(--measure); }
   font-weight: 600;
   text-decoration: none;
 }
+
+/* ---------- under-construction strip ---------- */
+
+.construction {
+  background: var(--wash);
+  border-bottom: 1px solid var(--rule);
+  padding-block: 0.7rem;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+}
+.construction p { margin: 0; max-width: none; }
+.construction strong { color: var(--ink); }
 
 /* ---------- hero ---------- */
 
