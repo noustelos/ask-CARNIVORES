@@ -314,3 +314,42 @@ p { margin: 0 0 1em; max-width: var(--measure); }
   color: var(--ink-faint);
 }
 .footer-meta a { color: var(--ink-soft); }
+
+/* ---------- studio credit ----------
+   Copied from the askcarnivore.com placeholder, not imported — the two projects
+   share no code (see README siloing rule). Re-tokenised for this palette.
+   The original leans on opacity .68 for its resting state; that would drop this
+   below AA on a light background, so the quiet-then-brighten behaviour is done
+   with colour instead. The studio's mark keeps its own proportions. */
+
+.by {
+  display: inline-block;
+  margin-inline-start: auto;
+  padding: 0.4rem 0.3rem;
+  color: var(--ink-faint);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.25s ease;
+}
+
+.footer-meta .by:hover,
+.footer-meta .by:focus-visible { color: var(--ink); }
+
+.by__name { font-weight: 700; color: var(--ink); }
+
+.by__mark {
+  display: inline-block;
+  margin-left: 0.18em;
+  font-size: 0.74em;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  transform: translateY(-0.32em);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .by { transition: none; }
+}

@@ -104,6 +104,22 @@ desktop, which is why she isn't in by default.
 resolve to completely different people — `@DaveMac` is a public-speaking coach
 and `@PrimalEdge` is a woodworking channel. Load the page before you ship it.
 
+## The studio credit
+
+The `A NOUSTELOS_STUDIO PROJECT/>` line in the footer is **copied** from the
+`askcarnivore.com` placeholder, not imported. That is what the siloing rule
+requires: shared visual elements get duplicated, never linked across projects.
+If the studio mark changes, it has to be updated in both repos by hand — that
+cost is deliberate.
+
+Two details worth keeping if you touch it:
+
+- The `/>` is the studio's mark, not punctuation. It carries `aria-hidden="true"`
+  so a screen reader announces "A NOUSTELOS_STUDIO PROJECT" and not a stray slash.
+- The link is `rel="noopener"` **without** `noreferrer`. Stripping the referrer
+  would hide where the traffic came from, and attribution is the entire point of
+  a credit line.
+
 ## Changing the look
 
 The whole palette is CSS custom properties at the top of `assets/style.v1.css`
