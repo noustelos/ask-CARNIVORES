@@ -105,6 +105,7 @@ final list replaces it. Every URL below was checked and returns 200:
 
 | Card | Links |
 | --- | --- |
+| Dave Mac (first card) | `youtube.com/@zerocarb` |
 | Dr. Shawn Baker | `youtube.com/@ShawnBakerMD` · `revero.com` |
 | Dr. Ken Berry | `youtube.com/@KenDBerryMD` · `drberry.com` |
 | Dr. Anthony Chaffee | `youtube.com/@anthonychaffeemd` |
@@ -112,11 +113,16 @@ final list replaces it. Every URL below was checked and returns 200:
 | Judy Cho | `youtube.com/@NutritionwithJudy` |
 | Stories section | `youtube.com/@zerocarb` (Dave Mac — No Carb Life) |
 
-That is five cards, so the desktop grid currently lands 3 + 2 with a ragged last
-row. Verified spare to make it a clean 3×2: **Laura Spath**,
-`youtube.com/@LauraSpath` — long-term carnivore who also documents the stretches
-that didn't go to plan. Adding someone to the directory is an editorial call, so
-she is not in by default.
+`@zerocarb` appears **twice on purpose**: as the first directory card and as the
+destination of the Stories section. Dave Mac is both a creator in his own right
+and the archive that section points to. The card's last line says so out loud
+("the same channel the stories below point to") so it reads as deliberate rather
+than as a duplicate that slipped through. If you ever drop one of the two, drop
+the Stories link and not the card, or that section loses its only destination.
+
+That is six cards — a clean 3 × 2 on desktop. Verified spare if a card is ever
+removed: **Laura Spath**, `youtube.com/@LauraSpath` — long-term carnivore who
+also documents the stretches that didn't go to plan.
 
 **Always verify a handle before you add it.** Several obvious-looking guesses
 resolve to completely different people — `@DaveMac` is a public-speaking coach
