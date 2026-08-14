@@ -90,6 +90,14 @@ Three rules, all non-negotiable:
    medicine to elevate the community — acknowledging it exists is what keeps
    this a directory instead of propaganda.
 
+### Do not list
+
+**Paul Saladino is excluded.** Nick's standing decision, 2026-08-14. He is not
+to appear as a source or a reference anywhere in this project — not in the
+directory, not in the bot's index, not inside any future tool, not as a citation
+in copy. This is not a v1 shortlist call that gets revisited when the real list
+lands; it is a permanent exclusion. Do not re-add him, and do not propose him.
+
 ### Current directory contents
 
 The starter set is **placeholder** — real people with public links, but Nick's
@@ -100,15 +108,15 @@ final list replaces it. Every URL below was checked and returns 200:
 | Dr. Shawn Baker | `youtube.com/@ShawnBakerMD` · `revero.com` |
 | Dr. Ken Berry | `youtube.com/@KenDBerryMD` · `drberry.com` |
 | Dr. Anthony Chaffee | `youtube.com/@anthonychaffeemd` |
-| Dr. Paul Saladino | `youtube.com/@paulsaladinomd` · `carnivoremd.com` |
 | Kelly Hogan | `youtube.com/@MyZeroCarbLife` |
 | Judy Cho | `youtube.com/@NutritionwithJudy` |
 | Stories section | `youtube.com/@zerocarb` (Dave Mac — No Carb Life) |
 
-Verified spare, if you want a seventh: **Laura Spath**,
+That is five cards, so the desktop grid currently lands 3 + 2 with a ragged last
+row. Verified spare to make it a clean 3×2: **Laura Spath**,
 `youtube.com/@LauraSpath` — long-term carnivore who also documents the stretches
-that didn't go to plan. Six cards is what makes the grid land as a clean 3×2 on
-desktop, which is why she isn't in by default.
+that didn't go to plan. Adding someone to the directory is an editorial call, so
+she is not in by default.
 
 **Always verify a handle before you add it.** Several obvious-looking guesses
 resolve to completely different people — `@DaveMac` is a public-speaking coach
