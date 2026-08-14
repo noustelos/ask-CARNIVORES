@@ -97,20 +97,16 @@ chosen because it does not age and cannot be challenged.
 
 **To close:** confirm the real number if known.
 
-### Directory size — currently seven cards
-Seven cards means the desktop grid runs 3 + 3 + 1, so the last card sits alone on
-its own row. It doesn't look broken, but it doesn't look finished either.
+### Directory size — currently eight cards
+Eight cards gives 3 + 3 + 2 on desktop. The orphan single-card row is gone; the
+last row is still short of full. At three columns only 6 or 9 land perfectly
+clean, so **one more card would make it a flush 3 × 3**.
 
-At three columns, only 6 or 9 land clean. Eight would give 3 + 3 + 2, which is
-better than one orphan but still ragged.
+Verified spare, checked and live: **Laura Spath**, `youtube.com/@LauraSpath` —
+long-term carnivore who also documents the stretches that didn't go to plan.
 
-Verified spare already checked and live: **Laura Spath**,
-`youtube.com/@LauraSpath` — long-term carnivore who also documents the stretches
-that didn't go to plan.
-
-**To close:** either add two more (→ 9, clean 3 × 3), or accept the orphan row.
-Not decided unilaterally, because who appears in the directory is an editorial
-call, not a layout one.
+**To close:** add one more (→ 9, flush) or leave it. Not decided unilaterally,
+because who appears in the directory is an editorial call, not a layout one.
 
 ---
 

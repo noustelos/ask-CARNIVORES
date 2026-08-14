@@ -107,8 +107,9 @@ final list replaces it. Every URL below was checked and returns 200:
 | --- | --- |
 | Dave Mac (first card) | `youtube.com/@zerocarb` |
 | Bart Kay (second card) | `youtube.com/@bart-kay` |
+| Dr. Ken Berry (third card) | `youtube.com/@KenDBerryMD` · `drberry.com` |
+| Dr. Paul Mason (fourth card) | `youtube.com/@DrPaulMason` |
 | Dr. Shawn Baker | `youtube.com/@ShawnBakerMD` · `revero.com` |
-| Dr. Ken Berry | `youtube.com/@KenDBerryMD` · `drberry.com` |
 | Dr. Anthony Chaffee | `youtube.com/@anthonychaffeemd` |
 | Kelly Hogan | `youtube.com/@MyZeroCarbLife` |
 | Judy Cho | `youtube.com/@NutritionwithJudy` |
@@ -125,9 +126,18 @@ That is six cards — a clean 3 × 2 on desktop. Verified spare if a card is eve
 removed: **Laura Spath**, `youtube.com/@LauraSpath` — long-term carnivore who
 also documents the stretches that didn't go to plan.
 
-**Always verify a handle before you add it.** Several obvious-looking guesses
-resolve to completely different people — `@DaveMac` is a public-speaking coach
-and `@PrimalEdge` is a woodworking channel. Load the page before you ship it.
+**Always verify a handle before you add it.** This has caught a wrong channel
+every single time it was checked:
+
+- `@DaveMac` is a public-speaking coach, not the carnivore interviewer.
+- `@PrimalEdge` is a woodworking channel.
+- `@BartKayNutritionScience` — the obvious guess — doesn't exist at all.
+- `@DrPaulMasonMD` is a **different channel** from `@DrPaulMason`, with a generic
+  "Share your videos with friends" description and no bio. The real one is
+  `@DrPaulMason`, canonical `/channel/UC3vzrYZcGqpgchc5sYM5Ybw`.
+
+Open the channel and read its description before shipping the link. A plausible
+handle proves nothing.
 
 ## The studio credit
 
