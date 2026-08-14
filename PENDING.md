@@ -119,7 +119,27 @@ Adding analytics is the first thing that changes that.
 
 ---
 
-## 5. Done, recorded so it isn't re-litigated
+---
+
+## 5. Known and accepted
+
+### These docs are readable on the live domain
+Cloudflare Pages serves every file in the repo, so `README.md`, `PENDING.md` and
+`.gitignore` are all reachable at `askcarnivores.com/<file>`. Verified, not
+theoretical.
+
+`robots.txt` now disallows them, which keeps them out of search results — the
+part that actually mattered, since otherwise they surface as pages of the site.
+It does **not** block direct access, and nothing can: the GitHub repo is public,
+so the same text is a click away regardless.
+
+Worth knowing when writing in these files. This one included: anything put here
+is effectively published. Keep credentials, private reasoning about named people,
+and anything commercially sensitive out of them.
+
+---
+
+## 6. Done, recorded so it isn't re-litigated
 
 - **Open Graph tags + favicon** (§8 nice-to-have) — both shipped.
 - **Soft 404** — the first live deploy answered every unknown URL with the

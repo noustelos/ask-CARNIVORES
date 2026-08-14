@@ -1,4 +1,13 @@
 User-agent: *
 Allow: /
 
+# Cloudflare Pages serves every file in the repo, so the developer docs are
+# reachable at askcarnivores.com/README.md and /PENDING.md. The repo is public,
+# so this is not about hiding them — it is about keeping them out of search
+# results, where they would show up as pages of the site itself.
+Disallow: /README.md
+Disallow: /PENDING.md
+Disallow: /.gitignore
+Disallow: /*.md$
+
 Sitemap: https://askcarnivores.com/sitemap.xml
