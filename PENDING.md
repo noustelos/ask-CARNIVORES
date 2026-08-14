@@ -51,24 +51,6 @@ rebrand is a token swap, not a rewrite.
 
 ## 2. Open decisions
 
-### The tools contradiction — unresolved
-The two source documents disagree, and this has never been settled:
-
-| Document | Says |
-| --- | --- |
-| Build Brief §6 | Tools are **OUT** of v1 — "next phase". Explicitly: don't add, ask first. |
-| Concept Base §11 | Portal v1 = "directory + **2-3 tools** + link-out testimonials" |
-
-Built to the Build Brief: **no tools**.
-
-This has a consequence worth stating plainly. Concept Base §3 puts affiliate
-income *inside* the tools ("shopping list with links", "Get Started that suggests
-books"). With no tools, **the portal currently has no income path at all** — and
-under Model A the portal is what subsidises the free bot. Suggested first tool if
-this reopens: Get Started (7 days), per Concept Base §12.
-
-**To close:** decide whether Get Started ships in v1 or waits for v1.1.
-
 ### Bart Kay's title — sources disagree
 Nick referred to him as "καθηγητή" (professor). The card says **"Former academic
 · physiology and nutrition"**, which avoids taking a side.
@@ -116,6 +98,48 @@ Ruled out by Build Brief §6. Listed so nobody re-derives them as gaps:
 - **Community events**
 - **Any database, accounts, sign-up, or backend form**
 - **Anything belonging to the bot** — hard siloing rule, see `README.md`
+
+### Tools — decided 2026-08-14: later
+The two source documents disagreed. Build Brief §6 ruled tools out of v1;
+Concept Base §11 counted 2-3 of them in. Nick has settled it: **tools are built
+later**, so the brief stands and the portal ships without them.
+
+One consequence to carry forward rather than rediscover. Concept Base §3 puts
+affiliate income *inside* the tools — "shopping list with links", "Get Started
+that suggests books". So until the tools exist, **the portal has no income path
+at all**, and under Model A the portal is what subsidises the free bot. Nothing
+is broken by this; it just means the money side of the plan starts with v1.1, not
+with launch.
+
+First tool when it reopens: Get Started (7 days), per Concept Base §12 — highest
+share value.
+
+### Creator email addresses on the cards — considered, advised against
+Nick asked whether each card should carry the creator's public email as a
+clickable `mailto:`. Recommended against, for reasons that outlast the question:
+
+- **It undercuts the outreach.** The plan is to email these people asking for
+  their topic lists and their blessing (Concept §10). Finding their address
+  already republished on our site turns "I'm sending you traffic" into "why is my
+  email on your website".
+- **It is the thing §6 forbids, in another form.** "Link-out, not rehost. We send
+  traffic to creators, we don't mine them." Copying their contact details onto our
+  page moves data *to us* instead of sending people *to them*.
+- **Public ≠ free to republish.** One address on their own About page is a
+  different exposure from nine addresses aggregated into one machine-readable
+  list, which is exactly the shape address harvesters collect. It measurably
+  increases their spam.
+- **GDPR.** Email addresses are personal data, "it was public" is not a lawful
+  basis for republication, and any of them can demand removal. The project already
+  claims privacy as a value.
+- **Rot.** Addresses change. A dead one on our card reads as our mistake.
+
+The YouTube link already reaches their About tab, where the address lives and
+stays current. If an explicit contact affordance is ever wanted, link their
+**contact page**, not the address.
+
+Reopen only if a creator gives an address for public use themselves — then there
+is consent, and it belongs in v1.1 with the relationship already built.
 
 ---
 
