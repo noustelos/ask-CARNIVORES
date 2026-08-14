@@ -178,3 +178,7 @@ Or `git revert <commit> && git push`.
 Tools (macro calculator, electrolytes, Get Started guide), affiliate links,
 events, any database, accounts, or backend forms. Don't add them here — they're
 a later phase.
+
+See **[PENDING.md](PENDING.md)** for the full list of what is not done and why:
+what is waiting on Nick, which decisions are still open, and which gaps are
+deliberate rather than forgotten. Read it before concluding something is missing.
