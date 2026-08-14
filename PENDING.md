@@ -32,7 +32,7 @@ design work is pending, only the URL.
 **To close:** give the link.
 
 ### Final creator list
-The six directory cards are a placeholder starter set. They are real people with
+The nine directory cards are a placeholder starter set. They are real people with
 links verified as live, not dummy text, so the page reads as finished — but they
 are not Nick's picks.
 
@@ -84,12 +84,24 @@ Note when the answer comes back: a hard number dates the moment it ships, becaus
 he keeps recording. Either phrase it as of a date ("1,900+ as of 2026") or keep a
 floor like "well over a thousand" that stays true without maintenance.
 
-### Directory size — settled at nine
-Nine cards, a flush 3 × 3 on desktop, 3 × 2 at tablet width, single column on
-mobile. Nothing pending here.
+### Directory size — settled at nine, growing in threes
+Nine cards: a flush 3 × 3 on desktop, single column on mobile. Nothing pending
+here.
 
-If a card is ever added or removed the grid goes ragged again — only 6 and 9 land
-clean at three columns. Verified spare if a replacement is ever needed:
+The grid is `auto-fit / minmax(17rem, 1fr)`, so the column count follows the
+viewport rather than fixed breakpoints — three columns on a normal desktop, two
+around tablet width, one on a phone. Which counts land flush follows from that:
+
+| Cards | Desktop (3 col) | Tablet (2 col) |
+| --- | --- | --- |
+| 9 (current) | flush | one orphan |
+| 12 | flush | flush |
+| multiples of 3 | flush | flush only if also even |
+
+So **keep it a multiple of three** as the list grows — twelve is the next size
+that is flush at every width, and is the one to aim for when Nick's real list
+lands. The lone tablet orphan at nine is accepted; it is a half-width gap on one
+breakpoint, not a broken layout. Verified spare if a replacement is ever needed:
 **Laura Spath**, `youtube.com/@LauraSpath`.
 
 ---

@@ -123,9 +123,11 @@ and the archive that section points to. The card's last line says so out loud
 than as a duplicate that slipped through. If you ever drop one of the two, drop
 the Stories link and not the card, or that section loses its only destination.
 
-That is six cards — a clean 3 × 2 on desktop. Verified spare if a card is ever
-removed: **Laura Spath**, `youtube.com/@LauraSpath` — long-term carnivore who
-also documents the stretches that didn't go to plan.
+That is nine cards — a flush 3 × 3 on desktop. Keep the count a **multiple of
+three** as the list grows; twelve is the next size that also lands flush at
+tablet width. See PENDING.md, "Directory size", for the grid maths. Verified
+spare if a card is ever removed: **Laura Spath**, `youtube.com/@LauraSpath` —
+long-term carnivore who also documents the stretches that didn't go to plan.
 
 **Always verify a handle before you add it.** This has caught a wrong channel
 every single time it was checked:

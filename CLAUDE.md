@@ -75,8 +75,10 @@ settings and rollback.
   proves nothing: `@DaveMac` is a speaking coach, `@PrimalEdge` is woodworking,
   `@BartKayNutritionScience` does not exist, and `@DrPaulMasonMD` is a different
   channel from the real `@DrPaulMason`.
-- **The directory grid only lands clean at 6 or 9 cards** (3 columns on desktop).
-  It is currently settled at nine. Adding or removing one leaves a ragged row.
+- **Keep the directory card count a multiple of three.** The grid is
+  `auto-fit / minmax(17rem, 1fr)`, so it is three columns on desktop and two at
+  tablet width. Nine (current) is flush on desktop; twelve is the next size flush
+  at both. Anything else leaves a short final row.
 - **Everything in this repo is publicly readable** at `askcarnivores.com/<file>`
   and on the public GitHub repo — `README.md`, `PENDING.md`, this file included.
   `robots.txt` keeps them out of search results but does not block access. Keep
