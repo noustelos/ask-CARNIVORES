@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+*.swp
+*~
+.vscode/
+.idea/
+
+# There is no build step in this project. If any of these ever appear,
+# something went wrong — this repo ships plain files to Cloudflare Pages.
+node_modules/
+dist/
+.wrangler/
+.env
+.env.*
