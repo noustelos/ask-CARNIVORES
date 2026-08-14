@@ -147,6 +147,21 @@ If you edit the stylesheet, **bump the version in the filename**
 (`style.v1.css` → `style.v2.css`) and update the `<link>` in both HTML files.
 Assets are cached for a year by `_headers`, so a same-name edit may not show up.
 
+## The 404 page
+
+`404.html` at the repo root is what Cloudflare Pages serves, with a real HTTP 404
+status, for any path that doesn't exist.
+
+Without it the first live deploy answered **every** unknown URL with the full
+homepage and status 200 — a soft 404. Search engines treat each of those as a
+real, distinct page, so an unbounded number of junk URLs get indexed as duplicate
+homepages.
+
+If unknown paths still return 200 after this ships, the Pages project is in
+single-page-app mode, which rewrites everything to `index.html` and overrides the
+404 page. Turn that off in the project's build settings — this is a static site
+and has no client-side router.
+
 ## Rollback
 
 Cloudflare Pages keeps every deployment: **Pages → Deployments → ⋯ → Rollback**.
