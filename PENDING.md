@@ -32,7 +32,7 @@ design work is pending, only the URL.
 **To close:** give the link.
 
 ### Final creator list
-The fifteen directory cards are a placeholder starter set. They are real people with
+The eighteen directory cards are a placeholder starter set. They are real people with
 links verified as live, not dummy text, so the page reads as finished — but they
 are not Nick's picks.
 
@@ -84,10 +84,9 @@ Note when the answer comes back: a hard number dates the moment it ships, becaus
 he keeps recording. Either phrase it as of a date ("1,900+ as of 2026") or keep a
 floor like "well over a thousand" that stays true without maintenance.
 
-### Directory size — now fifteen, growing in threes
-Fifteen cards, as of 2026-08-15. Flush on desktop, with one half-width orphan at
-tablet size: fifteen is a multiple of three but not of six. Accepted on purpose —
-it is a gap on one breakpoint, not a broken layout, and the list is still growing.
+### Directory size — now eighteen, growing in threes
+Eighteen cards, as of 2026-08-15. A multiple of both three and six, so it is flush
+at **every** width with no orphan row anywhere. Nothing pending here.
 
 The grid is `auto-fit / minmax(17rem, 1fr)`, so the column count follows the
 viewport rather than fixed breakpoints — three columns on a normal desktop, two
@@ -95,14 +94,14 @@ around tablet width, one on a phone. Which counts land flush follows from that:
 
 | Cards | Desktop (3 col) | Tablet (2 col) |
 | --- | --- | --- |
-| 12 | flush | flush |
-| 15 (current) | flush | one orphan |
+| 15 | flush | one orphan |
+| 18 (current) | flush | flush |
 | multiples of 3 | flush | flush only if also even |
 
 So **keep it a multiple of three** as the list grows, and a multiple of six if you
-want it flush at tablet width too — from here that means **eighteen**, which is
-the size to aim at with the next batch. Verified spare if a replacement is ever
-needed: **Laura Spath**, `youtube.com/@LauraSpath`.
+want it flush at tablet width too — the next such size is **twenty-four**.
+Verified spare if a replacement is ever needed: **Laura Spath**,
+`youtube.com/@LauraSpath`.
 
 ---
 

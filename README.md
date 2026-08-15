@@ -122,8 +122,16 @@ final list replaces it. Every URL below was checked and returns 200:
 | Dr. Robert Kiltz | `youtube.com/@doctorkiltz` · `kiltzhealth.com` |
 | Dr. Philip Ovadia | `youtube.com/@IFixHearts` · `ifixhearts.com` |
 | Richard Smith | `youtube.com/@Richard-A-Smith` · `richardsmithnutrition.com` |
-| Coach Stephen (fifteenth card) | `youtube.com/@CoachStephen` · `theukcarnivore.com` |
+| Coach Stephen | `youtube.com/@CoachStephen` · `theukcarnivore.com` |
+| Carnivore Teacher Alpha | `youtube.com/@CarnivoreteacherAlpha` |
+| Coach Carnivore Cam | `youtube.com/@coachcarnivorecam` |
+| SHAPEFIXER (eighteenth card) | `youtube.com/@shapefixer` |
 | Stories section | `youtube.com/@zerocarb` (Dave Mac — No Carb Life) |
+
+The last three are **YouTube-only on purpose**. None of them runs an ordinary
+site; the only other links on their channels are a storefront, a booking page and
+a book listing. Those are commerce, and v1 carries no affiliate or shop links.
+Add a site link if one of them launches a real one.
 
 Three of these cards list **Site before YouTube**, which is deliberate and should
 not be tidied into consistency:
@@ -146,9 +154,9 @@ and the archive that section points to. The card's last line says so out loud
 than as a duplicate that slipped through. If you ever drop one of the two, drop
 the Stories link and not the card, or that section loses its only destination.
 
-That is fifteen cards — 3 × 5 on desktop, single column on mobile, and one
-half-width orphan at tablet size, since fifteen is a multiple of three but not of
-six. Accepted deliberately. See PENDING.md, "Directory size", for the grid maths.
+That is eighteen cards — flush at every width: 3 × 6 on desktop, 2 × 9 at tablet,
+single column on mobile. Eighteen is a multiple of both three and six, so there is
+no orphan row anywhere. See PENDING.md, "Directory size", for the grid maths.
 Verified
 spare if a card is ever removed: **Laura Spath**, `youtube.com/@LauraSpath` —
 long-term carnivore who also documents the stretches that didn't go to plan.
