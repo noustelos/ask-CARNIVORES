@@ -1,7 +1,7 @@
 # Pending — what is not done
 
-State of `askcarnivores.com` as of **2026-08-14**. The site is live and passes the
-build brief's Urgent QA. Everything below is deliberately *not* built, and why.
+State of `askcarnivores.com` as of **2026-08-15**, reconciled against Concept Base
+**v2**. The site is live and passes the build brief's Urgent QA. Everything below is deliberately *not* built, and why.
 
 Nothing here is a defect. It is either waiting on Nick, waiting on a decision, or
 ruled out of v1 on purpose.
@@ -120,7 +120,9 @@ Ruled out by Build Brief §6. Listed so nobody re-derives them as gaps:
 - **Affiliate / Amazon integration** — belongs inside the tools, per Concept §3
 - **Community events**
 - **Any database, accounts, sign-up, or backend form**
-- **Anything belonging to the bot** — hard siloing rule, see `README.md`
+- **Anything belonging to the bot** — hard siloing rule, see `README.md`. The one
+  planned exception is a *framed window* onto the bot, described below; a window
+  is not a copy, and nothing of the bot's ever lands in this repo.
 
 ### Tools — decided 2026-08-14: later
 The two source documents disagreed. Build Brief §6 ruled tools out of v1;
@@ -136,6 +138,55 @@ with launch.
 
 First tool when it reopens: Get Started (7 days), per Concept Base §12 — highest
 share value.
+
+Concept Base **v2** (2026-08-15) has since dropped the tools out of its own first
+shippable scope as well — its §11 core is the bot only — so the two documents no
+longer disagree and there is nothing left to settle here.
+
+### The bot, embedded — planned in Concept Base §16, not built
+
+v2 adds a way for someone standing on this site to ask the bot without leaving
+it: a floating button that opens a panel, and the panel's content is **an iframe
+of the public bot URL**. Three layers, and the boundary between them is the entire
+point:
+
+| Layer | Lives in | What it is |
+| --- | --- | --- |
+| Component | **this repo** | button, panel, open/close, styling — cosmetics only |
+| iframe | this repo, one tag | points at the public bot URL |
+| Bot | the bot's repo | frontend, worker, index — untouched, on its own origin |
+
+**The rule that keeps the siloing intact:** the component handles appearance and
+nothing else. It must **never** `fetch` the bot's worker directly. The moment it
+does, this repo has to know the bot's endpoint, wants CORS, and there are two
+things that can drift — that is the cross-repo coupling the siloing rule exists to
+prevent. The iframe boundary is what keeps "the only connection is a public
+hyperlink" literally true: a frame *is* a public URL in a window.
+
+**Do not read "component" as "a second bot."** Copying the bot's code, worker, key
+or index into this repo breaks the one-index model and doubles the maintenance for
+nothing. "Copy, don't link" governs *static shared elements* — the studio credit,
+a logo — and **not** the bot's engine. The bot is embedded, never duplicated. One
+bot, one index; this site is a window onto it, not a copy of it, so anything
+improved on the bot shows up in both places on its own.
+
+What it will cost this repo on the day it is built:
+
+- **The first JavaScript on the site.** Opening a panel and deferring the frame
+  cannot be done the zero-JS way this site ships today. It goes in `/assets/*.js`
+  under `script-src 'self'` — never `'unsafe-inline'`.
+- **A CSP edit in the same commit** — `frame-src https://askcarnivore.com`. The
+  matching `frame-ancestors` for this domain is a header on **the bot's** side,
+  set in the bot's repo. See `README.md`, "`frame-ancestors` and `frame-src` point
+  in opposite directions".
+- **Lazy-load on click.** The iframe must not exist until the button is pressed,
+  or every portal page load pays for the bot — on a phone, on an old machine,
+  including the visitors who never open it.
+- **Analytics stay split.** What happens inside the frame is the bot's to measure;
+  what happens around it is ours.
+
+**One direction only:** the bot inside the portal, yes. The portal inside the bot,
+no — the bot stays a clean interface and never fills up with commerce.
 
 ### Creator email addresses on the cards — considered, advised against
 Nick asked whether each card should carry the creator's public email as a

@@ -56,6 +56,13 @@ Anything touching those needs a check *after* the deploy. The safety net is
    deliberate. When copying one, say so in the commit message. The only permitted
    link between the two projects is a public hyperlink in the UI.
 
+   **"Copy, don't link" covers static elements — never the bot's engine.** The
+   planned bot panel (Concept Base §16) is an **iframe of the public bot URL**
+   wrapped in portal-side chrome: the component styles and opens it, and it must
+   **never** `fetch` the bot's worker. Never copy the bot's code, worker, key or
+   index into this repo — one bot, one index; this site is a window onto it. Full
+   consequences in `PENDING.md`, "The bot, embedded".
+
 2. **Paul Saladino is permanently excluded.** Not as a directory card, not as a
    source, not as a citation, not in any future tool. Do not add him and **do not
    propose him** — including when suggesting candidates. The `DO NOT LIST` note
@@ -95,6 +102,11 @@ Anything touching those needs a check *after* the deploy. The safety net is
   apply on localhost either, so the failure only appears in production. Extend
   the header and ship the feature in the same commit; the per-case directives are
   in `README.md`, "The CSP".
+- **`frame-ancestors` is not `frame-src`.** `frame-ancestors 'none'` (plus
+  `X-Frame-Options: DENY`) stops *us being framed* and stays. Putting the bot in a
+  frame *here* needs `frame-src`, which is absent, so `default-src 'none'` denies
+  it. The bot's side needs its own `frame-ancestors` for this domain, set in the
+  bot's repo — not here.
 - **Verify every YouTube handle *and* every domain by opening it.** A plausible
   handle proves nothing and neither does a plausible domain: `@DaveMac` is a
   speaking coach, `@PrimalEdge` is woodworking, `@BartKayNutritionScience` does
@@ -123,3 +135,7 @@ Anything touching those needs a check *after* the deploy. The safety net is
 Tools (macro calculator, electrolytes, Get Started), affiliate links, events, any
 database, accounts, or backend forms. Nick settled on 2026-08-14 that tools come
 later. Don't build them here; don't re-derive them as gaps.
+
+The **embedded bot panel** (Concept Base §16) is planned but not now — it waits on
+the bot itself, which is still a placeholder. It would also end the site's zero-JS
+run, so it is a deliberate later step, not an oversight.

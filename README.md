@@ -363,12 +363,30 @@ Put the JavaScript in a file under `/assets/` and allow `'self'` instead.
 | Cloudflare Web Analytics | `script-src https://static.cloudflareinsights.com` + `connect-src https://cloudflareinsights.com` |
 | Our own JS (a v1.1 tool) | `script-src 'self'`, with the code in `/assets/*.js` |
 | An embedded YouTube video | `frame-src https://www.youtube-nocookie.com` + `img-src` for the thumbnail host |
+| The bot in a panel on this site | `frame-src https://askcarnivore.com` + `script-src 'self'` for the open/close — see below |
 | A web font from a CDN | `font-src` the file host + `style-src` the CSS host |
 | An image from another domain | `img-src` that host |
 
 Change the header and ship the feature **in the same commit**. Splitting them is
 what produces the silent failure — the feature lands, appears fine locally, and
 is inert in production with nothing in the logs to say why.
+
+### `frame-ancestors` and `frame-src` point in opposite directions
+
+Two directives look alike and do opposite jobs, and the planned bot panel
+(Concept Base §16) needs one of them:
+
+- **`frame-ancestors 'none'`** — backed by `X-Frame-Options: DENY` — says *nobody
+  may put this site inside a frame*. It is about **us being framed**, and it stays
+  as it is.
+- **`frame-src`** says *which sites a page here may put inside a frame of its
+  own*. It is absent today, so `default-src 'none'` denies all of them.
+
+Framing the bot needs `frame-src https://askcarnivore.com` on **this** site and a
+matching `frame-ancestors https://askcarnivores.com` on **the bot's** side — the
+bot's own header, set in the bot's own repo. Neither is a shared secret and
+neither breaks the siloing rule: an iframe is a public URL in a window. Details
+and the rest of what it costs are in PENDING.md, "The bot, embedded".
 
 ## Rollback
 
