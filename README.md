@@ -185,6 +185,64 @@ single-page-app mode, which rewrites everything to `index.html` and overrides th
 404 page. Turn that off in the project's build settings — this is a static site
 and has no client-side router.
 
+## The CSP — read this before adding anything external
+
+The `Content-Security-Policy` line in `_headers` is the one thing on this site
+that fails **silently**. Nothing errors, nothing looks broken, the addition just
+does nothing. That is by design, and it is why this section exists.
+
+Current policy:
+
+```
+default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self';
+base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+```
+
+`default-src 'none'` denies every resource type that is not named explicitly.
+Only images, stylesheets and fonts are allowed, and only from our own origin.
+Everything unlisted inherits the deny — so **all** JavaScript, all `fetch`/XHR,
+and all iframes are currently blocked. That is correct today: the site ships zero
+JavaScript, and the CSP is what keeps it that way.
+
+### It does not apply on localhost
+
+`_headers` is a Cloudflare Pages file. Live Server and `python3 -m http.server`
+do not read it, so **locally there is no CSP at all**. A script that works
+perfectly in Go Live can be dead on the live site. If you want to test a policy
+before deploying, paste it into a temporary `<meta>` tag in the page:
+
+```html
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; ...">
+```
+
+Delete it before committing — `_headers` is the real policy, and two sources of
+truth is how they drift. (`frame-ancestors` is ignored in a `<meta>` tag; it only
+works as a real header.)
+
+### Diagnosing a block
+
+Open DevTools → Console. A CSP block always logs a line starting `Refused to
+load…` or `Refused to execute…`, naming the directive that stopped it. That
+directive name is the fix — it is the one you need to extend.
+
+### What to add, by case
+
+Add the host to the named directive, keep `default-src 'none'`, and never reach
+for `'unsafe-inline'` on `script-src` — it disables the protection wholesale.
+Put the JavaScript in a file under `/assets/` and allow `'self'` instead.
+
+| You are adding | Directive(s) to extend |
+| --- | --- |
+| Cloudflare Web Analytics | `script-src https://static.cloudflareinsights.com` + `connect-src https://cloudflareinsights.com` |
+| Our own JS (a v1.1 tool) | `script-src 'self'`, with the code in `/assets/*.js` |
+| An embedded YouTube video | `frame-src https://www.youtube-nocookie.com` + `img-src` for the thumbnail host |
+| A web font from a CDN | `font-src` the file host + `style-src` the CSS host |
+| An image from another domain | `img-src` that host |
+
+Change the header and ship the feature **in the same commit**. Splitting them is
+what produces the silent failure — the feature lands, appears fine locally, and
+is inert in production with nothing in the logs to say why.
+
 ## Rollback
 
 Cloudflare Pages keeps every deployment: **Pages → Deployments → ⋯ → Rollback**.

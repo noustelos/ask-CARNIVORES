@@ -83,9 +83,12 @@ Anything touching those needs a check *after* the deploy. The safety net is
   (`style.v1.css` → `style.v2.css`) and update the `<link>` in *both* HTML files.
   `_headers` caches `/assets/*` for a year as `immutable`; a same-name edit may
   never reach users.
-- **The CSP blocks all scripts** (`default-src 'none'`). Any snippet added
-  without also editing `_headers` fails silently — page still works, no error, no
-  data. This is the trap waiting for Cloudflare Web Analytics.
+- **The CSP blocks all scripts, iframes and fetches** (`default-src 'none'` in
+  `_headers`). Anything external added without also editing that line fails
+  **silently** — page still works, no error, nothing in the logs. It does not
+  apply on localhost either, so the failure only appears in production. Extend
+  the header and ship the feature in the same commit; the per-case directives are
+  in `README.md`, "The CSP".
 - **Verify every YouTube handle by opening the channel.** A plausible handle
   proves nothing: `@DaveMac` is a speaking coach, `@PrimalEdge` is woodworking,
   `@BartKayNutritionScience` does not exist, and `@DrPaulMasonMD` is a different

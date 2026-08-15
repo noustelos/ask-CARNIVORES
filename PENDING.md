@@ -165,21 +165,20 @@ is consent, and it belongs in v1.1 with the relationship already built.
 ### Cloudflare Web Analytics
 Brief §8 lists it as nice-to-have, cookieless. Not added.
 
-**This one has a trap.** The CSP in `_headers` is currently:
-
-```
-default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; ...
-```
-
-`default-src 'none'` blocks **all** scripts. Dropping in the analytics snippet
-without touching the CSP means it silently does nothing — the page keeps working,
-no visible error, and no data is collected. It needs an explicit `script-src` for
-the beacon host plus `connect-src` for where it reports.
+**This one has a trap.** `default-src 'none'` in the `_headers` CSP blocks **all**
+scripts, so dropping in the analytics snippet without touching the CSP means it
+silently does nothing — page keeps working, no visible error, no data collected.
+It needs `script-src` for the beacon host and `connect-src` for where it reports.
 
 The site currently ships **zero JavaScript**, which is what the CSP is protecting.
-Adding analytics is the first thing that changes that.
+Adding analytics is the first thing that changes that, and it would be the first
+time the policy has to be edited at all.
 
-**To close:** decide if it's wanted, then set the CSP and the snippet together.
+Full runbook — the exact directives, why it cannot be tested on localhost, and
+how to read a CSP block in the console — is in `README.md`, "The CSP".
+
+**To close:** decide if it's wanted, then set the CSP and the snippet together in
+one commit.
 
 ---
 
