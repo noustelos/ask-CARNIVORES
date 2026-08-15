@@ -210,3 +210,31 @@ and anything commercially sensitive out of them.
   their own analytics. Reasoning in `README.md` rule 1.
 - **Paul Saladino** — permanently excluded. See `README.md`, "Do not list". Nick
   has confirmed he is fine with that note being readable in the page source.
+
+### The SHAPEFIXER card — why it stops where it does
+
+Moved here from an HTML comment on the card itself, at Nick's request, so it is
+not sitting in the page source next to the man's name.
+
+His own channel bio states that he regained normal heart function and that he
+regenerated an arthritic hip. That is a treatment claim in the exact shape rule 2
+exists to keep off this site, sitting in the primary source.
+
+So the card carries **the decision he made** — turning down heart surgery and a
+hip replacement to go at it through diet — and **not the outcome he reports**.
+The first is his experience, which the rule allows. The second would be a medical
+outcome asserted in our voice, which it does not.
+
+Nick's point, and it is a fair one: a man who publishes a recovery claim on his
+own site owns that claim and its consequences, and listing him is not agreeing
+with him. True — the card attributes rather than endorses, and the section
+intro already says the directory is "not a ranking, not an endorsement".
+
+The rule still holds for a different reason. It is not about his liability, it is
+about ours: a directory that restates a health outcome becomes a place that
+published it, whoever said it first. Attribution is not much of a shield when the
+sentence is on our page. Keeping the claim on his channel and the decision on our
+card costs us nothing and keeps the line clean across all eighteen cards.
+
+**If you are editing this card:** do not "complete" it from his bio. The gap is
+the point.
