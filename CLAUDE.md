@@ -77,6 +77,12 @@ Anything touching those needs a check *after* the deploy. The safety net is
    mirrored into `gr/index.html`. Cards live between the `DIRECTORY — EDIT HERE`
    comment markers.
 
+7. **The directory order is mechanical.** Dave Mac is pinned first (structural —
+   he is the testimonials backbone). Everyone else is alphabetical by the name on
+   the card, ignoring a leading "Dr." only. A new card slots into that rule; the
+   order is never re-decided and never adjusted to make the grid come out even.
+   Full rule with worked examples in `README.md`, rule 4.
+
 ## Things that will bite you
 
 - **Bump the CSS filename version** when editing the stylesheet
@@ -89,14 +95,21 @@ Anything touching those needs a check *after* the deploy. The safety net is
   apply on localhost either, so the failure only appears in production. Extend
   the header and ship the feature in the same commit; the per-case directives are
   in `README.md`, "The CSP".
-- **Verify every YouTube handle by opening the channel.** A plausible handle
-  proves nothing: `@DaveMac` is a speaking coach, `@PrimalEdge` is woodworking,
-  `@BartKayNutritionScience` does not exist, and `@DrPaulMasonMD` is a different
-  channel from the real `@DrPaulMason`.
-- **Keep the directory card count a multiple of three.** The grid is
-  `auto-fit / minmax(17rem, 1fr)`, so it is three columns on desktop and two at
-  tablet width. Nine (current) is flush on desktop; twelve is the next size flush
-  at both. Anything else leaves a short final row.
+- **Verify every YouTube handle *and* every domain by opening it.** A plausible
+  handle proves nothing and neither does a plausible domain: `@DaveMac` is a
+  speaking coach, `@PrimalEdge` is woodworking, `@BartKayNutritionScience` does
+  not exist, `@DrPaulMasonMD` is a different channel from the real
+  `@DrPaulMason`, and `@KelliRitter` / `@ElizabethBright` both exist as **empty
+  shells** with zero videos next to the real `@DrKelliRitter` /
+  `@DrElizabethBright`. On the domain side, `carnivore70something.com` is
+  NXDOMAIN and `ketotic.org` fails TLS at the apex. The full list of traps,
+  and the RSS-feed check that settles them, is in `README.md`.
+- **The card count follows the alphabet, not the grid.** The grid is
+  `auto-fit / minmax(17rem, 1fr)` — three columns on desktop, two at tablet
+  width — so multiples of six are flush everywhere and multiples of three are
+  flush on desktop only. Twenty-four (current) happens to be flush at every
+  width. That is a nice-to-have, **not** a constraint: rule 7 above wins, so
+  never add, drop or move a card to make the last row come out even.
 - **Everything in this repo is publicly readable** at `askcarnivores.com/<file>`
   and on the public GitHub repo — `README.md`, `PENDING.md`, this file included.
   `robots.txt` keeps them out of search results but does not block access. Keep

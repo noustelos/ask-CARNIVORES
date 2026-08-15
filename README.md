@@ -58,7 +58,7 @@ the working flow here.
 Cards live in `index.html` between the `DIRECTORY — EDIT HERE` comment markers.
 Mirror every change into `gr/index.html`.
 
-Three rules, all non-negotiable:
+Four rules, all non-negotiable:
 
 1. **Every external link** carries `target="_blank" rel="noopener"` — `noopener`
    and nothing else. It must **not** carry `noreferrer`.
@@ -93,6 +93,25 @@ Three rules, all non-negotiable:
    medicine to elevate the community — acknowledging it exists is what keeps
    this a directory instead of propaganda.
 
+4. **The order is a rule, not a judgement call.** Dave Mac is pinned first
+   because he is structural — his channel is the testimonials backbone and the
+   Stories section's only destination. Everyone after him is **alphabetical by
+   the name shown on the card, ignoring a leading "Dr." only**:
+
+   | Card | Sorts under | Because |
+   | --- | --- | --- |
+   | Dr. Ken Berry | K, on "Ken" | a leading "Dr." is ignored |
+   | Coach Stephen | C, on "Coach" | "Coach" is part of the name |
+   | SHAPEFIXER | S | pure handles sort on the first displayed word |
+   | Dr. Robert Kiltz / Robert Lustig | both R | then on the surname |
+
+   A new card **slots into that rule** — the order is never re-decided, and it
+   is never tidied to make the grid come out flush. The alphabet wins over
+   symmetry. The rule is repeated as a comment in both HTML files so it does
+   not have to be rediscovered, and the "not a ranking, not an endorsement"
+   line above the grid stays exactly as written: pinning one card for a
+   structural reason is not a ranking of the other twenty-three.
+
 ### Do not list
 
 **Paul Saladino is excluded.** Nick's standing decision, 2026-08-14. He is not
@@ -106,42 +125,60 @@ lands; it is a permanent exclusion. Do not re-add him, and do not propose him.
 The starter set is **placeholder** — real people with public links, but Nick's
 final list replaces it. Every URL below was checked and returns 200:
 
-| Card | Links |
-| --- | --- |
-| Dave Mac (first card) | `youtube.com/@zerocarb` |
-| Bart Kay (second card) | `youtube.com/@bart-kay` |
-| Dr. Ken Berry (third card) | `youtube.com/@KenDBerryMD` · `drberry.com` |
-| Dr. Paul Mason (fourth card) | `youtube.com/@DrPaulMason` |
-| Dr. Shawn Baker | `youtube.com/@ShawnBakerMD` · `revero.com` |
-| Dr. Anthony Chaffee | `youtube.com/@anthonychaffeemd` |
-| Kelly Hogan | `youtube.com/@MyZeroCarbLife` |
-| Judy Cho | `youtube.com/@NutritionwithJudy` |
-| Ben Bikman (ninth card) | `youtube.com/@benbikman` · `benbikman.com` |
-| Robert Lustig | `robertlustig.com` · `youtube.com/@RobertLustigMD` |
-| Dr. Gary Fettke | `nofructose.com` · `youtube.com/@garyfettke3210` |
-| Dr. Robert Kiltz | `youtube.com/@doctorkiltz` · `kiltzhealth.com` |
-| Dr. Philip Ovadia | `youtube.com/@IFixHearts` · `ifixhearts.com` |
-| Richard Smith | `youtube.com/@Richard-A-Smith` · `richardsmithnutrition.com` |
-| Coach Stephen | `youtube.com/@CoachStephen` · `theukcarnivore.com` |
-| Carnivore Teacher Alpha | `youtube.com/@CarnivoreteacherAlpha` |
-| Coach Carnivore Cam | `youtube.com/@coachcarnivorecam` |
-| SHAPEFIXER (eighteenth card) | `youtube.com/@shapefixer` |
-| Stories section | `youtube.com/@zerocarb` (Dave Mac — No Carb Life) |
+In card order — Dave Mac pinned, then alphabetical per rule 4 above:
 
-The last three are **YouTube-only on purpose**. None of them runs an ordinary
-site; the only other links on their channels are a storefront, a booking page and
-a book listing. Those are commerce, and v1 carries no affiliate or shop links.
-Add a site link if one of them launches a real one.
+| # | Card | Links |
+| --- | --- | --- |
+| 1 | Dave Mac *(pinned first)* | `youtube.com/@zerocarb` |
+| 2 | Amber O'Hearn | `mostly-fat.com` · `youtube.com/@AmberOHearn` |
+| 3 | Dr. Anthony Chaffee | `youtube.com/@anthonychaffeemd` |
+| 4 | Bart Kay | `youtube.com/@bart-kay` |
+| 5 | Ben Bikman | `youtube.com/@benbikman` · `benbikman.com` |
+| 6 | Carnivore Teacher Alpha | `youtube.com/@CarnivoreteacherAlpha` |
+| 7 | Coach Carnivore Cam | `youtube.com/@coachcarnivorecam` |
+| 8 | Coach Stephen | `youtube.com/@CoachStephen` · `theukcarnivore.com` |
+| 9 | Dr. Elizabeth Bright | `youtube.com/@DrElizabethBright` · `elizbright.com` |
+| 10 | Dr. Gary Fettke | `nofructose.com` · `youtube.com/@garyfettke3210` |
+| 11 | Dr. Georgia Ede | `youtube.com/@GeorgiaEdeMD` · `diagnosisdiet.com` |
+| 12 | Judy Cho | `youtube.com/@NutritionwithJudy` |
+| 13 | Kelly Hogan | `youtube.com/@MyZeroCarbLife` |
+| 14 | Dr. Ken Berry | `youtube.com/@KenDBerryMD` · `drberry.com` |
+| 15 | Laura Spath | `youtube.com/@LauraSpath` · `lauraspath.com` |
+| 16 | Lisa Wiedeman | `youtube.com/@carnivoredoctor` · `carnivore-doctor.com` |
+| 17 | Maria Emmerich | `youtube.com/@MariaEmmerich` · `mariamindbodyhealth.com` |
+| 18 | Dr. Paul Mason | `youtube.com/@DrPaulMason` |
+| 19 | Dr. Philip Ovadia | `youtube.com/@IFixHearts` · `ifixhearts.com` |
+| 20 | Richard Smith | `youtube.com/@Richard-A-Smith` · `richardsmithnutrition.com` |
+| 21 | Dr. Robert Kiltz | `youtube.com/@doctorkiltz` · `kiltzhealth.com` |
+| 22 | Robert Lustig | `robertlustig.com` · `youtube.com/@RobertLustigMD` |
+| 23 | SHAPEFIXER | `youtube.com/@shapefixer` |
+| 24 | Dr. Shawn Baker | `youtube.com/@ShawnBakerMD` · `revero.com` |
+| — | Stories section | `youtube.com/@zerocarb` (Dave Mac — No Carb Life) |
 
-Three of these cards list **Site before YouTube**, which is deliberate and should
+**Carnivore Teacher Alpha, Coach Carnivore Cam and SHAPEFIXER are YouTube-only
+on purpose.** None of them runs an ordinary site; the only other links on their
+channels are a storefront, a booking page and a book listing. Those are commerce,
+and v1 carries no affiliate or shop links. Add a site link if one of them
+launches a real one. (They used to be the last three cards and were covered by
+one comment; the alphabetical re-sort scattered them, so the note now names them
+in the `DIRECTORY` comment instead of pointing at a position.)
+
+Four of these cards list **Site before YouTube**, which is deliberate and should
 not be tidied into consistency:
 
-- **Lustig's** channel last posted in 2022 and **Fettke's** in 2019. Both channels
-  are genuinely theirs and worth keeping as an archive, but the site is where each
-  is actually reachable, so the site leads.
+- **Lustig's** channel last posted in 2022, **Fettke's** in 2019, and
+  **O'Hearn's** in April 2025. All three channels are genuinely theirs and worth
+  keeping as an archive, but the site is where each is actually reachable, so the
+  site leads.
 - **Kiltz** is the reverse — he posts daily, so YouTube leads. His site link goes
   to `kiltzhealth.com` because `doctorkiltz.com` now redirects there; link the
   destination, not the redirect.
+
+Two of the new cards needed the same "link the destination, not the redirect"
+call. **O'Hearn's** old blogs are `ketotic.org` — whose apex now fails the TLS
+handshake outright — and `empiri.ca`, which redirects to `mostly-fat.com`. That
+last one is the live site and the one linked. **Bright's** site is `elizbright.com`
+and not the `drelizabethbright.com` you would guess; that domain does not resolve.
 
 Lustig is also the one name here who is **not** a carnivore voice — he argues
 metabolic dysfunction and processed food from a public-health angle. His card says
@@ -154,12 +191,15 @@ and the archive that section points to. The card's last line says so out loud
 than as a duplicate that slipped through. If you ever drop one of the two, drop
 the Stories link and not the card, or that section loses its only destination.
 
-That is eighteen cards — flush at every width: 3 × 6 on desktop, 2 × 9 at tablet,
-single column on mobile. Eighteen is a multiple of both three and six, so there is
-no orphan row anywhere. See PENDING.md, "Directory size", for the grid maths.
-Verified
-spare if a card is ever removed: **Laura Spath**, `youtube.com/@LauraSpath` —
-long-term carnivore who also documents the stretches that didn't go to plan.
+That is twenty-four cards — flush at every width: 3 × 8 on desktop, 2 × 12 at
+tablet, single column on mobile. Twenty-four is a multiple of both three and six,
+so there is no orphan row anywhere. That is luck, not design: the alphabetical
+rule decides the order and the count follows from who is verified. See
+PENDING.md, "Directory size", for the grid maths.
+
+Laura Spath used to be listed here as the **verified spare** if a card was ever
+removed. She is card 15 now, so there is no spare — pick one and verify it the
+same way if a replacement is ever needed.
 
 **Always verify a handle before you add it.** This has caught a wrong channel
 every single time it was checked:
@@ -173,6 +213,22 @@ every single time it was checked:
 - `@Richard-Smith-Nutrition` is what the search results hand you for Richard
   Smith, reads perfectly, and **does not exist**. His handle is
   `@Richard-A-Smith`.
+- `@KelliRitter` is the same trap as `@DrPaulMasonMD` — it exists, it reads
+  right, and it is an **empty shell**: default "Share your videos with friends"
+  description, zero videos. The real channel is `@DrKelliRitter`, and it is about
+  chronic-anxiety recovery rather than carnivore. She was proposed for the
+  directory and dropped; see PENDING.md.
+- `@ElizabethBright` exists and has **no videos on it**. Hers is
+  `@DrElizabethBright`. A third channel ID, the one interview write-ups
+  circulate for her, returns a 404.
+- `@Carnivore70Something` does not exist, and neither does
+  `carnivore70something.com` — the domain is NXDOMAIN, not merely down. Both
+  were proposed for Lisa Wiedeman. Her real handle is `@carnivoredoctor`.
+
+**Check the site too, not just the handle.** Three of the domains proposed in the
+same pass were dead: one NXDOMAIN, one failing TLS at the apex, one that only
+resolves on `www`. A domain that "looks right" in a brief proves as little as a
+handle that looks right in a search result.
 
 The fastest reliable check is the channel's RSS feed, which is static XML and
 needs no cookie banner or JavaScript:

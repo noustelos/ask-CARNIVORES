@@ -32,9 +32,9 @@ design work is pending, only the URL.
 **To close:** give the link.
 
 ### Final creator list
-The eighteen directory cards are a placeholder starter set. They are real people with
-links verified as live, not dummy text, so the page reads as finished — but they
-are not Nick's picks.
+The twenty-four directory cards are a placeholder starter set. They are real people
+with links verified as live, not dummy text, so the page reads as finished — but
+they are not Nick's picks.
 
 **To close:** give the list. Editing instructions and content rules are in
 `README.md` under "Editing the directory".
@@ -84,9 +84,9 @@ Note when the answer comes back: a hard number dates the moment it ships, becaus
 he keeps recording. Either phrase it as of a date ("1,900+ as of 2026") or keep a
 floor like "well over a thousand" that stays true without maintenance.
 
-### Directory size — now eighteen, growing in threes
-Eighteen cards, as of 2026-08-15. A multiple of both three and six, so it is flush
-at **every** width with no orphan row anywhere. Nothing pending here.
+### Directory size — twenty-four, and the grid no longer drives it
+Twenty-four cards, as of 2026-08-15. A multiple of both three and six, so it is
+flush at **every** width with no orphan row anywhere. Nothing pending here.
 
 The grid is `auto-fit / minmax(17rem, 1fr)`, so the column count follows the
 viewport rather than fixed breakpoints — three columns on a normal desktop, two
@@ -95,13 +95,20 @@ around tablet width, one on a phone. Which counts land flush follows from that:
 | Cards | Desktop (3 col) | Tablet (2 col) |
 | --- | --- | --- |
 | 15 | flush | one orphan |
-| 18 (current) | flush | flush |
+| 18 | flush | flush |
+| 24 (current) | flush | flush |
 | multiples of 3 | flush | flush only if also even |
 
-So **keep it a multiple of three** as the list grows, and a multiple of six if you
-want it flush at tablet width too — the next such size is **twenty-four**.
-Verified spare if a replacement is ever needed: **Laura Spath**,
-`youtube.com/@LauraSpath`.
+**What changed on 2026-08-15:** the directory is now sorted by a rule — Dave Mac
+pinned, everyone else alphabetical ignoring a leading "Dr." — and that rule
+**outranks the grid**. Landing on twenty-four was luck, not a target. Do not add,
+drop or reorder a card to make the last row come out even; a short final row is
+the correct outcome whenever the verified list is not a multiple of three. The
+rule is written into both HTML files as a comment and into `README.md` rule 4.
+
+Laura Spath was recorded here as the verified spare if a card ever needed
+replacing. She is a card in her own right now, so **there is no spare** — verify
+a fresh name the same way if one is ever needed.
 
 ---
 
@@ -211,6 +218,33 @@ and anything commercially sensitive out of them.
 - **Paul Saladino** — permanently excluded. See `README.md`, "Do not list". Nick
   has confirmed he is fine with that note being readable in the page source.
 
+### The 2026-08-15 additions — seven proposed, six shipped
+
+Six cards were added and the whole directory re-sorted. Recorded because three of
+the seven candidate links in the brief were wrong, and the corrections are the
+kind of thing a later pass would helpfully undo.
+
+**Dr. Kelli Ritter was proposed and is not in the directory.** This is a scope
+call, not a judgement of her work: her channel's subject is chronic-anxiety
+recovery, and the mental-health angle on this list is Georgia Ede's, who comes at
+it from food. Nick decided on 2026-08-15. If she is ever reconsidered, the real
+channel is `@DrKelliRitter` — `@KelliRitter` is an empty shell with no videos on
+it, which is what the brief's candidate handle pointed at.
+
+Two cards shipped with copy **different from what the brief specified**, because
+the brief's version did not survive checking:
+
+- **Lisa Wiedeman** was briefed as "Carnivore70Something", eating this way "for
+  decades" and "into her seventies". None of that holds: no such handle exists,
+  `carnivore70something.com` is NXDOMAIN, and her own channel says *"16 year
+  Carnivore Veteran since 2009"*. The card says 2009 and uses the name she
+  actually goes by, CarnivoreDoctor.
+- **Amber O'Hearn** was briefed with `ketotic.org`. That is her old blog and its
+  apex now fails the TLS handshake. Her live site is `mostly-fat.com`, which is
+  also where her other old domain, `empiri.ca`, redirects.
+
+Do not "restore" any of these from the brief — the brief is the older source.
+
 ### The SHAPEFIXER card — why it stops where it does
 
 Moved here from an HTML comment on the card itself, at Nick's request, so it is
@@ -234,7 +268,7 @@ The rule still holds for a different reason. It is not about his liability, it i
 about ours: a directory that restates a health outcome becomes a place that
 published it, whoever said it first. Attribution is not much of a shield when the
 sentence is on our page. Keeping the claim on his channel and the decision on our
-card costs us nothing and keeps the line clean across all eighteen cards.
+card costs us nothing and keeps the line clean across all twenty-four cards.
 
 **If you are editing this card:** do not "complete" it from his bio. The gap is
 the point.
