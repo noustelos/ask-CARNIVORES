@@ -32,7 +32,7 @@ design work is pending, only the URL.
 **To close:** give the link.
 
 ### Final creator list
-The nine directory cards are a placeholder starter set. They are real people with
+The twelve directory cards are a placeholder starter set. They are real people with
 links verified as live, not dummy text, so the page reads as finished — but they
 are not Nick's picks.
 
@@ -84,9 +84,9 @@ Note when the answer comes back: a hard number dates the moment it ships, becaus
 he keeps recording. Either phrase it as of a date ("1,900+ as of 2026") or keep a
 floor like "well over a thousand" that stays true without maintenance.
 
-### Directory size — settled at nine, growing in threes
-Nine cards: a flush 3 × 3 on desktop, single column on mobile. Nothing pending
-here.
+### Directory size — now twelve, growing in threes
+Twelve cards, as of 2026-08-15. This is the size that lands flush at **every**
+width, so the ragged-row question is closed rather than merely parked.
 
 The grid is `auto-fit / minmax(17rem, 1fr)`, so the column count follows the
 viewport rather than fixed breakpoints — three columns on a normal desktop, two
@@ -94,15 +94,13 @@ around tablet width, one on a phone. Which counts land flush follows from that:
 
 | Cards | Desktop (3 col) | Tablet (2 col) |
 | --- | --- | --- |
-| 9 (current) | flush | one orphan |
-| 12 | flush | flush |
+| 9 (previous) | flush | one orphan |
+| 12 (current) | flush | flush |
 | multiples of 3 | flush | flush only if also even |
 
-So **keep it a multiple of three** as the list grows — twelve is the next size
-that is flush at every width, and is the one to aim for when Nick's real list
-lands. The lone tablet orphan at nine is accepted; it is a half-width gap on one
-breakpoint, not a broken layout. Verified spare if a replacement is ever needed:
-**Laura Spath**, `youtube.com/@LauraSpath`.
+So **keep it a multiple of three** as the list grows, and a multiple of six if you
+want it flush at tablet width too — the next such size is eighteen. Verified spare
+if a replacement is ever needed: **Laura Spath**, `youtube.com/@LauraSpath`.
 
 ---
 

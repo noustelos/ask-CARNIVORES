@@ -117,7 +117,24 @@ final list replaces it. Every URL below was checked and returns 200:
 | Kelly Hogan | `youtube.com/@MyZeroCarbLife` |
 | Judy Cho | `youtube.com/@NutritionwithJudy` |
 | Ben Bikman (ninth card) | `youtube.com/@benbikman` · `benbikman.com` |
+| Robert Lustig | `robertlustig.com` · `youtube.com/@RobertLustigMD` |
+| Dr. Gary Fettke | `nofructose.com` · `youtube.com/@garyfettke3210` |
+| Dr. Robert Kiltz (twelfth card) | `youtube.com/@doctorkiltz` · `kiltzhealth.com` |
 | Stories section | `youtube.com/@zerocarb` (Dave Mac — No Carb Life) |
+
+Three of these cards list **Site before YouTube**, which is deliberate and should
+not be tidied into consistency:
+
+- **Lustig's** channel last posted in 2022 and **Fettke's** in 2019. Both channels
+  are genuinely theirs and worth keeping as an archive, but the site is where each
+  is actually reachable, so the site leads.
+- **Kiltz** is the reverse — he posts daily, so YouTube leads. His site link goes
+  to `kiltzhealth.com` because `doctorkiltz.com` now redirects there; link the
+  destination, not the redirect.
+
+Lustig is also the one name here who is **not** a carnivore voice — he argues
+metabolic dysfunction and processed food from a public-health angle. His card says
+so out loud, so nobody reads the directory as claiming him.
 
 `@zerocarb` appears **twice on purpose**: as the first directory card and as the
 destination of the Stories section. Dave Mac is both a creator in his own right
@@ -126,9 +143,10 @@ and the archive that section points to. The card's last line says so out loud
 than as a duplicate that slipped through. If you ever drop one of the two, drop
 the Stories link and not the card, or that section loses its only destination.
 
-That is nine cards — a flush 3 × 3 on desktop. Keep the count a **multiple of
-three** as the list grows; twelve is the next size that also lands flush at
-tablet width. See PENDING.md, "Directory size", for the grid maths. Verified
+That is twelve cards — flush at every width: 3 × 4 on desktop, 2 × 6 at tablet,
+single column on mobile. Keep the count a **multiple of three**, and preferably
+of six, as the list grows. See PENDING.md, "Directory size", for the grid maths.
+Verified
 spare if a card is ever removed: **Laura Spath**, `youtube.com/@LauraSpath` —
 long-term carnivore who also documents the stretches that didn't go to plan.
 
