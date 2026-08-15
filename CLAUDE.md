@@ -22,14 +22,29 @@ _headers              Cloudflare Pages security + cache headers
 robots.txt, sitemap.xml
 ```
 
-No install, no test suite, no lint. To preview:
+No install, no test suite, no lint.
+
+## Workflow — no branches
+
+Work directly on `main`. **Do not create branches and do not propose them.** The
+loop is: edit → preview → one commit → push, and the push is the deploy.
+
+Nick previews with the VS Code **Go Live** button (Live Server). Any static
+server works and one is required — the pages use absolute `/assets/...` paths, so
+opening the file directly leaves it unstyled:
 
 ```sh
-python3 -m http.server 8000   # absolute /assets/... paths need a server
+python3 -m http.server 8000
 ```
 
-Deploy is a push to `main` (Cloudflare Pages). See `README.md` for project
-settings and rollback.
+Two things local preview cannot show you, because `_headers` is a Cloudflare
+file and does not apply on localhost:
+
+- **The CSP.** Scripts run fine locally and are blocked live. See the trap below.
+- **Cache headers.** A stale asset only shows up in production.
+
+Anything touching those needs a check *after* the deploy. The safety net is
+**Pages → Deployments → ⋯ → Rollback**, not a pre-merge preview.
 
 ## Hard rules — do not violate these
 

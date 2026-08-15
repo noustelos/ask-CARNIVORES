@@ -47,8 +47,11 @@ this repo.
 Then **Custom domains → Set up a domain → `askcarnivores.com`**, and add `www`
 as a redirect if you want it. Wait for SSL to go active.
 
-Every push to a non-production branch gets its own preview URL. `main` is
-production.
+`main` is production — a push to it deploys. This project is worked on directly
+on `main`, with no feature branches: preview locally (VS Code **Go Live**, or the
+server command above), then one commit and push. Cloudflare will hand any
+non-production branch its own preview URL if one is ever wanted, but that is not
+the working flow here.
 
 ## Editing the directory
 
