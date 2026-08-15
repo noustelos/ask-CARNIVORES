@@ -14,9 +14,9 @@ JavaScript, no build step, no dependencies.
 index.html              English page (default)
 gr/index.html           Greek page
 assets/style.v1.css     All styling. Versioned filename = cache-busting.
-assets/favicon.v1.svg   Favicon
+assets/favicon.v2.svg   Favicon — "AC", light + dark via a media query inside the SVG
 assets/og.v1.png        Social share card (1200×630)
-assets/apple-touch-icon.v1.png
+assets/apple-touch-icon.v2.png
 _headers                Cloudflare Pages security + cache headers
 robots.txt, sitemap.xml
 ```
@@ -169,6 +169,34 @@ else.
 If you edit the stylesheet, **bump the version in the filename**
 (`style.v1.css` → `style.v2.css`) and update the `<link>` in both HTML files.
 Assets are cached for a year by `_headers`, so a same-name edit may not show up.
+
+### The icons
+
+`favicon.v2.svg` is the mark: **AC**, the domain's initials, in the wordmark's
+own two tones — the `A` in `--ink`, the `C` in `--accent`, on a `--bg` tile. It
+carries a `prefers-color-scheme` media query so it flips to the dark tokens on
+dark browser chrome, the same swap `style.css` does, and the tile colours match
+the two `theme-color` meta tags exactly.
+
+The light colours are **presentation attributes** and the media query only
+overrides them. Keep it that way: anywhere the internal `<style>` is ignored, the
+icon still renders correctly instead of coming out black.
+
+Two things that will silently break this file:
+
+- **No `--` inside an XML comment.** It is illegal in XML, so writing a CSS
+  custom property name in a comment stops the whole file parsing and the favicon
+  just disappears. Say "the ink token", not the literal name.
+- **The icons are under `/assets/*`**, so they are cached for a year like
+  everything else there. Redrawing one means **bumping its filename version** and
+  updating the `<link>` in `index.html`, `gr/index.html` **and `404.html`** —
+  three files, not two.
+
+`apple-touch-icon.v2.png` is the same mark rastered at 180 × 180 for the iOS home
+screen, full-bleed with no corner radius because iOS applies its own mask. It is
+generated, not hand-drawn: Arial Bold at the same cap ratio and tracking as the
+SVG, supersampled 4× and downscaled. Redraw it whenever the SVG changes, or the
+two drift apart.
 
 ## The 404 page
 
