@@ -119,7 +119,10 @@ final list replaces it. Every URL below was checked and returns 200:
 | Ben Bikman (ninth card) | `youtube.com/@benbikman` · `benbikman.com` |
 | Robert Lustig | `robertlustig.com` · `youtube.com/@RobertLustigMD` |
 | Dr. Gary Fettke | `nofructose.com` · `youtube.com/@garyfettke3210` |
-| Dr. Robert Kiltz (twelfth card) | `youtube.com/@doctorkiltz` · `kiltzhealth.com` |
+| Dr. Robert Kiltz | `youtube.com/@doctorkiltz` · `kiltzhealth.com` |
+| Dr. Philip Ovadia | `youtube.com/@IFixHearts` · `ifixhearts.com` |
+| Richard Smith | `youtube.com/@Richard-A-Smith` · `richardsmithnutrition.com` |
+| Coach Stephen (fifteenth card) | `youtube.com/@CoachStephen` · `theukcarnivore.com` |
 | Stories section | `youtube.com/@zerocarb` (Dave Mac — No Carb Life) |
 
 Three of these cards list **Site before YouTube**, which is deliberate and should
@@ -143,9 +146,9 @@ and the archive that section points to. The card's last line says so out loud
 than as a duplicate that slipped through. If you ever drop one of the two, drop
 the Stories link and not the card, or that section loses its only destination.
 
-That is twelve cards — flush at every width: 3 × 4 on desktop, 2 × 6 at tablet,
-single column on mobile. Keep the count a **multiple of three**, and preferably
-of six, as the list grows. See PENDING.md, "Directory size", for the grid maths.
+That is fifteen cards — 3 × 5 on desktop, single column on mobile, and one
+half-width orphan at tablet size, since fifteen is a multiple of three but not of
+six. Accepted deliberately. See PENDING.md, "Directory size", for the grid maths.
 Verified
 spare if a card is ever removed: **Laura Spath**, `youtube.com/@LauraSpath` —
 long-term carnivore who also documents the stretches that didn't go to plan.
@@ -159,6 +162,20 @@ every single time it was checked:
 - `@DrPaulMasonMD` is a **different channel** from `@DrPaulMason`, with a generic
   "Share your videos with friends" description and no bio. The real one is
   `@DrPaulMason`, canonical `/channel/UC3vzrYZcGqpgchc5sYM5Ybw`.
+- `@Richard-Smith-Nutrition` is what the search results hand you for Richard
+  Smith, reads perfectly, and **does not exist**. His handle is
+  `@Richard-A-Smith`.
+
+The fastest reliable check is the channel's RSS feed, which is static XML and
+needs no cookie banner or JavaScript:
+
+```sh
+curl -s "https://www.youtube.com/feeds/videos.xml?channel_id=<CHANNEL_ID>"
+```
+
+It returns the channel's real name and its recent uploads with dates, which
+settles both questions at once — whether it is the right person, and whether the
+channel is still alive.
 
 Open the channel and read its description before shipping the link. A plausible
 handle proves nothing.
