@@ -112,6 +112,23 @@ Four rules, all non-negotiable:
    line above the grid stays exactly as written: pinning one card for a
    structural reason is not a ranking of the other twenty-three.
 
+### "Not a ranking" here, relevance-ranked there — both are correct
+
+The line above the grid says the directory is **not a ranking**. The bot, on the
+other domain, *does* order what it shows — "for this question, at this depth,
+these fit". Those look like a contradiction and are not, so don't reconcile them
+by editing either one (Concept Base v3 §8 and §14.5 set this out).
+
+| Surface | What it orders | Stance |
+| --- | --- | --- |
+| This directory | people | no general hierarchy — alphabetical, one structural pin |
+| The bot | answers to one question | relevance to *that* question, per topic |
+
+Ranking people is a judgement we don't make. Matching a question to a source is
+the product. Berry showing up third on a deep question isn't "worse than" — he is
+first on a different question. The bot's own wording for it is *"not a ranking,
+it's a match"*; ours is "not a ranking, not an endorsement". Keep both.
+
 ### Do not list
 
 **Paul Saladino is excluded.** Nick's standing decision, 2026-08-14. He is not
@@ -120,10 +137,20 @@ directory, not in the bot's index, not inside any future tool, not as a citation
 in copy. This is not a v1 shortlist call that gets revisited when the real list
 lands; it is a permanent exclusion. Do not re-add him, and do not propose him.
 
+**Also not on the list: Dr. Kelli Ritter.** A scope call rather than a judgement
+of her work — her channel's subject is chronic-anxiety recovery, and the
+mental-health angle on this list is Georgia Ede's, who comes at it from food.
+Nick decided it on 2026-08-15 and Concept Base v3 §17 records it in the roster,
+so it is settled: don't re-propose her. Reasoning in full in PENDING.md. This
+one is **not** in the page-source comment — unlike the Saladino note, which Nick
+asked to stay visible there.
+
 ### Current directory contents
 
-The starter set is **placeholder** — real people with public links, but Nick's
-final list replaces it. Every URL below was checked and returns 200:
+**These twenty-four are the list**, not a starter set. Concept Base v3 §17 locks
+Nick's curation roster and it matches this table one for one — every name on the
+roster is a card, every card is on the roster. Don't add, drop or propose names;
+a change comes from the roster. Every URL below was checked and returns 200:
 
 In card order — Dave Mac pinned, then alphabetical per rule 4 above:
 
@@ -194,8 +221,8 @@ the Stories link and not the card, or that section loses its only destination.
 That is twenty-four cards — flush at every width: 3 × 8 on desktop, 2 × 12 at
 tablet, single column on mobile. Twenty-four is a multiple of both three and six,
 so there is no orphan row anywhere. That is luck, not design: the alphabetical
-rule decides the order and the count follows from who is verified. See
-PENDING.md, "Directory size", for the grid maths.
+rule decides the order, and the count is simply how many names the roster holds.
+See PENDING.md, "Directory size", for the grid maths.
 
 Laura Spath used to be listed here as the **verified spare** if a card was ever
 removed. She is card 15 now, so there is no spare — pick one and verify it the
@@ -395,9 +422,10 @@ Or `git revert <commit> && git push`.
 
 ## Out of scope for v1
 
-Tools (macro calculator, electrolytes, Get Started guide), affiliate links,
-events, any database, accounts, or backend forms. Don't add them here — they're
-a later phase.
+Tools (macro calculator, electrolytes, Get Started guide, shopping list),
+affiliate links, events, any database, accounts, or backend forms. Don't add them
+here — they're a later phase. The events calendar has a spec now (Concept Base v3
+§13) and is still a later phase; its build rules are in PENDING.md.
 
 See **[PENDING.md](PENDING.md)** for the full list of what is not done and why:
 what is waiting on Nick, which decisions are still open, and which gaps are

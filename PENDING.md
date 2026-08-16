@@ -1,7 +1,15 @@
 # Pending — what is not done
 
-State of `askcarnivores.com` as of **2026-08-15**, reconciled against Concept Base
-**v2**. The site is live and passes the build brief's Urgent QA. Everything below is deliberately *not* built, and why.
+State of `askcarnivores.com` as of **2026-08-16**, reconciled against Concept Base
+**v3**. The site is live and passes the build brief's Urgent QA. Everything below is deliberately *not* built, and why.
+
+**What v3 changed for this repo.** Almost nothing structural — v3 §15 says the
+portal and directory briefs stand, because the portal is static and v3's rewrite
+is about the *bot's* index. Two things do land here: the creator list is no longer
+placeholder (it now matches the locked roster, §6 below), and the events calendar
+has a real spec instead of a one-line mention (§3 below). Everything else v3 adds
+— video-level index, Start/Deep registers, the scan-to-grid layer — is the bot's
+side of the wall and needs no change here.
 
 Nothing here is a defect. It is either waiting on Nick, waiting on a decision, or
 ruled out of v1 on purpose.
@@ -29,15 +37,13 @@ Concept Base is specific about placement on the **bot**: footer, discreet, never
 between question and answer. On the portal it is a plain footer link, so no
 design work is pending, only the URL.
 
+The bot is waiting on the same link (v3 status list), so one URL closes it in both
+repos — copied by hand into each, like every other shared element.
+
 **To close:** give the link.
 
-### Final creator list
-The twenty-four directory cards are a placeholder starter set. They are real people
-with links verified as live, not dummy text, so the page reads as finished — but
-they are not Nick's picks.
-
-**To close:** give the list. Editing instructions and content rules are in
-`README.md` under "Editing the directory".
+### Final creator list — no longer blocked, see §6
+Closed by Concept Base v3 §17. Moved to "Done, recorded so it isn't re-litigated".
 
 ### Logo and brand direction
 Brief §11 lists these as open. None supplied, so the site uses a plain type
@@ -86,7 +92,9 @@ floor like "well over a thousand" that stays true without maintenance.
 
 ### Directory size — twenty-four, and the grid no longer drives it
 Twenty-four cards, as of 2026-08-15. A multiple of both three and six, so it is
-flush at **every** width with no orphan row anywhere. Nothing pending here.
+flush at **every** width with no orphan row anywhere. Nothing pending here — and
+since 2026-08-16 the count is simply the size of the locked roster (§6), not a
+number anyone chose.
 
 The grid is `auto-fit / minmax(17rem, 1fr)`, so the column count follows the
 viewport rather than fixed breakpoints — three columns on a normal desktop, two
@@ -118,7 +126,7 @@ Ruled out by Build Brief §6. Listed so nobody re-derives them as gaps:
 
 - **Tools** — macro calculator, electrolytes, Get Started, printable shopping list
 - **Affiliate / Amazon integration** — belongs inside the tools, per Concept §3
-- **Community events**
+- **Community events** — now has a real spec in Concept Base v3 §13, below
 - **Any database, accounts, sign-up, or backend form**
 - **Anything belonging to the bot** — hard siloing rule, see `README.md`. The one
   planned exception is a *framed window* onto the bot, described below; a window
@@ -136,19 +144,60 @@ at all**, and under Model A the portal is what subsidises the free bot. Nothing
 is broken by this; it just means the money side of the plan starts with v1.1, not
 with launch.
 
-First tool when it reopens: Get Started (7 days), per Concept Base §12 — highest
-share value.
+First tool when it reopens: **Get Started (7 days)** — the proposal, not a
+decision. Concept Base v3 still lists "which portal tool first" as an open
+question (§12) with Get Started as the suggestion, on share value.
 
-Concept Base **v2** (2026-08-15) has since dropped the tools out of its own first
-shippable scope as well — its §11 core is the bot only — so the two documents no
-longer disagree and there is nothing left to settle here.
+Concept Base **v2** (2026-08-15) had already dropped the tools out of its own
+first shippable scope, and **v3** keeps them out — its §11 core is the bot only —
+so the two documents no longer disagree and there is nothing left to settle here.
+v3 also names the tool set slightly more fully than the brief did: Get Started,
+Electrolytes, **Shopping List**, macro calculator (§5).
+
+### Events calendar — specced in Concept Base v3 §13, not built
+
+The one portal feature v3 promoted from a bullet to a section. It is the
+switchboard idea applied to events: the portal never *runs* an event, it routes
+to one. Recorded here so the rules are known before anyone starts, not
+rediscovered halfway.
+
+**The risk is maintenance, not build.** A calendar showing last month's events
+looks abandoned — worse than having none. Everything below follows from that:
+
+- **Curated-first.** Fifteen to twenty real events from a finite set of
+  organisers (Revero/Baker retreats, low-carb and carnivore conferences, talks).
+  "Every event on the planet" is the vision, not v1.1.
+- **Static, no backend.** A JSON or markdown file rendered as a calendar view —
+  same shape as the directory, same zero-infrastructure rule.
+- **Self-submission form is v-next**, separately. That is the point where static
+  becomes backend, with moderation and spam to answer for, and it is deliberately
+  a later step.
+
+**Commission — locked rules, do not soften:**
+
+- **Never solicited.** Accepted only if the organiser offers it, so there is no
+  pay-to-play.
+- **Payment never decides** whether an event is listed or how high it sits.
+- **Disclosed** wherever it exists.
+- It is a bonus and a side effect — likely the portal's first income path — not
+  the reason the calendar exists.
+
+**Safeguards, all of them familiar from the directory:** show times in the local
+zone *and* name the zone; carry a disclaimer that we do not run these events and
+the organiser should be confirmed; **summarise, never copy** an organiser's
+description; and hold the same link-label discipline as rule 2 — an event
+listing describes what it is, not what it fixes.
+
+**Order:** after the real directory/index content, not before. Sourcing rides on
+the same outreach email as everything else — it is ask #3 in it (Concept §10).
 
 ### The bot, embedded — planned in Concept Base §16, not built
 
-v2 adds a way for someone standing on this site to ask the bot without leaving
-it: a floating button that opens a panel, and the panel's content is **an iframe
-of the public bot URL**. Three layers, and the boundary between them is the entire
-point:
+Concept Base §16 — introduced in v2 and carried into **v3 word for word**, so
+nothing below has changed — is the way for someone standing on this site to ask
+the bot without leaving it: a floating button that opens a panel, and the panel's
+content is **an iframe of the public bot URL**. Three layers, and the boundary
+between them is the entire point:
 
 | Layer | Lives in | What it is |
 | --- | --- | --- |
@@ -187,6 +236,20 @@ What it will cost this repo on the day it is built:
 
 **One direction only:** the bot inside the portal, yes. The portal inside the bot,
 no — the bot stays a clean interface and never fills up with commerce.
+
+### The bot's index went video-level — nothing to do here, and one thing not to do
+
+Concept Base v3 rewrites the shared index from *topic → channel* to **topic →
+video**, adds a **Start with / Go deep** register per video, tags creators on
+three separate axes (register, topic, role) and has a cron scan build the whole
+grid. All of that lives on the bot's side of the wall. This repo has no index,
+consumes none, and needs no change — which is exactly what v3 §15 says.
+
+The thing not to do: **don't drag any of it onto the cards.** No "Start with" or
+"Go deep" badges, no topic or role filters, no swapping a channel link for a
+video link. The directory is a page of *people*, deliberately — the bot is the
+surface that answers per question. Cards would also rot the moment the scan
+re-ranked something, and this site has nothing that re-ranks.
 
 ### Creator email addresses on the cards — considered, advised against
 Nick asked whether each card should carry the creator's public email as a
@@ -269,6 +332,35 @@ and anything commercially sensitive out of them.
 - **Paul Saladino** — permanently excluded. See `README.md`, "Do not list". Nick
   has confirmed he is fine with that note being readable in the page source.
 
+### The creator list is settled — the roster and the directory are the same 24
+
+This was the last content item blocked on Nick, and Concept Base v3 closes it.
+Its §17 **Curation Roster** is described as locked and as Nick's own map, and it
+matches the shipped directory **one for one**: every one of the twenty-four names
+on it is a card, and every card is on it. Nothing to add, nothing to drop.
+
+The roster sorts those names into buckets — a register lean (Start with / Go
+deep), topic buckets (recipes, fertility, metabolic health), a role bucket
+(coaches), and Dave Mac on his own testimonials axis. **Those buckets are the
+bot's, not this page's.** They are how the names are fed into the bot's scan
+layer; here the same twenty-four stay one flat grid in the rule-4 order. See "The
+bot's index went video-level" above for why they must not be imported onto cards.
+
+Two consequences worth stating plainly:
+
+- **Do not propose additions.** The list is not a starter set waiting to be
+  improved. A new name is Nick's call and arrives from the roster, not from a
+  helpful sweep of the space.
+- **Register tags for the women are still open** on the bot's side (v3 §14.11 —
+  Nick has not listened to those channels yet). That is a bot-index gap and
+  **nothing is pending on the cards**, which carry no register at all.
+
+**The visible wording stays "Starter directory" / "a starting set"** (and
+"Αρχικός κατάλογος" in Greek). Nick kept it on 2026-08-16, after the list was
+settled: on the page it reads as *"not exhaustive"*, which is still true and
+still the right note to strike. It is not a leftover — do not tidy it into
+"the definitive list" to match this section.
+
 ### The 2026-08-15 additions — seven proposed, six shipped
 
 Six cards were added and the whole directory re-sorted. Recorded because three of
@@ -278,9 +370,11 @@ kind of thing a later pass would helpfully undo.
 **Dr. Kelli Ritter was proposed and is not in the directory.** This is a scope
 call, not a judgement of her work: her channel's subject is chronic-anxiety
 recovery, and the mental-health angle on this list is Georgia Ede's, who comes at
-it from food. Nick decided on 2026-08-15. If she is ever reconsidered, the real
-channel is `@DrKelliRitter` — `@KelliRitter` is an empty shell with no videos on
-it, which is what the brief's candidate handle pointed at.
+it from food. Nick decided on 2026-08-15, and **Concept Base v3 §17 carries that
+decision into the roster**, so it is settled rather than open — do not re-propose
+her on a later pass. If Nick ever reopens it, the real channel is
+`@DrKelliRitter` — `@KelliRitter` is an empty shell with no videos on it, which is
+what the brief's candidate handle pointed at.
 
 Two cards shipped with copy **different from what the brief specified**, because
 the brief's version did not survive checking:

@@ -57,7 +57,7 @@ Anything touching those needs a check *after* the deploy. The safety net is
    link between the two projects is a public hyperlink in the UI.
 
    **"Copy, don't link" covers static elements — never the bot's engine.** The
-   planned bot panel (Concept Base §16) is an **iframe of the public bot URL**
+   planned bot panel (Concept Base v3 §16) is an **iframe of the public bot URL**
    wrapped in portal-side chrome: the component styles and opens it, and it must
    **never** `fetch` the bot's worker. Never copy the bot's code, worker, key or
    index into this repo — one bot, one index; this site is a window onto it. Full
@@ -89,6 +89,16 @@ Anything touching those needs a check *after* the deploy. The safety net is
    the card, ignoring a leading "Dr." only. A new card slots into that rule; the
    order is never re-decided and never adjusted to make the grid come out even.
    Full rule with worked examples in `README.md`, rule 4.
+
+8. **The directory list is closed — do not propose names.** The twenty-four cards
+   are Nick's curation roster (Concept Base v3 §17), matched one for one: every
+   roster name is a card, every card is a roster name. It is not a starter set
+   waiting to be improved, so never suggest additions, and never "restore" a name
+   that is absent. Kelli Ritter was proposed once and decided out on scope
+   grounds; that is now in the roster too. Changes arrive from Nick.
+
+   The roster also sorts those names into register / topic / role buckets. Those
+   belong to **the bot's index**, not to these cards — see the bite below.
 
 ## Things that will bite you
 
@@ -129,13 +139,27 @@ Anything touching those needs a check *after* the deploy. The safety net is
   material out of all of them.
 - **`@zerocarb` appears twice on purpose** — as the first card and as the Stories
   destination. It is not a duplicate that slipped through.
+- **The bot's index model is not this page's model.** Concept Base v3 rewrote the
+  shared index to *topic → video*, with a Start-with/Go-deep register per video
+  and cron-built ranking. All of it is bot-side. Don't put register badges, topic
+  or role filters, or video links on the cards — the directory lists *people*, on
+  purpose, and nothing here re-ranks. v3 §15 says the portal briefs stand.
+- **"Not a ranking" here vs. the bot's relevance ordering is not a contradiction.**
+  We refuse to rank *people*; the bot matches *a question* to sources. Don't
+  "fix" either wording to agree with the other — `README.md` has the table.
 
 ## Out of scope for v1
 
-Tools (macro calculator, electrolytes, Get Started), affiliate links, events, any
-database, accounts, or backend forms. Nick settled on 2026-08-14 that tools come
-later. Don't build them here; don't re-derive them as gaps.
+Tools (macro calculator, electrolytes, Get Started, shopping list), affiliate
+links, events, any database, accounts, or backend forms. Nick settled on
+2026-08-14 that tools come later, and Concept Base v3 keeps them out of the first
+shippable scope. Don't build them here; don't re-derive them as gaps.
 
-The **embedded bot panel** (Concept Base §16) is planned but not now — it waits on
-the bot itself, which is still a placeholder. It would also end the site's zero-JS
-run, so it is a deliberate later step, not an oversight.
+The **events calendar** now has a full spec (Concept Base v3 §13) but is still
+later, and it comes with locked rules — curated-first, static, commission never
+solicited and never deciding order. Read `PENDING.md`, "Events calendar", before
+touching it.
+
+The **embedded bot panel** (Concept Base v3 §16, unchanged from v2) is planned but
+not now — it waits on the bot itself, which is still a placeholder. It would also
+end the site's zero-JS run, so it is a deliberate later step, not an oversight.
