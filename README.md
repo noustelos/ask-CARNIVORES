@@ -71,6 +71,11 @@ Four rules, all non-negotiable:
    Sending creators traffic they can *see* is the whole relationship play. It is
    what makes the outreach email land, and it is why the referrer stays on.
 
+   **The footer `mailto:` is the one link with neither.** `info@askcarnivores.com`
+   hands off to a mail client rather than opening a page, so there is no opener to
+   sever and no referrer to send. `target="_blank"` on it produces a stray blank
+   tab on some setups. Don't "fix" it into consistency with the rule above.
+
 2. **Descriptions state a position or an experience, never a treatment claim.**
 
    | ✅ | ❌ |
@@ -270,6 +275,27 @@ channel is still alive.
 
 Open the channel and read its description before shipping the link. A plausible
 handle proves nothing.
+
+## The footer contact line
+
+`info@askcarnivores.com` sits in `.footer-meta` on **three** pages —
+`index.html`, `gr/index.html` and `404.html`. Change it in all three or they
+drift; the 404 is the one that gets forgotten, and it is the page where a
+contact line matters most, since that is where someone lands when a link breaks.
+
+Three decisions worth keeping:
+
+- **The address is shown in full**, not hidden behind the word "Contact". A
+  visible address can be read and copied by anyone whose browser has no mail
+  handler — plenty of desktop setups don't.
+- **No `target`, no `rel`** — see rule 1 above for why.
+- **No obfuscation.** Splitting the address up to defeat harvesters needs
+  JavaScript, and this site ships none. A role address is what takes the spam
+  instead of a person's inbox; that is the trade, and it was made knowingly.
+
+The CSP needs **no change** for it. `form-action 'none'` governs form
+submissions, not link navigation, and a `mailto:` is neither a fetch nor a
+frame — so `default-src 'none'` has nothing to say about it.
 
 ## The studio credit
 

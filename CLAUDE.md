@@ -73,6 +73,8 @@ Anything touching those needs a check *after* the deploy. The safety net is
 3. **External links carry `target="_blank" rel="noopener"` — never
    `noreferrer`.** Stripping the referrer hides our traffic from a creator's
    analytics, and creators *seeing* that traffic is the entire relationship play.
+   The footer `mailto:` is the one exception and carries neither attribute: it
+   opens a mail client, not a page. Don't add them to it.
 
 4. **No treatment claims.** Descriptions state a position or a personal
    experience. No "cures", "heals", "reverses", "treats" anywhere in copy.
@@ -82,7 +84,8 @@ Anything touching those needs a check *after* the deploy. The safety net is
 
 6. **Both languages, always.** Every content change to `index.html` must be
    mirrored into `gr/index.html`. Cards live between the `DIRECTORY — EDIT HERE`
-   comment markers.
+   comment markers. The footer contact line, `info@askcarnivores.com`, is the one
+   thing that lives in **three** files — both index pages *and* `404.html`.
 
 7. **The directory order is mechanical.** Dave Mac is pinned first (structural —
    he is the testimonials backbone). Everyone else is alphabetical by the name on

@@ -599,8 +599,12 @@
       <span>© 2026 AskCarnivores</span>
       <a href="/" hreflang="en">English</a>
       <a href="https://askcarnivore.com" target="_blank" rel="noopener">askcarnivore.com</a>
-      <!-- Contact address goes here once the Google Workspace mailbox exists.
-           Deliberately left out rather than shipping a mailto: that bounces. -->
+      <!-- Η διεύθυνση φαίνεται ολόκληρη, όχι πίσω από «Επικοινωνία»: έτσι
+           αντιγράφεται κι από όποιον δεν έχει mail client. Χωρίς target/rel —
+           το mailto: δίνει τη σκυτάλη στο mail app, δεν είναι εξωτερική σελίδα,
+           οπότε ο κανόνας 1 δεν ισχύει. Κάθε αλλαγή εδώ, ίδια στο /index.html
+           και στο 404.html. -->
+      <a href="mailto:info@askcarnivores.com">info@askcarnivores.com</a>
 
       <!-- The "/>" is the studio's mark, not punctuation — decorative here,
            so it stays out of the accessible name ("A NOUSTELOS_STUDIO PROJECT").

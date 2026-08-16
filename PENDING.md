@@ -18,17 +18,7 @@ ruled out of v1 on purpose.
 
 ## 1. Blocked on Nick
 
-### Contact address
-No email anywhere on the site. `hello@askcarnivores.com` was written first and
-then removed before launch: the mailbox does not exist, and a `mailto:` that
-bounces breaks the same honesty rule the under-construction notice exists to
-satisfy.
-
-Google Workspace is planned. A comment marks the spot in the footer of
-`index.html` and `gr/index.html`. `404.html` has no contact line and does not
-need one.
-
-**To close:** give the real address, it goes into both footers.
+### Contact address — closed 2026-08-16, see §6
 
 ### Buy-me-a-coffee
 Brief §11 and Concept Base §3 both include it. Not added — no link was supplied.
@@ -331,6 +321,27 @@ and anything commercially sensitive out of them.
   their own analytics. Reasoning in `README.md` rule 1.
 - **Paul Saladino** — permanently excluded. See `README.md`, "Do not list". Nick
   has confirmed he is fine with that note being readable in the page source.
+
+### Contact address — shipped 2026-08-16
+
+`info@askcarnivores.com` is live in the footer of `index.html`, `gr/index.html`
+**and `404.html`**.
+
+The site launched with no address at all: `hello@askcarnivores.com` was written
+first and pulled before launch, because the mailbox did not exist and a
+`mailto:` that bounces breaks the same honesty rule the under-construction
+notice exists to satisfy. The mailbox is real now, so the comment that marked
+the spot has become the link.
+
+**The 404 gained one, having been recorded here as not needing it.** That note
+was written when there was no address to add; with one, the broken-link page is
+the *best* place for it — it is where someone lands when a link is dead and the
+only way they can tell us. Not a reversal of a decision, a decision that had
+lost its premise.
+
+Mechanics and the three standing decisions — full address rather than the word
+"Contact", no `target`/`rel`, no obfuscation — are in `README.md`, "The footer
+contact line". Nothing about the CSP changes.
 
 ### The creator list is settled — the roster and the directory are the same 24
 
