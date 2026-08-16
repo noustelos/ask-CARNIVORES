@@ -343,6 +343,20 @@ Mechanics and the three standing decisions — full address rather than the word
 "Contact", no `target`/`rel`, no obfuscation — are in `README.md`, "The footer
 contact line". Nothing about the CSP changes.
 
+**It broke on the live site the same day, and the cause is worth remembering.**
+The page showed `[email protected]` in production while Go Live showed it
+correctly. Cloudflare's Email Address Obfuscation — a Scrape Shield feature
+that is **on by default**, that nobody enabled — had rewritten the address and
+injected a decoder script that our own CSP then blocked. Fixed in-repo by
+wrapping the link in `<!--email_off-->`; full write-up in `README.md`.
+
+Two things this proves rather than suggests. **The edge can change our HTML**,
+so "it works locally" now has a second failure mode on top of `_headers` — the
+markup that reaches a visitor is not necessarily the markup we committed. And
+**the CSP's silent failure can be triggered by something we did not add**: the
+blocked script was Cloudflare's, injected into a page that ships no JavaScript
+of its own.
+
 ### The creator list is settled — the roster and the directory are the same 24
 
 This was the last content item blocked on Nick, and Concept Base v3 closes it.

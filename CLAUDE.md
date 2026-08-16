@@ -135,6 +135,14 @@ Anything touching those needs a check *after* the deploy. The safety net is
   flush on desktop only. Twenty-four (current) happens to be flush at every
   width. That is a nice-to-have, **not** a constraint: rule 7 above wins, so
   never add, drop or move a card to make the last row come out even.
+- **Never delete the `<!--email_off-->` markers** around the footer address.
+  Cloudflare's Email Address Obfuscation is on by default, rewrites the address
+  into `[email protected]`, and injects a decoder script that our CSP blocks — so
+  the placeholder is what the live site shows, while localhost looks fine. It
+  broke exactly that way on 2026-08-16. Full account in `README.md`.
+- **The edge can rewrite our HTML.** That is a second reason "it works in Go
+  Live" proves nothing, alongside `_headers` not applying locally. Check the
+  live page source, not just the local one, after anything content-shaped ships.
 - **Everything in this repo is publicly readable** at `askcarnivores.com/<file>`
   and on the public GitHub repo — `README.md`, `PENDING.md`, this file included.
   `robots.txt` keeps them out of search results but does not block access. Keep

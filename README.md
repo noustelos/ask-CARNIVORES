@@ -297,6 +297,42 @@ The CSP needs **no change** for it. `form-action 'none'` governs form
 submissions, not link navigation, and a `mailto:` is neither a fetch nor a
 frame — so `default-src 'none'` has nothing to say about it.
 
+### `<!--email_off-->` is load-bearing — do not delete it
+
+The address is wrapped in `<!--email_off-->` … `<!--/email_off-->` in all three
+files. Those markers are the fix for a real bug, not tidiness.
+
+**What happened, 2026-08-16.** The address shipped, and the live site showed
+`[email protected]` while Go Live showed it correctly. Nothing was wrong with the
+markup. Cloudflare's **Email Address Obfuscation** (Scrape Shield — **on by
+default on every zone**, nobody switched it on) rewrites any address it finds in
+your HTML into that placeholder, and injects
+`/cdn-cgi/scripts/…/email-decode.min.js` to swap the real one back in on the
+client. Our CSP is `default-src 'none'` with no `script-src`, so **the decoder is
+blocked and the placeholder is all anyone ever sees** — both the visible text and
+the `href`, which becomes `/cdn-cgi/l/email-protection#<hex>`.
+
+This is the CSP's silent-failure mode arriving from an unexpected direction: the
+break was introduced by the *edge*, not by our code, which is why it could not
+reproduce locally — `_headers` does not apply on localhost, and neither does
+Scrape Shield.
+
+`<!--email_off-->` tells Cloudflare to leave that block alone. It is the right
+fix rather than allowing the script, because this site's whole point is shipping
+no JavaScript, and we deliberately chose an unobfuscated role address anyway.
+
+If it ever needs turning off zone-wide instead: **dashboard → Security →
+Settings → filter "Client-side abuse" → Email Address Obfuscation → Off**, or a
+`PATCH` of the `email_obfuscation` zone setting to `"off"`. That was not done —
+a fix living in the repo is versioned and cannot be silently undone by someone
+clicking around the dashboard.
+
+Two related traps worth knowing, from Cloudflare's own docs: the rewrite skips
+`<script>`, `<noscript>`, `<textarea>`, `<head>` and every HTML attribute except
+an `<a>` tag's `href`, and it does not run at all when the response carries
+`Cache-Control: no-transform`. So an address that seems immune in one place may
+still be rewritten in another.
+
 ## The studio credit
 
 The `A NOUSTELOS_STUDIO PROJECT/>` line in the footer is **copied** from the
