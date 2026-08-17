@@ -27,7 +27,7 @@
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
 
-<link rel="stylesheet" href="/assets/style.v1.css">
+<link rel="stylesheet" href="/assets/style.v2.css">
 </head>
 <body>
 
@@ -44,13 +44,21 @@
   </div>
 </header>
 
-<aside class="construction" aria-label="Κατάσταση site">
+<!-- Ωριμότητα, όχι ευθύνη. Το disclaimer στο footer είναι άλλη υπόσχεση και
+     μένει εκεί — μη το ανεβάσεις εδώ: αυτή η λωρίδα κλείνει με ×, εκείνο δεν
+     πρέπει να κλείνει ποτέ.
+
+     Το checkbox είναι το κλείσιμο: μηδέν JavaScript σε αυτό το site, από το
+     CSP. Πρέπει να προηγείται της λωρίδας για να το πιάνει ο sibling selector.
+     Κάθε αλλαγή εδώ, ίδια στο /index.html. -->
+<input class="status-dismiss" type="checkbox" id="status-dismiss">
+<aside class="status" aria-label="Κατάσταση site">
   <div class="wrap">
     <p>
-      <strong>Υπό κατασκευή.</strong> Αυτό είναι το v1. Ο κατάλογος παρακάτω είναι αρχικό
-      set και θα μεγαλώσει — κάθε link του είναι ενεργό και οδηγεί στην πραγματική πηγή.
-      Το bot στο askcarnivore.com δεν λειτουργεί ακόμα.
+      <strong>Σε ανάπτυξη</strong> — live και μεγαλώνει. Ο κατάλογος είναι εδώ· εργαλεία
+      και events έρχονται.
     </p>
+    <label class="status__x" for="status-dismiss" title="Κλείσιμο">×</label>
   </div>
 </aside>
 
@@ -599,12 +607,6 @@
       <span>© 2026 AskCarnivores</span>
       <a href="/" hreflang="en">English</a>
       <a href="https://askcarnivore.com" target="_blank" rel="noopener">askcarnivore.com</a>
-      <!-- Δήλωση παρόχου για το bot — γι' αυτό στέκεται δίπλα στο link του
-           askcarnivore.com και όχι μόνη της: αυτό εδώ το site είναι στατικό και
-           δεν καλεί κανένα μοντέλο. Μένει στα αγγλικά όπως και τα υπόλοιπα
-           στοιχεία αυτής της γραμμής. Αντιγραμμένη στο χέρι, όχι μοιρασμένη·
-           κάθε αλλαγή εδώ, ίδια στο /index.html και στο 404.html. -->
-      <span>Routing powered by Mistral · EU-based AI</span>
       <!-- Η διεύθυνση φαίνεται ολόκληρη, όχι πίσω από «Επικοινωνία»: έτσι
            αντιγράφεται κι από όποιον δεν έχει mail client. Χωρίς target/rel —
            το mailto: δίνει τη σκυτάλη στο mail app, δεν είναι εξωτερική σελίδα,

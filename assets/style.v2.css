@@ -167,17 +167,56 @@ p { margin: 0 0 1em; max-width: var(--measure); }
   text-decoration: none;
 }
 
-/* ---------- under-construction strip ---------- */
+/* ---------- status strip ----------
+   How mature the site is, nothing more. The medical disclaimer in the footer
+   is a different promise and stays there: this strip can be dismissed, and
+   nothing dismissable should ever carry the disclaimer.
 
-.construction {
+   Dismissal is a checkbox and a label, with no JavaScript anywhere — this site
+   ships `default-src 'none'`, which blocks scripts outright, and that is worth
+   more than making the × survive a reload. It closes for the visit, not
+   forever. */
+
+.status {
   background: var(--wash);
   border-bottom: 1px solid var(--rule);
   padding-block: 0.7rem;
   font-size: 0.875rem;
   color: var(--ink-soft);
 }
-.construction p { margin: 0; max-width: none; }
-.construction strong { color: var(--ink); }
+.status .wrap { display: flex; align-items: baseline; gap: 1rem; }
+.status p { margin: 0; max-width: none; }
+.status strong { color: var(--ink); }
+
+/* Off-screen rather than display:none — a hidden input takes no focus, and the
+   × has to be reachable by keyboard. */
+.status-dismiss {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.status-dismiss:checked + .status { display: none; }
+
+.status__x {
+  flex: none;
+  margin-left: auto;
+  padding: 0 0.4rem;
+  color: var(--ink-soft);
+  font-size: 1.15rem;
+  line-height: 1.2;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.status__x:hover { color: var(--ink); }
+
+.status-dismiss:focus-visible + .status .status__x {
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
 
 /* ---------- hero ---------- */
 
