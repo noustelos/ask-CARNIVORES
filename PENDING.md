@@ -80,11 +80,11 @@ Note when the answer comes back: a hard number dates the moment it ships, becaus
 he keeps recording. Either phrase it as of a date ("1,900+ as of 2026") or keep a
 floor like "well over a thousand" that stays true without maintenance.
 
-### Directory size — twenty-four, and the grid no longer drives it
-Twenty-four cards, as of 2026-08-15. A multiple of both three and six, so it is
-flush at **every** width with no orphan row anywhere. Nothing pending here — and
-since 2026-08-16 the count is simply the size of the locked roster (§6), not a
-number anyone chose.
+### Directory size — twenty-seven, and the grid no longer drives it
+**Twenty-seven cards, as of 2026-08-17** (24 until then). A multiple of three but
+not of two: flush on desktop, **one orphan on the last tablet row**. Nothing
+pending here — the count is simply how many names Nick holds, not a number anyone
+chose, and the orphan is the correct outcome rather than a bug.
 
 The grid is `auto-fit / minmax(17rem, 1fr)`, so the column count follows the
 viewport rather than fixed breakpoints — three columns on a normal desktop, two
@@ -94,7 +94,8 @@ around tablet width, one on a phone. Which counts land flush follows from that:
 | --- | --- | --- |
 | 15 | flush | one orphan |
 | 18 | flush | flush |
-| 24 (current) | flush | flush |
+| 24 | flush | flush |
+| 27 (current) | flush | one orphan |
 | multiples of 3 | flush | flush only if also even |
 
 **What changed on 2026-08-15:** the directory is now sorted by a rule — Dave Mac
@@ -103,6 +104,10 @@ pinned, everyone else alphabetical ignoring a leading "Dr." — and that rule
 drop or reorder a card to make the last row come out even; a short final row is
 the correct outcome whenever the verified list is not a multiple of three. The
 rule is written into both HTML files as a comment and into `README.md` rule 4.
+
+**What changed on 2026-08-17:** the rule now sorts on **surname**, not on the
+first name shown, and three cards were added. The tablet orphan arrived with
+them — and stays. This is exactly the case the paragraph above was written for.
 
 Laura Spath was recorded here as the verified spare if a card ever needed
 replacing. She is a card in her own right now, so **there is no spare** — verify
@@ -357,18 +362,24 @@ markup that reaches a visitor is not necessarily the markup we committed. And
 blocked script was Cloudflare's, injected into a page that ships no JavaScript
 of its own.
 
-### The creator list is settled — the roster and the directory are the same 24
+### The creator list is settled — but the directory is now three ahead of the roster
 
-This was the last content item blocked on Nick, and Concept Base v3 closes it.
-Its §17 **Curation Roster** is described as locked and as Nick's own map, and it
-matches the shipped directory **one for one**: every one of the twenty-four names
-on it is a card, and every card is on it. Nothing to add, nothing to drop.
+This was the last content item blocked on Nick, and Concept Base v3 closed it.
+Its §17 **Curation Roster** is locked and is Nick's own map, and it matched the
+shipped directory **one for one** — until 2026-08-17.
+
+⚠ **That match is broken, on purpose and by him.** He added **Dr. Sten Ekberg,
+Jason Fung and Nick Norwitz** as cards; the roster still holds the original
+twenty-four. So the directory is ahead by three, and the bot's index knows
+nothing about them. Updating the roster is Nick's call **on the bot side** — do
+not "fix" the asymmetry from here, and do not read the three extra cards as an
+invitation to propose more.
 
 The roster sorts those names into buckets — a register lean (Start with / Go
 deep), topic buckets (recipes, fertility, metabolic health), a role bucket
 (coaches), and Dave Mac on his own testimonials axis. **Those buckets are the
 bot's, not this page's.** They are how the names are fed into the bot's scan
-layer; here the same twenty-four stay one flat grid in the rule-4 order. See "The
+layer; here all twenty-seven stay one flat grid in the rule-4 order. See "The
 bot's index went video-level" above for why they must not be imported onto cards.
 
 Two consequences worth stating plainly:
@@ -438,7 +449,7 @@ The rule still holds for a different reason. It is not about his liability, it i
 about ours: a directory that restates a health outcome becomes a place that
 published it, whoever said it first. Attribution is not much of a shield when the
 sentence is on our page. Keeping the claim on his channel and the decision on our
-card costs us nothing and keeps the line clean across all twenty-four cards.
+card costs us nothing and keeps the line clean across every card.
 
 **If you are editing this card:** do not "complete" it from his bio. The gap is
 the point.
