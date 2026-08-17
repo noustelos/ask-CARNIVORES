@@ -154,15 +154,20 @@ asked to stay visible there.
 
 ### Current directory contents
 
-**These twenty-seven are the list**, not a starter set. Don't add, drop or
-propose names; a change comes from Nick. Every URL below was checked and
-returns 200.
+**These twenty-seven are the list**, not a starter set, and the list is **closed
+at twenty-seven**. Don't add, drop or propose names; a change comes from Nick.
+Every URL below was checked and returns 200.
 
-⁵ = added 2026-08-17: **Dr. Sten Ekberg, Jason Fung and Nick Norwitz**. Note
-what that broke: Concept Base v3 §17 locks the bot's curation roster at the
-original **twenty-four**, and the README used to say the two matched one for
-one. They no longer do — the directory is ahead by three. The roster is the
-bot's input, so it is Nick's to update there, not ours to sync from here.
+⁵ = added 2026-08-17: **Dr. Sten Ekberg, Jason Fung and Nick Norwitz**. The
+directory ran ahead of the bot's curation roster for a few hours; **Concept Base
+v3.1 closed the gap the same day**, so §17 holds all twenty-seven and the two
+match one for one again. A new name enters only if Nick judges it equally
+significant.
+
+**Ekberg's role line is credential-safe on purpose.** He is a chiropractor, not
+a physician; "Dr. Ekberg" is his own branding. v3.1 makes that a rule in the
+roster itself, not just a comment on his card. Never rewrite the line into
+doctor, physician, or anything medical.
 
 In card order — Dave Mac pinned, then alphabetical **by surname** per rule 4
 above (changed 2026-08-17; it used to sort on the first name shown):

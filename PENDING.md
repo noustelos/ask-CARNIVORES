@@ -229,6 +229,26 @@ What it will cost this repo on the day it is built:
 - **Analytics stay split.** What happens inside the frame is the bot's to measure;
   what happens around it is ours.
 
+**Who this panel is for, and what that forces (Concept Base v3.1 §16).** The
+audience is **50+, most of them managing something medical**. That is also the
+answer to the obvious shortcut — *why not just link across to the bot?* A
+redirect is **more** friction for this age group, not less: two page loads, a
+change of surroundings, and "where am I / how do I get back". The panel keeps the
+person on the page; closing it *is* the back button. It also protects "Just Ask"
+— ask where you are — and it is the easier build, since a cross-domain round trip
+would have to carry context home again.
+
+So the chrome is built for ease, not for cleverness:
+
+- **A large launcher with WORDS on it** — "Ask a question" / «Ρωτήστε» — not a
+  small chat-bubble glyph. A cryptic icon is not recognised as "you can ask here".
+- **Large type and large tap targets inside the panel** — big input, big
+  Start/Deep buttons, generous spacing. Fatigue and brain fog make small targets
+  genuinely hard, and this audience has both.
+- **A full or near-full panel on mobile**, not a small box in a corner, with an
+  unmistakable **X** at the top right.
+- **Closing is the "back"** — no redirect to undo.
+
 **One direction only:** the bot inside the portal, yes. The portal inside the bot,
 no — the bot stays a clean interface and never fills up with commerce.
 
@@ -238,7 +258,8 @@ Concept Base v3 rewrites the shared index from *topic → channel* to **topic �
 video**, adds a **Start with / Go deep** register per video, tags creators on
 three separate axes (register, topic, role) and has a cron scan build the whole
 grid. All of that lives on the bot's side of the wall. This repo has no index,
-consumes none, and needs no change — which is exactly what v3 §15 says.
+consumes none, and needs no change — which is exactly what §15 says, in v3 and
+again in v3.1.
 
 The thing not to do: **don't drag any of it onto the cards.** No "Start with" or
 "Go deep" badges, no topic or role filters, no swapping a channel link for a
@@ -362,18 +383,23 @@ markup that reaches a visitor is not necessarily the markup we committed. And
 blocked script was Cloudflare's, injected into a page that ships no JavaScript
 of its own.
 
-### The creator list is settled — but the directory is now three ahead of the roster
+### The creator list is settled — twenty-seven, and closed at twenty-seven
 
 This was the last content item blocked on Nick, and Concept Base v3 closed it.
-Its §17 **Curation Roster** is locked and is Nick's own map, and it matched the
-shipped directory **one for one** — until 2026-08-17.
+Its §17 **Curation Roster** is locked and is Nick's own map, and it matches the
+shipped directory **one for one**.
 
-⚠ **That match is broken, on purpose and by him.** He added **Dr. Sten Ekberg,
-Jason Fung and Nick Norwitz** as cards; the roster still holds the original
-twenty-four. So the directory is ahead by three, and the bot's index knows
-nothing about them. Updating the roster is Nick's call **on the bot side** — do
-not "fix" the asymmetry from here, and do not read the three extra cards as an
-invitation to propose more.
+That match broke for a few hours on 2026-08-17, when **Dr. Sten Ekberg, Jason
+Fung and Nick Norwitz** landed as cards before the roster knew about them.
+**Concept Base v3.1 closed the gap the same day**: the roster is now twenty-seven
+too, the three are bucketed on the bot's side, and the list is **closed at
+twenty-seven** — a new name enters only if Nick judges it equally significant.
+Never read the three additions as an invitation to propose a fourth.
+
+**Sten Ekberg carries a hard rule** that v3.1 promotes from a card comment to the
+roster itself: he is a **chiropractor, never an MD**. No surface here may imply
+a medical degree — the role line on his card is credential-safe on purpose and
+is not to be "completed" from his branding.
 
 The roster sorts those names into buckets — a register lean (Start with / Go
 deep), topic buckets (recipes, fertility, metabolic health), a role bucket

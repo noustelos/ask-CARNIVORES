@@ -97,10 +97,9 @@ Anything touching those needs a check *after* the deploy. The safety net is
 
 8. **The directory list is closed — do not propose names.** **Twenty-seven cards**
    as of 2026-08-17, when Nick added Sten Ekberg, Jason Fung and Nick Norwitz.
-   The first twenty-four are his curation roster (Concept Base v3 §17); the three
-   new ones are **not on it yet**, so the old "matched one for one" claim no
-   longer holds — the directory is ahead by three, and the roster is Nick's to
-   update on the bot side. It is not a starter set
+   All twenty-seven are his curation roster (Concept Base v3.1 §17), matched one
+   for one, and the roster is **closed at twenty-seven**: a new name enters only
+   if he judges it equally significant. It is not a starter set
    waiting to be improved, so never suggest additions, and never "restore" a name
    that is absent. Kelli Ritter was proposed once and decided out on scope
    grounds; that is now in the roster too. Changes arrive from Nick.
