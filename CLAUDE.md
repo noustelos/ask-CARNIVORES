@@ -88,14 +88,19 @@ Anything touching those needs a check *after* the deploy. The safety net is
    thing that lives in **three** files — both index pages *and* `404.html`.
 
 7. **The directory order is mechanical.** Dave Mac is pinned first (structural —
-   he is the testimonials backbone). Everyone else is alphabetical by the name on
-   the card, ignoring a leading "Dr." only. A new card slots into that rule; the
-   order is never re-decided and never adjusted to make the grid come out even.
-   Full rule with worked examples in `README.md`, rule 4.
+   he is the testimonials backbone). Everyone else is alphabetical **by surname**,
+   ignoring a leading "Dr." — so "Dr. Ken Berry" sorts under B. Accounts with no
+   surname use the handle with "Coach" dropped. A new card slots into that rule;
+   the order is never re-decided and never adjusted to make the grid come out
+   even. *(Sorted on first names until 2026-08-17.)* Full rule with worked
+   examples in `README.md`, rule 4.
 
-8. **The directory list is closed — do not propose names.** The twenty-four cards
-   are Nick's curation roster (Concept Base v3 §17), matched one for one: every
-   roster name is a card, every card is a roster name. It is not a starter set
+8. **The directory list is closed — do not propose names.** **Twenty-seven cards**
+   as of 2026-08-17, when Nick added Sten Ekberg, Jason Fung and Nick Norwitz.
+   The first twenty-four are his curation roster (Concept Base v3 §17); the three
+   new ones are **not on it yet**, so the old "matched one for one" claim no
+   longer holds — the directory is ahead by three, and the roster is Nick's to
+   update on the bot side. It is not a starter set
    waiting to be improved, so never suggest additions, and never "restore" a name
    that is absent. Kelli Ritter was proposed once and decided out on scope
    grounds; that is now in the roster too. Changes arrive from Nick.

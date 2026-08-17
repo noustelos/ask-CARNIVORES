@@ -101,13 +101,15 @@ Four rules, all non-negotiable:
 4. **The order is a rule, not a judgement call.** Dave Mac is pinned first
    because he is structural — his channel is the testimonials backbone and the
    Stories section's only destination. Everyone after him is **alphabetical by
-   the name shown on the card, ignoring a leading "Dr." only**:
+   SURNAME, ignoring a leading "Dr."** — changed on 2026-08-17, when Nick asked
+   for surnames; before that it sorted on the first name shown:
 
    | Card | Sorts under | Because |
    | --- | --- | --- |
-   | Dr. Ken Berry | K, on "Ken" | a leading "Dr." is ignored |
-   | Coach Stephen | C, on "Coach" | "Coach" is part of the name |
-   | SHAPEFIXER | S | pure handles sort on the first displayed word |
+   | Dr. Ken Berry | B, on "Berry" | surname, and a leading "Dr." is ignored |
+   | Coach Stephen | S, on "Stephen" | no surname → the handle without "Coach" |
+   | Coach Carnivore Cam | C, on "Carnivore Cam" | same rule, "Coach" dropped |
+   | SHAPEFIXER | S, on "Shapefixer" | a pure handle sorts as itself |
    | Dr. Robert Kiltz / Robert Lustig | both R | then on the surname |
 
    A new card **slots into that rule** — the order is never re-decided, and it
@@ -152,39 +154,48 @@ asked to stay visible there.
 
 ### Current directory contents
 
-**These twenty-four are the list**, not a starter set. Concept Base v3 §17 locks
-Nick's curation roster and it matches this table one for one — every name on the
-roster is a card, every card is on the roster. Don't add, drop or propose names;
-a change comes from the roster. Every URL below was checked and returns 200:
+**These twenty-seven are the list**, not a starter set. Don't add, drop or
+propose names; a change comes from Nick. Every URL below was checked and
+returns 200.
 
-In card order — Dave Mac pinned, then alphabetical per rule 4 above:
+⁵ = added 2026-08-17: **Dr. Sten Ekberg, Jason Fung and Nick Norwitz**. Note
+what that broke: Concept Base v3 §17 locks the bot's curation roster at the
+original **twenty-four**, and the README used to say the two matched one for
+one. They no longer do — the directory is ahead by three. The roster is the
+bot's input, so it is Nick's to update there, not ours to sync from here.
+
+In card order — Dave Mac pinned, then alphabetical **by surname** per rule 4
+above (changed 2026-08-17; it used to sort on the first name shown):
 
 | # | Card | Links |
 | --- | --- | --- |
 | 1 | Dave Mac *(pinned first)* | `youtube.com/@zerocarb` |
-| 2 | Amber O'Hearn | `mostly-fat.com` · `youtube.com/@AmberOHearn` |
-| 3 | Dr. Anthony Chaffee | `youtube.com/@anthonychaffeemd` |
-| 4 | Bart Kay | `youtube.com/@bart-kay` |
-| 5 | Ben Bikman | `youtube.com/@benbikman` · `benbikman.com` |
-| 6 | Carnivore Teacher Alpha | `youtube.com/@CarnivoreteacherAlpha` |
-| 7 | Coach Carnivore Cam | `youtube.com/@coachcarnivorecam` |
-| 8 | Coach Stephen | `youtube.com/@CoachStephen` · `theukcarnivore.com` |
-| 9 | Dr. Elizabeth Bright | `youtube.com/@DrElizabethBright` · `elizbright.com` |
-| 10 | Dr. Gary Fettke | `nofructose.com` · `youtube.com/@garyfettke3210` |
-| 11 | Dr. Georgia Ede | `youtube.com/@GeorgiaEdeMD` · `diagnosisdiet.com` |
-| 12 | Judy Cho | `youtube.com/@NutritionwithJudy` |
-| 13 | Kelly Hogan | `youtube.com/@MyZeroCarbLife` |
-| 14 | Dr. Ken Berry | `youtube.com/@KenDBerryMD` · `drberry.com` |
-| 15 | Laura Spath | `youtube.com/@LauraSpath` · `lauraspath.com` |
-| 16 | Lisa Wiedeman | `youtube.com/@carnivoredoctor` · `carnivore-doctor.com` |
-| 17 | Maria Emmerich | `youtube.com/@MariaEmmerich` · `mariamindbodyhealth.com` |
-| 18 | Dr. Paul Mason | `youtube.com/@DrPaulMason` |
-| 19 | Dr. Philip Ovadia | `youtube.com/@IFixHearts` · `ifixhearts.com` |
-| 20 | Richard Smith | `youtube.com/@Richard-A-Smith` · `richardsmithnutrition.com` |
-| 21 | Dr. Robert Kiltz | `youtube.com/@doctorkiltz` · `kiltzhealth.com` |
-| 22 | Robert Lustig | `robertlustig.com` · `youtube.com/@RobertLustigMD` |
+| 2 | Dr. Shawn Baker | `youtube.com/@ShawnBakerMD` · `revero.com` |
+| 3 | Dr. Ken Berry | `youtube.com/@KenDBerryMD` · `drberry.com` |
+| 4 | Ben Bikman | `youtube.com/@benbikman` · `benbikman.com` |
+| 5 | Dr. Elizabeth Bright | `youtube.com/@DrElizabethBright` · `elizbright.com` |
+| 6 | Coach Carnivore Cam | `youtube.com/@coachcarnivorecam` |
+| 7 | Carnivore Teacher Alpha | `youtube.com/@CarnivoreteacherAlpha` |
+| 8 | Dr. Anthony Chaffee | `youtube.com/@anthonychaffeemd` |
+| 9 | Judy Cho | `youtube.com/@NutritionwithJudy` |
+| 10 | Dr. Georgia Ede | `youtube.com/@GeorgiaEdeMD` · `diagnosisdiet.com` |
+| 11 | Dr. Sten Ekberg ⁵ | `youtube.com/@drekberg` |
+| 12 | Maria Emmerich | `youtube.com/@MariaEmmerich` · `mariamindbodyhealth.com` |
+| 13 | Dr. Gary Fettke | `nofructose.com` · `youtube.com/@garyfettke3210` |
+| 14 | Jason Fung ⁵ | `youtube.com/@DrJasonFung` |
+| 15 | Kelly Hogan | `youtube.com/@MyZeroCarbLife` |
+| 16 | Bart Kay | `youtube.com/@bart-kay` |
+| 17 | Dr. Robert Kiltz | `youtube.com/@doctorkiltz` · `kiltzhealth.com` |
+| 18 | Robert Lustig | `robertlustig.com` · `youtube.com/@RobertLustigMD` |
+| 19 | Dr. Paul Mason | `youtube.com/@DrPaulMason` |
+| 20 | Nick Norwitz ⁵ | `youtube.com/@nicknorwitzMDPhD` |
+| 21 | Amber O'Hearn | `mostly-fat.com` · `youtube.com/@AmberOHearn` |
+| 22 | Dr. Philip Ovadia | `youtube.com/@IFixHearts` · `ifixhearts.com` |
 | 23 | SHAPEFIXER | `youtube.com/@shapefixer` |
-| 24 | Dr. Shawn Baker | `youtube.com/@ShawnBakerMD` · `revero.com` |
+| 24 | Richard Smith | `youtube.com/@Richard-A-Smith` · `richardsmithnutrition.com` |
+| 25 | Laura Spath | `youtube.com/@LauraSpath` · `lauraspath.com` |
+| 26 | Coach Stephen | `youtube.com/@CoachStephen` · `theukcarnivore.com` |
+| 27 | Lisa Wiedeman | `youtube.com/@carnivoredoctor` · `carnivore-doctor.com` |
 | — | Stories section | `youtube.com/@zerocarb` (Dave Mac — No Carb Life) |
 
 **Carnivore Teacher Alpha, Coach Carnivore Cam and SHAPEFIXER are YouTube-only
@@ -223,14 +234,16 @@ and the archive that section points to. The card's last line says so out loud
 than as a duplicate that slipped through. If you ever drop one of the two, drop
 the Stories link and not the card, or that section loses its only destination.
 
-That is twenty-four cards — flush at every width: 3 × 8 on desktop, 2 × 12 at
-tablet, single column on mobile. Twenty-four is a multiple of both three and six,
-so there is no orphan row anywhere. That is luck, not design: the alphabetical
-rule decides the order, and the count is simply how many names the roster holds.
+That is twenty-seven cards. Twenty-seven is a multiple of three but not of two,
+so the desktop grid stays flush (3 × 9) and the tablet width now leaves **one
+orphan on the last row**. That is expected and it is not to be fixed: the
+alphabetical rule decides the order and the count is simply how many names Nick
+holds, so nothing gets added, dropped or re-sorted to square the grid. (It was
+twenty-four and flush at every width until 2026-08-17 — luck, not design.)
 See PENDING.md, "Directory size", for the grid maths.
 
 Laura Spath used to be listed here as the **verified spare** if a card was ever
-removed. She is card 15 now, so there is no spare — pick one and verify it the
+removed. She is card 25 now, so there is no spare — pick one and verify it the
 same way if a replacement is ever needed.
 
 **Always verify a handle before you add it.** This has caught a wrong channel
