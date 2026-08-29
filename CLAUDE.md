@@ -9,42 +9,64 @@ an agent needs on top of those.
 
 ## What this is
 
-`askcarnivores.com` — a static community portal for the carnivore world. Two
-pages (EN + EL), one stylesheet, **zero JavaScript**, no build step, no
+`askcarnivores.com` — a static community portal for the carnivore world. Four
+pages (EN + EL of two), one stylesheet, **zero JavaScript**, no build step, no
 dependencies, no backend.
 
 ```
-index.html            English page (default)
-gr/index.html         Greek page — mirror of index.html
-assets/style.v1.css   All styling; versioned filename = cache-busting
+index.html            English directory (default)
+gr/index.html         Greek directory — mirror of index.html
+about/index.html      English "My Story"
+gr/about/index.html   Greek "My Story" — mirror of about/index.html
+assets/style.v3.css   All styling; versioned filename = cache-busting
 _headers              Cloudflare Pages security + cache headers
 404.html              Real 404 (Pages serves it with a 404 status)
 robots.txt, sitemap.xml
 ```
 
+Pages come in language pairs at parallel URLs (`/x/` and `/gr/x/`), with
+`hreflang` alternates in the head and in `sitemap.xml`. That — not a toggle —
+is how this site is bilingual. The bot next door does it the other way, with
+one page and a script; it can, because its CSP allows scripts and this one's
+does not.
+
 No install, no test suite, no lint.
 
-## Workflow — no branches
+## Workflow — branch, preview, merge
 
-Work directly on `main`. **Do not create branches and do not propose them.** The
-loop is: edit → preview → one commit → push, and the push is the deploy.
+**Changed 2026-08-29. The old rule was "work directly on `main`, never branch";
+it no longer applies.** A push to `main` is the deploy, so anything bigger than
+a typo gets a branch and a preview first:
 
-Nick previews with the VS Code **Go Live** button (Live Server). Any static
-server works and one is required — the pages use absolute `/assets/...` paths, so
-opening the file directly leaves it unstyled:
+```sh
+git checkout -b some-change
+git push -u origin some-change   # → https://some-change.askcarnivores.pages.dev
+```
+
+Cloudflare builds every branch under that hostname automatically — nothing to
+configure. Wait for it, check it, **then** merge to `main`.
+
+Why it changed: local preview is blind to the two things most likely to break
+this site. `_headers` is a Cloudflare file and does not apply on localhost, so
+neither of these shows up until it is live:
+
+- **The CSP.** Scripts run fine locally and are blocked in production.
+- **Cache headers.** A stale asset only appears in production.
+
+A deploy preview has both, and a real URL to hand to Nick. **Rollback**
+(Pages → Deployments → ⋯ → Rollback) is still the net, but it is a net rather
+than a plan.
+
+Nick also previews locally with the VS Code **Go Live** button (Live Server).
+Any static server works and one is required — the pages use absolute
+`/assets/...` paths, so opening the file directly leaves it unstyled:
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Two things local preview cannot show you, because `_headers` is a Cloudflare
-file and does not apply on localhost:
-
-- **The CSP.** Scripts run fine locally and are blocked live. See the trap below.
-- **Cache headers.** A stale asset only shows up in production.
-
-Anything touching those needs a check *after* the deploy. The safety net is
-**Pages → Deployments → ⋯ → Rollback**, not a pre-merge preview.
+Small, obvious edits — a typo, one card's wording — may still go straight to
+`main`. The rule is about size and risk, not ceremony.
 
 ## Hard rules — do not violate these
 
@@ -55,6 +77,15 @@ Anything touching those needs a check *after* the deploy. The safety net is
    **copied by hand** into each repo — the duplicate-maintenance cost is
    deliberate. When copying one, say so in the commit message. The only permitted
    link between the two projects is a public hyperlink in the UI.
+
+   **Both repos can be worked at the same time, and which one is open in VS
+   Code decides nothing.** They are separate checkouts in separate folders with
+   no shared file, no symlink and no common parent — an editor or an agent acts
+   on the folder it was pointed at and cannot reach the other by accident. The
+   siloing rule is about content and code (no imports, no shared tokens, no
+   cross-repo fetches), not about tooling. The real hazard is the opposite of
+   confusion: **forgetting to mirror** a hand-copied shared element. Change one,
+   change the other, and say so in the commit message.
 
    **"Copy, don't link" covers static elements — never the bot's engine.** The
    planned bot panel (Concept Base v3 §16) is an **iframe of the public bot URL**
@@ -110,9 +141,16 @@ Anything touching those needs a check *after* the deploy. The safety net is
 ## Things that will bite you
 
 - **Bump the CSS filename version** when editing the stylesheet
-  (`style.v1.css` → `style.v2.css`) and update the `<link>` in *both* HTML files.
-  `_headers` caches `/assets/*` for a year as `immutable`; a same-name edit may
-  never reach users.
+  (`style.v3.css` → `style.v4.css`) and update the `<link>` in **all five** HTML
+  files — two directory pages, two story pages, `404.html`. `_headers` caches
+  `/assets/*` for a year as `immutable`; a same-name edit may never reach anyone
+  who already has the old one. Delete the old file in the same commit. The edge
+  keeps serving it for a while afterwards, which is harmless once nothing links
+  to it — do not let that fool you into thinking the bump did not work.
+- **Mirror across the language pair, and now across four pages.** A change to
+  chrome — header menu, status strip, footer — belongs in every page that has
+  it, with the right language. The mirror comments in the markup name their
+  counterparts; keep them accurate when you add a page.
 - **The CSP blocks all scripts, iframes and fetches** (`default-src 'none'` in
   `_headers`). Anything external added without also editing that line fails
   **silently** — page still works, no error, nothing in the logs. It does not

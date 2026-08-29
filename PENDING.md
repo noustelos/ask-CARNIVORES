@@ -38,7 +38,7 @@ Closed by Concept Base v3 §17. Moved to "Done, recorded so it isn't re-litigate
 ### Logo and brand direction
 Brief §11 lists these as open. None supplied, so the site uses a plain type
 wordmark and a self-designed palette: bone, deep charcoal, one muted rust accent.
-Every colour is a CSS custom property at the top of `assets/style.v1.css`, so a
+Every colour is a CSS custom property at the top of `assets/style.v3.css`, so a
 rebrand is a token swap, not a rewrite.
 
 **To close:** supply logo/colours, or leave as is.
@@ -347,6 +347,27 @@ and anything commercially sensitive out of them.
   their own analytics. Reasoning in `README.md` rule 1.
 - **Paul Saladino** — permanently excluded. See `README.md`, "Do not list". Nick
   has confirmed he is fine with that note being readable in the page source.
+
+### "My Story" and the header menu — shipped 2026-08-29
+
+The site said what it is and who is on it, and never who made it or why.
+`/about/` and `/gr/about/` now carry Nick's own account. Recorded here so three
+decisions are not re-opened:
+
+- **Two pages, not a toggle.** It follows this site's i18n — parallel URLs with
+  `hreflang` — because the CSP here (`default-src 'none'`) blocks every script,
+  so the bot's single-page scripted switch could not run even if we wanted it.
+  The two sites solving this differently is correct, not drift.
+- **The menu is the home for sections, and the footer is not.** The link went
+  into a header `<nav>` built as a list from day one, because FAQ and others are
+  coming. It was briefly in both places; that was a mistake and was undone.
+- **The stylesheet went v2 → v3** for the menu's rules. First time this repo's
+  versioning convention was exercised on a real change: rename, update the
+  `<link>` in every page, delete the old file.
+
+Also changed that day, and bigger than the page: **the no-branches workflow was
+replaced** by branch → preview → merge, because local preview cannot see the CSP
+or the cache headers. See `README.md` and `CLAUDE.md`.
 
 ### Contact address — shipped 2026-08-16
 

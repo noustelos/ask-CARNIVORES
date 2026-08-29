@@ -11,7 +11,7 @@
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
 
-<link rel="stylesheet" href="/assets/style.v2.css">
+<link rel="stylesheet" href="/assets/style.v3.css">
 </head>
 <body>
 
@@ -20,6 +20,11 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Ask<span>Carnivores</span></a>
+    <!-- The site menu. One entry for now; FAQ and others are coming, which is
+         why it is a <nav> with a list of links rather than a lone anchor. -->
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/about/">My Story</a>
+    </nav>
     <nav class="lang" aria-label="Language">
       <a href="/" hreflang="en">EN</a>
       <span aria-hidden="true">/</span>

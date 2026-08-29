@@ -1,6 +1,6 @@
 # askcarnivores.com
 
-Static community portal for the carnivore world. Two pages, one stylesheet, no
+Static community portal for the carnivore world. Four pages, one stylesheet, no
 JavaScript, no build step, no dependencies.
 
 > **Siloing rule:** this project is completely separate from `askcarnivore.com`
@@ -11,9 +11,12 @@ JavaScript, no build step, no dependencies.
 ## Files
 
 ```
-index.html              English page (default)
-gr/index.html           Greek page
-assets/style.v1.css     All styling. Versioned filename = cache-busting.
+index.html              English directory (default)
+gr/index.html           Greek directory
+about/index.html        English "My Story"
+gr/about/index.html     Greek "My Story"
+404.html                Real 404 (Pages serves it with a 404 status)
+assets/style.v3.css     All styling. Versioned filename = cache-busting.
 assets/favicon.v2.svg   Favicon — "AC", light + dark via a media query inside the SVG
 assets/og.v1.png        Social share card (1200×630)
 assets/apple-touch-icon.v2.png
@@ -31,6 +34,12 @@ python3 -m http.server 8000
 # → http://localhost:8000
 ```
 
+Local preview cannot show you two things, because `_headers` is a Cloudflare
+file that does not apply on localhost: **the CSP** (scripts run fine locally and
+are blocked live) and **cache headers** (a stale asset only appears in
+production). Both of those are exactly what a deploy preview does show — see the
+workflow below.
+
 ## Deploy — Cloudflare Pages
 
 Create a **new** Pages project (do not reuse the bot's project) and connect it to
@@ -47,11 +56,27 @@ this repo.
 Then **Custom domains → Set up a domain → `askcarnivores.com`**, and add `www`
 as a redirect if you want it. Wait for SSL to go active.
 
-`main` is production — a push to it deploys. This project is worked on directly
-on `main`, with no feature branches: preview locally (VS Code **Go Live**, or the
-server command above), then one commit and push. Cloudflare will hand any
-non-production branch its own preview URL if one is ever wanted, but that is not
-the working flow here.
+### Workflow — branch, preview, merge
+
+`main` is production: a push to it is the deploy, live in under a minute. So
+anything bigger than a typo gets a branch first.
+
+```sh
+git checkout -b some-change      # → https://some-change.askcarnivores.pages.dev
+git push -u origin some-change
+```
+
+Cloudflare builds every branch and gives it that hostname automatically — no
+setup, nothing to enable. Check the preview, and only then merge to `main`.
+
+This replaces the old rule ("work directly on `main`, no branches"). The reason
+it changed: local preview is blind to the CSP and to cache headers, which are
+the two things most likely to break this site, and both are live on a preview
+deployment. A rollback after the fact (**Pages → Deployments → ⋯ → Rollback**)
+is still there, but it is a net, not a plan.
+
+Small, obvious edits — a typo, one card's wording — can still go straight to
+`main`. The rule is about size and risk, not ceremony.
 
 ## Editing the directory
 
@@ -366,15 +391,79 @@ Two details worth keeping if you touch it:
 - Like every other outbound link on the site, it is `rel="noopener"` with no
   `noreferrer` (rule 1 above) — attribution is the entire point of a credit line.
 
+## "My Story" and the header menu
+
+`/about/` and `/gr/about/` — Nick's own account of how he got here and why the
+project exists. Added 2026-08-29.
+
+**It follows this site's i18n, not the bot's.** Two pages at two URLs with
+`hreflang` alternates, the same shape as `/` and `/gr/`. The bot solves the same
+problem with one page and a scripted toggle; that is impossible here, because
+the CSP serves `default-src 'none'` and blocks every script. Do not try to
+"unify" the two approaches — each is correct for its own constraints.
+
+The language pair in the header of a story page points at **the other story
+page**, not at the two directory pages: someone switching language mid-read
+wants the story in the other language, not to be sent back to the directory.
+
+**The header menu (`.site-nav`) is where site sections go.** It started with one
+entry and is built as a `<nav>` with a list precisely because more are coming
+(FAQ and others) — add a link, don't rebuild it. Rules:
+
+- The current page is marked `aria-current="page"`, which is also what the
+  styling hangs off, so what is seen and what is announced cannot drift apart.
+- It sits beside the wordmark, not centred. `margin-right: auto` absorbs the
+  free space so the brand and the menu stay left while the language pair stays
+  pinned right — the header `.wrap` is `space-between`, and without that
+  declaration the three would spread evenly instead.
+- Mirror every entry into all five pages, Greek label on the Greek ones.
+- **Sections belong in the menu, not the footer.** The footer keeps the language
+  pair, the bot link, the address and the credit. Having a link in both places
+  is the one arrangement to avoid.
+
+The story pages carry the full chrome — header, status strip, footer disclaimer
+— so they do not read as orphans, and the epigraph borrows `.notice`, whose
+accent rule already reads as a pull quote. Body prose needed no new CSS at all;
+`p { max-width: 66ch }` was already there.
+
+**Sten Ekberg appears without "Dr."** He is a chiropractor, not a physician, and
+no surface of this project calls him one. Same rule as his directory card.
+
+## Working on both sites at once
+
+The two repos are separate checkouts in separate folders, so **which one is open
+in VS Code decides nothing** — an agent or an editor works on the repo whose
+folder it was pointed at, and neither can reach the other by accident. There is
+no shared file, no symlink, no common parent directory to confuse them.
+
+What that means in practice:
+
+- Having the bot open in VS Code does not stop work happening here, and the
+  reverse is equally true. They deploy to different Pages projects and neither
+  push touches the other.
+- The siloing rule is about *content and code*, not about tooling: no imports,
+  no shared tokens, no cross-repo fetches. Editing both in the same afternoon
+  breaks nothing.
+- The one real hazard is the opposite of confusion — it is **forgetting to
+  mirror**. Shared surfaces (the Noustelos credit, the contact address, the
+  in-development banner) are copied by hand into each repo on purpose. When you
+  change one, change the other and say so in the commit message.
+- If something *is* genuinely shared and starts drifting, that is a signal it
+  should have been copied, not linked. Copy it.
+
 ## Changing the look
 
-The whole palette is CSS custom properties at the top of `assets/style.v1.css`
+The whole palette is CSS custom properties at the top of `assets/style.v3.css`
 — one `:root` block for light, one for dark. Change those tokens and nothing
 else.
 
 If you edit the stylesheet, **bump the version in the filename**
-(`style.v1.css` → `style.v2.css`) and update the `<link>` in both HTML files.
-Assets are cached for a year by `_headers`, so a same-name edit may not show up.
+(`style.v3.css` → `style.v4.css`) and update the `<link>` in **all five** HTML
+files — the two directory pages, the two story pages and `404.html`. Assets are
+cached for a year by `_headers` as `immutable`, so a same-name edit may never
+reach anyone who has already loaded the old one. Delete the previous file in the
+same commit; the edge keeps serving it for a while regardless, which is harmless
+once nothing links to it.
 
 ### The icons
 
