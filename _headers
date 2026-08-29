@@ -17,5 +17,9 @@
   Cache-Control: public, max-age=0, must-revalidate
 /gr/
   Cache-Control: public, max-age=0, must-revalidate
+/about/
+  Cache-Control: public, max-age=0, must-revalidate
+/gr/about/
+  Cache-Control: public, max-age=0, must-revalidate
 /404.html
   Cache-Control: public, max-age=0, must-revalidate
