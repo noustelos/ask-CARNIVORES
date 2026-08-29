@@ -1,4 +1,5 @@
-/* askcarnivores.com — v1 portal landing
+/* askcarnivores.com — v1 portal
+   v3: adds .site-nav, the header menu (My Story now, FAQ and others to come).
    Zero dependencies. Mobile-first. Light + dark via prefers-color-scheme.
    To rebrand: change the tokens in :root and the dark block. Nothing else. */
 
@@ -152,6 +153,38 @@ p { margin: 0 0 1em; max-width: var(--measure); }
   text-decoration: none;
 }
 .brand span { color: var(--accent); }
+
+/* The site menu. It sits beside the wordmark rather than centred: with one
+   entry a centred menu reads as a stray word, and this one is going to grow
+   (FAQ and the rest). margin-right:auto absorbs the free space after it, so
+   the brand and the menu stay together on the left and the language pair
+   stays pinned right — the .wrap above is space-between, and without this
+   the three would spread evenly instead. */
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem;
+  margin-right: auto;
+  font-size: 0.9375rem;
+}
+
+.site-nav a {
+  color: var(--ink-soft);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.site-nav a:hover { color: var(--ink); text-decoration: underline; }
+
+/* aria-current="page" is the marker, so the styling and the thing a screen
+   reader announces cannot drift apart. */
+.site-nav [aria-current="page"] {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 0.3em;
+}
 
 .lang {
   font-size: 0.8125rem;

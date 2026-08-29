@@ -27,13 +27,14 @@
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
 
-<!-- Χτισμένη αποκλειστικά από κλάσεις που υπάρχουν ήδη στο style.v2.css —
-     .hero, .section, .notice, .eyebrow, .btn — οπότε δεν προσθέτει δικό της
-     stylesheet και δεν θέλει version bump. Δύο σκληροί λόγοι: τα assets είναι
-     immutable-cached, άρα νέο CSS σημαίνει μετονομασία και αλλαγή του <link>
-     σε κάθε σελίδα· και το CSP είναι style-src 'self' χωρίς 'unsafe-inline',
-     οπότε ένα <style> εδώ απλώς θα μπλοκαριζόταν. -->
-<link rel="stylesheet" href="/assets/style.v2.css">
+<!-- Το σώμα της σελίδας είναι χτισμένο από κλάσεις που υπήρχαν ήδη —
+     .hero, .section, .notice, .eyebrow, .btn — οπότε το κείμενο δεν χρειάστηκε
+     δικό του CSS. Το μενού του header χρειάστηκε, γι' αυτό το stylesheet πήγε
+     v2 -> v3 και μαζί του το <link> κάθε σελίδας: τα assets εδώ είναι
+     immutable-cached, άρα αλλαγή σημαίνει μετονομασία. Δεν υπάρχει πλάγια
+     έξοδος — το CSP είναι style-src 'self' χωρίς 'unsafe-inline', οπότε ένα
+     <style> μέσα στη σελίδα θα μπλοκαριζόταν. -->
+<link rel="stylesheet" href="/assets/style.v3.css">
 </head>
 <body>
 
@@ -42,6 +43,11 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/gr/">Ask<span>Carnivores</span></a>
+    <!-- Το μενού του site. Μία εγγραφή προς το παρόν· έρχονται FAQ και άλλα,
+         γι' αυτό είναι <nav> με links και όχι ένα μεμονωμένο anchor. -->
+    <nav class="site-nav" aria-label="Ενότητες">
+      <a href="/gr/about/" aria-current="page">Η ιστορία μου</a>
+    </nav>
     <!-- Το ζευγάρι γλωσσών δείχνει στα δύο μισά ΑΥΤΗΣ της σελίδας, όχι στις
          δύο αρχικές: όποιος αλλάζει γλώσσα ενώ διαβάζει την ιστορία θέλει την
          ιστορία στην άλλη γλώσσα, όχι να γυριστεί πίσω στον κατάλογο. -->

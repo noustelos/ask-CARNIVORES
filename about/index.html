@@ -27,13 +27,14 @@
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
 
-<!-- Built entirely from classes that already exist in style.v2.css — .hero,
-     .section, .notice, .eyebrow, .btn — so this page adds no stylesheet of its
-     own and needs no version bump. Two reasons, both hard: assets are cached
-     immutable, so new CSS means renaming the file and editing the <link> in
-     every page that uses it; and the CSP is style-src 'self' with no
-     'unsafe-inline', so a <style> block here would simply be blocked. -->
-<link rel="stylesheet" href="/assets/style.v2.css">
+<!-- The body of this page is built from classes that already existed —
+     .hero, .section, .notice, .eyebrow, .btn — so the prose needed no CSS of
+     its own. The header menu did, which is why the stylesheet went v2 -> v3
+     and every page's <link> moved with it: assets here are cached immutable,
+     so changing one means renaming it. Note there is no escape hatch — the
+     CSP is style-src 'self' with no 'unsafe-inline', so a <style> block on
+     the page would be blocked outright. -->
+<link rel="stylesheet" href="/assets/style.v3.css">
 </head>
 <body>
 
@@ -42,6 +43,11 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/">Ask<span>Carnivores</span></a>
+    <!-- The site menu. One entry for now; FAQ and others are coming, which is
+         why it is a <nav> with a list of links rather than a lone anchor. -->
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/about/" aria-current="page">My Story</a>
+    </nav>
     <!-- The language pair points at the two halves of THIS page, not at the two
          index pages: someone switching language while reading the story wants
          the story in the other language, not to be sent back to the directory. -->

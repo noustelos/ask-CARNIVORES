@@ -27,7 +27,7 @@
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
 
-<link rel="stylesheet" href="/assets/style.v2.css">
+<link rel="stylesheet" href="/assets/style.v3.css">
 </head>
 <body>
 
@@ -36,6 +36,11 @@
 <header class="site-header">
   <div class="wrap">
     <a class="brand" href="/gr/">Ask<span>Carnivores</span></a>
+    <!-- Το μενού του site. Μία εγγραφή προς το παρόν· έρχονται FAQ και άλλα,
+         γι' αυτό είναι <nav> με links και όχι ένα μεμονωμένο anchor. -->
+    <nav class="site-nav" aria-label="Ενότητες">
+      <a href="/gr/about/">Η ιστορία μου</a>
+    </nav>
     <nav class="lang" aria-label="Γλώσσα">
       <a href="/" hreflang="en">EN</a>
       <span aria-hidden="true">/</span>
