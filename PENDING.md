@@ -38,7 +38,7 @@ Closed by Concept Base v3 §17. Moved to "Done, recorded so it isn't re-litigate
 ### Logo and brand direction
 Brief §11 lists these as open. None supplied, so the site uses a plain type
 wordmark and a self-designed palette: bone, deep charcoal, one muted rust accent.
-Every colour is a CSS custom property at the top of `assets/style.v1.css`, so a
+Every colour is a CSS custom property at the top of `assets/style.v3.css`, so a
 rebrand is a token swap, not a rewrite.
 
 **To close:** supply logo/colours, or leave as is.
@@ -186,71 +186,106 @@ listing describes what it is, not what it fixes.
 **Order:** after the real directory/index content, not before. Sourcing rides on
 the same outreach email as everything else — it is ask #3 in it (Concept §10).
 
-### The bot, embedded — planned in Concept Base §16, not built
+### The bot, embedded — Concept Base §16, **shipped 2026-08-30**
 
-Concept Base §16 — introduced in v2 and carried into **v3 word for word**, so
-nothing below has changed — is the way for someone standing on this site to ask
-the bot without leaving it: a floating button that opens a panel, and the panel's
-content is **an iframe of the public bot URL**. Three layers, and the boundary
-between them is the entire point:
+Someone standing on this site can now ask the bot without leaving it: a floating
+launcher opens a panel, and the panel holds **an iframe of the bot's public
+`/embed` page**. Three layers, and the boundary between them is the entire point:
 
 | Layer | Lives in | What it is |
 | --- | --- | --- |
-| Component | **this repo** | button, panel, open/close, styling — cosmetics only |
+| Component | **this repo** | launcher, panel, open/close, styling — cosmetics only |
 | iframe | this repo, one tag | points at the public bot URL |
 | Bot | the bot's repo | frontend, worker, index — untouched, on its own origin |
 
-**The rule that keeps the siloing intact:** the component handles appearance and
-nothing else. It must **never** `fetch` the bot's worker directly. The moment it
-does, this repo has to know the bot's endpoint, wants CORS, and there are two
-things that can drift — that is the cross-repo coupling the siloing rule exists to
+**The rule that keeps the siloing intact, and it still holds:** the component
+handles appearance and nothing else. It **never** `fetch`es the bot's worker. The
+moment it does, this repo has to know the bot's endpoint, wants CORS, and there
+are two things that can drift — the cross-repo coupling the siloing rule exists to
 prevent. The iframe boundary is what keeps "the only connection is a public
-hyperlink" literally true: a frame *is* a public URL in a window.
+hyperlink" literally true: a frame *is* a public URL in a window. `ask.v1.js`
+carries this in a comment at the top; that comment is the spec, not decoration.
 
-**Do not read "component" as "a second bot."** Copying the bot's code, worker, key
-or index into this repo breaks the one-index model and doubles the maintenance for
-nothing. "Copy, don't link" governs *static shared elements* — the studio credit,
-a logo — and **not** the bot's engine. The bot is embedded, never duplicated. One
-bot, one index; this site is a window onto it, not a copy of it, so anything
-improved on the bot shows up in both places on its own.
+**"Component" never meant "a second bot."** The bot's code, worker, key and index
+stay where they are. "Copy, don't link" governs *static shared elements* — the
+studio credit, a logo — and **not** the bot's engine. One bot, one index; this
+site is a window onto it, so anything improved on the bot shows up here on its
+own, with no deploy of ours.
 
-What it will cost this repo on the day it is built:
+#### What it is, concretely
 
-- **The first JavaScript on the site.** Opening a panel and deferring the frame
-  cannot be done the zero-JS way this site ships today. It goes in `/assets/*.js`
-  under `script-src 'self'` — never `'unsafe-inline'`.
-- **A CSP edit in the same commit** — `frame-src https://askcarnivore.com`. The
-  matching `frame-ancestors` for this domain is a header on **the bot's** side,
-  set in the bot's repo. See `README.md`, "`frame-ancestors` and `frame-src` point
-  in opposite directions".
-- **Lazy-load on click.** The iframe must not exist until the button is pressed,
-  or every portal page load pays for the bot — on a phone, on an old machine,
-  including the visitors who never open it.
-- **Analytics stay split.** What happens inside the frame is the bot's to measure;
-  what happens around it is ours.
+- `assets/ask.v1.js` — **the first and only JavaScript on the site**, ~60 lines,
+  `defer`, versioned filename like the CSS. Under `script-src 'self'`, never
+  `'unsafe-inline'`.
+- **Progressive enhancement.** In the HTML the launcher and the banner's "Just
+  Ask" button are ordinary links to `askcarnivore.com`, both carrying `data-ask`.
+  One delegated listener upgrades them into the panel. If the script fails to
+  load, both still work — with the page load §16 wants to avoid, but nobody is
+  stranded and there is no fallback copy to maintain.
+- **Lazy-load, once.** The iframe ships with no `src`; it is set on the first
+  press and never again. A visitor who never asks never pays for the bot.
+- **The `src` is never cleared on close.** Close, reopen, and the conversation is
+  still there. For someone who shut the panel by accident, wiping the thread is
+  the worst thing we could do — and this audience shuts things by accident.
+- **`inert` on the rest of the page**, not a focus trap: a trap cannot see into a
+  cross-origin frame, so the page outside the panel leaves the tab order
+  entirely, which is also what a screen reader needs.
+- **CSP, same commit:** `script-src 'self'` and `frame-src https://askcarnivore.com`
+  added to the single `/*` block in `_headers`. Host-only, and *in that block* —
+  the reasoning is in the file's own comment and in `README.md`.
+- **Analytics stay split.** What happens inside the frame is the bot's to
+  measure; what happens around it is ours. Nothing was added either side.
 
-**Who this panel is for, and what that forces (Concept Base v3.1 §16).** The
-audience is **50+, most of them managing something medical**. That is also the
-answer to the obvious shortcut — *why not just link across to the bot?* A
+#### The trap this build uncovered — do not add `sandbox`
+
+The iframe carries **no `sandbox` attribute**, deliberately, and there is a
+comment saying so next to the tag in both HTML files.
+
+`sandbox` without `allow-same-origin` gives the framed page an **opaque origin**.
+The bot's own `chat.js` then calls `/api/ask` with `Origin: null`, the worker's
+origin check cannot parse that and rejects it, and the panel renders a flawless
+chat that answers **403 to every question**. The failure looks like our bug and
+is not. `allow-scripts allow-same-origin` together is close to no sandbox at all
+for a cross-origin frame, so the attribute buys nothing here and costs this. The
+isolation comes from the origin boundary and from `frame-src` naming exactly one
+host.
+
+#### Who it is for (Concept Base v3.1 §16)
+
+The audience is **50+, most of them managing something medical**. That is also
+the answer to the obvious shortcut — *why not just link across to the bot?* A
 redirect is **more** friction for this age group, not less: two page loads, a
 change of surroundings, and "where am I / how do I get back". The panel keeps the
 person on the page; closing it *is* the back button. It also protects "Just Ask"
-— ask where you are — and it is the easier build, since a cross-domain round trip
-would have to carry context home again.
+— ask where you are.
 
-So the chrome is built for ease, not for cleverness:
+So the chrome is built for ease, not for cleverness, and all four held:
 
 - **A large launcher with WORDS on it** — "Ask a question" / «Ρωτήστε» — not a
   small chat-bubble glyph. A cryptic icon is not recognised as "you can ask here".
-- **Large type and large tap targets inside the panel** — big input, big
-  Start/Deep buttons, generous spacing. Fatigue and brain fog make small targets
-  genuinely hard, and this audience has both.
-- **A full or near-full panel on mobile**, not a small box in a corner, with an
-  unmistakable **X** at the top right.
-- **Closing is the "back"** — no redirect to undo.
+  It is also **never hidden on scroll**: a launcher that disappears is one this
+  audience does not find again.
+- **Large tap targets** — the launcher is 3.5rem tall and full-width on a phone;
+  the × is 2.9rem square.
+- **A full-screen panel on mobile**, a corner panel from 40rem up, with an
+  unmistakable **×** at the top right. The launcher hides while the panel is
+  open, so two competing controls never split attention.
+- **Closing is the "back"** — no redirect to undo. Esc and the backdrop close it
+  too, and focus returns to whichever control opened it.
 
-**One direction only:** the bot inside the portal, yes. The portal inside the bot,
-no — the bot stays a clean interface and never fills up with commerce.
+**One direction only:** the bot inside the portal, yes. The portal inside the
+bot, no — the bot stays a clean interface and never fills up with commerce.
+
+#### What is still open
+
+- The framed `/embed` page is **English only**. A Greek visitor opens a Greek
+  launcher and finds an English chat. Decided on 2026-08-30 not to warn about it:
+  this audience already operates in English for this material. If that changes,
+  the fix belongs on the bot's side, not here.
+- The panel was verified on a preview deploy for chrome, CSP and script. **The
+  frame itself cannot be checked on a preview** — the bot's `frame-ancestors`
+  names `askcarnivores.com` and `www.` only, so `*.pages.dev` is blocked and the
+  panel opens empty there. Expected, not a bug.
 
 ### The bot's index went video-level — nothing to do here, and one thing not to do
 
@@ -306,9 +341,11 @@ scripts, so dropping in the analytics snippet without touching the CSP means it
 silently does nothing — page keeps working, no visible error, no data collected.
 It needs `script-src` for the beacon host and `connect-src` for where it reports.
 
-The site currently ships **zero JavaScript**, which is what the CSP is protecting.
-Adding analytics is the first thing that changes that, and it would be the first
-time the policy has to be edited at all.
+The site now ships exactly **one** script, `assets/ask.v1.js` for the ask panel,
+under `script-src 'self'`. Analytics would be a *second* one, and — unlike ours —
+a third-party host, so it still needs its own `script-src` and `connect-src`
+entries. "There is already a script-src" is not the same as "this beacon is
+allowed".
 
 Full runbook — the exact directives, why it cannot be tested on localhost, and
 how to read a CSP block in the console — is in `README.md`, "The CSP".

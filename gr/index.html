@@ -27,7 +27,7 @@
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
 
-<link rel="stylesheet" href="/assets/style.v2.css">
+<link rel="stylesheet" href="/assets/style.v3.css">
 </head>
 <body>
 
@@ -630,11 +630,13 @@
           <h2>Ίδιο index. Άλλη πόρτα.</h2>
           <p>
             Εδώ βλέπεις τους ανθρώπους. Στο AskCarnivore — στον ενικό — ρωτάς το πράγμα:
-            γράφεις την απορία σου με λόγια και σε στέλνει στην πηγή. Χωρίς app, χωρίς
-            εγγραφή. Έρχεται σύντομα.
+            γράφεις την απορία σου με λόγια και σε στέλνει στην πηγή. Χωρίς app. Χωρίς
+            εγγραφή. Απλώς ρώτα.
           </p>
         </div>
-        <a class="btn btn-primary" href="https://askcarnivore.com" target="_blank" rel="noopener">Just Ask →</a>
+        <!-- data-ask: το δεύτερο σημείο εισόδου του panel. Ίδιο link με πριν,
+             ώστε χωρίς JavaScript να ανοίγει κανονικά η σελίδα του bot. -->
+        <a class="btn btn-primary" href="https://askcarnivore.com" target="_blank" rel="noopener" data-ask>Just Ask →</a>
       </div>
     </div>
   </section>
@@ -677,6 +679,40 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ ASK PANEL (Concept Base v3.1 §16) ============
+     Το bot, ενσωματωμένο — για να μη χρειάζεται να φύγει κανείς από τη σελίδα
+     για να ρωτήσει. Τρία στρώματα, και το όριο ανάμεσά τους είναι το νόημα:
+     αυτό το repo έχει τον launcher, το panel και το styling· το iframe δείχνει
+     στο δημόσιο /embed URL του bot· το ίδιο το bot μένει ανέγγιχτο, στο δικό
+     του origin, στο δικό του repo.
+
+     Progressive enhancement: χωρίς JavaScript ο launcher από κάτω είναι ένα
+     απλό link προς το askcarnivore.com — ακριβώς ό,τι είχε το site πριν — και
+     το /assets/ask.v1.js το αναβαθμίζει σε panel. Τίποτα εδώ δεν καλεί ποτέ
+     τον worker του bot. Ένα frame ΕΙΝΑΙ δημόσιο hyperlink, μέσα σε παράθυρο.
+
+     Καθρέφτισε κάθε αλλαγή στο /index.html. -->
+<a class="ask-launcher" href="https://askcarnivore.com" target="_blank" rel="noopener" data-ask>Ρωτήστε</a>
+
+<button class="ask-backdrop" id="ask-backdrop" type="button" tabindex="-1" aria-hidden="true"></button>
+
+<div class="ask-panel" id="ask-panel" role="dialog" aria-modal="true" aria-label="Ρωτήστε τον AskCarnivore" aria-hidden="true">
+  <div class="ask-panel__head">
+    <p class="ask-panel__title">Ρωτήστε</p>
+    <button class="ask-panel__x" id="ask-close" type="button" aria-label="Κλείσιμο">&times;</button>
+  </div>
+  <!-- ΧΩΡΙΣ sandbox attribute, και είναι σκόπιμο. Το `sandbox` χωρίς
+       `allow-same-origin` δίνει στη σελίδα μέσα στο frame opaque origin, οπότε
+       το δικό της fetch στο /api/ask φτάνει με `Origin: null`, ο έλεγχος
+       origin του bot το απορρίπτει, και αυτό το panel εμφανίζει ένα άψογο chat
+       που απαντάει 403 σε κάθε ερώτηση. Η απομόνωση εδώ έρχεται από το όριο
+       του origin και από το `frame-src` που ονομάζει έναν ακριβώς host στο
+       `_headers` — όχι από αυτό το attribute. Μην το ξαναβάλεις. -->
+  <iframe class="ask-panel__frame" id="ask-frame" title="Ask Carnivore Ai"></iframe>
+</div>
+
+<script src="/assets/ask.v1.js" defer></script>
 
 </body>
 </html>
