@@ -19,8 +19,8 @@ index.html            English directory (default)
 gr/index.html         Greek directory — mirror of index.html
 about/index.html      English "My Story"
 gr/about/index.html   Greek "My Story" — mirror of about/index.html
-whats-new/index.html      English "What's New" — an iframe of the bot's /new
-gr/whats-new/index.html   Greek mirror of it
+highlights/index.html      English "Highlights" — an iframe of the bot's /highlights
+gr/highlights/index.html   Greek mirror of it
 assets/style.v5.css   All styling; versioned filename = cache-busting
 assets/ask.v1.js      The ask panel (§16) — the only script on the site
 _headers              Cloudflare Pages security + cache headers
@@ -152,7 +152,7 @@ Small, obvious edits — a typo, one card's wording — may still go straight to
 
 - **Bump the CSS filename version** when editing the stylesheet
   (`style.v5.css` → `style.v6.css`) and update the `<link>` in **all seven** HTML
-  files — two directory pages, two story pages, two What's New pages, `404.html`. `_headers` caches
+  files — two directory pages, two story pages, two Highlights pages, `404.html`. `_headers` caches
   `/assets/*` for a year as `immutable`; a same-name edit may never reach anyone
   who already has the old one. Delete the old file in the same commit. The edge
   keeps serving it for a while afterwards, which is harmless once nothing links
@@ -163,12 +163,20 @@ Small, obvious edits — a typo, one card's wording — may still go straight to
   it, with the right language. The mirror comments in the markup name their
   counterparts; keep them accurate when you add a page.
 - **The ask launcher is only on the two directory pages, on purpose.** Not on
-  the story pages, not on What's New, not on `404.html`. Those are content, and
+  the story pages, not on Highlights, not on `404.html`. Those are content, and
   a floating button over content competes with it; asking is the directory's
   action and the menu is one tap away. Do not "fix" the inconsistency by adding
   it everywhere — the decision is in `PENDING.md`.
+- **A wrong iframe path does not 404 — it silently shows the bot's chat.**
+  Found on 2026-08-30, on a preview, one step from going live. The bot's Pages
+  project falls back to its `index.html` for any unknown path and answers
+  **200**, so `askcarnivore.com/anything` renders the landing page instead of
+  failing. Frame a stale or mistyped path and the panel looks fine while the
+  content is wrong. **After any change to a framed URL, open the live page and
+  check what is actually inside the frame** — a green status code proves
+  nothing here.
 - **`frame-src` is host-only, so a second framed page needed no CSP change.**
-  `/whats-new/` frames the bot's `/new` under the same
+  `/highlights/` frames the bot's `/highlights` under the same
   `frame-src https://askcarnivore.com` the panel already had. If you ever add a
   frame to a *different* host, that is when the header moves.
 - **The CSP blocks all scripts, iframes and fetches** (`default-src 'none'` in

@@ -18,7 +18,7 @@
 # frame US — and stay exactly as they are.
 #
 # frame-src is host-only, so it already covers every page on that host: the
-# panel frames /embed and /whats-new/ frames /new, with no CSP change for the
+# panel frames /embed and /highlights/ frames /new, with no CSP change for the
 # second. Which of their pages may be framed is enforced on the bot's side.
 #
 # Comments live outside the blocks, not inside them: a `#` line indented into a
@@ -44,9 +44,9 @@
   Cache-Control: public, max-age=0, must-revalidate
 /gr/about/
   Cache-Control: public, max-age=0, must-revalidate
-/whats-new/
+/highlights/
   Cache-Control: public, max-age=0, must-revalidate
-/gr/whats-new/
+/gr/highlights/
   Cache-Control: public, max-age=0, must-revalidate
 /404.html
   Cache-Control: public, max-age=0, must-revalidate

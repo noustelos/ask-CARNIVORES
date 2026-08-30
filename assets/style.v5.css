@@ -568,7 +568,7 @@ body:has(.ask-launcher) { padding-bottom: 6rem; }
 .ask-panel, .ask-backdrop { display: none; }
 .ask-open .ask-panel, .ask-open .ask-backdrop { display: flex; }
 
-/* ---------- framed pages (What's New) ----------
+/* ---------- framed pages (Highlights) ----------
    A page whose body is one iframe of the bot's own page — the same "window,
    not a copy" model as the ask panel, minus the panel: no launcher, no
    open/close, and so no JavaScript at all.
