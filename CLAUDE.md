@@ -9,8 +9,8 @@ an agent needs on top of those.
 
 ## What this is
 
-`askcarnivores.com` — a static community portal for the carnivore world. Four
-pages (EN + EL of two), one stylesheet, **one small script**, no build step, no
+`askcarnivores.com` — a static community portal for the carnivore world. Six
+pages (EN + EL of three), one stylesheet, **one small script**, no build step, no
 dependencies, no backend. The script is the ask panel (§16), shipped
 2026-08-30 — the site's zero-JS run ended there, on purpose and once.
 
@@ -19,7 +19,9 @@ index.html            English directory (default)
 gr/index.html         Greek directory — mirror of index.html
 about/index.html      English "My Story"
 gr/about/index.html   Greek "My Story" — mirror of about/index.html
-assets/style.v4.css   All styling; versioned filename = cache-busting
+whats-new/index.html      English "What's New" — an iframe of the bot's /new
+gr/whats-new/index.html   Greek mirror of it
+assets/style.v5.css   All styling; versioned filename = cache-busting
 assets/ask.v1.js      The ask panel (§16) — the only script on the site
 _headers              Cloudflare Pages security + cache headers
 404.html              Real 404 (Pages serves it with a 404 status)
@@ -149,17 +151,26 @@ Small, obvious edits — a typo, one card's wording — may still go straight to
 ## Things that will bite you
 
 - **Bump the CSS filename version** when editing the stylesheet
-  (`style.v4.css` → `style.v5.css`) and update the `<link>` in **all five** HTML
-  files — two directory pages, two story pages, `404.html`. `_headers` caches
+  (`style.v5.css` → `style.v6.css`) and update the `<link>` in **all seven** HTML
+  files — two directory pages, two story pages, two What's New pages, `404.html`. `_headers` caches
   `/assets/*` for a year as `immutable`; a same-name edit may never reach anyone
   who already has the old one. Delete the old file in the same commit. The edge
   keeps serving it for a while afterwards, which is harmless once nothing links
   to it — do not let that fool you into thinking the bump did not work. The same
   rule governs `assets/ask.v1.js`.
-- **Mirror across the language pair, and now across four pages.** A change to
+- **Mirror across the language pair, and now across six pages.** A change to
   chrome — header menu, status strip, footer — belongs in every page that has
   it, with the right language. The mirror comments in the markup name their
   counterparts; keep them accurate when you add a page.
+- **The ask launcher is only on the two directory pages, on purpose.** Not on
+  the story pages, not on What's New, not on `404.html`. Those are content, and
+  a floating button over content competes with it; asking is the directory's
+  action and the menu is one tap away. Do not "fix" the inconsistency by adding
+  it everywhere — the decision is in `PENDING.md`.
+- **`frame-src` is host-only, so a second framed page needed no CSP change.**
+  `/whats-new/` frames the bot's `/new` under the same
+  `frame-src https://askcarnivore.com` the panel already had. If you ever add a
+  frame to a *different* host, that is when the header moves.
 - **The CSP blocks all scripts, iframes and fetches** (`default-src 'none'` in
   `_headers`). Anything external added without also editing that line fails
   **silently** — page still works, no error, nothing in the logs. It does not

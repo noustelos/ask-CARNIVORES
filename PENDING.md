@@ -38,7 +38,7 @@ Closed by Concept Base v3 §17. Moved to "Done, recorded so it isn't re-litigate
 ### Logo and brand direction
 Brief §11 lists these as open. None supplied, so the site uses a plain type
 wordmark and a self-designed palette: bone, deep charcoal, one muted rust accent.
-Every colour is a CSS custom property at the top of `assets/style.v4.css`, so a
+Every colour is a CSS custom property at the top of `assets/style.v5.css`, so a
 rebrand is a token swap, not a rewrite.
 
 **To close:** supply logo/colours, or leave as is.
@@ -286,6 +286,40 @@ bot, no — the bot stays a clean interface and never fills up with commerce.
   frame itself cannot be checked on a preview** — the bot's `frame-ancestors`
   names `askcarnivores.com` and `www.` only, so `*.pages.dev` is blocked and the
   panel opens empty there. Expected, not a bug.
+
+### What's New — Concept Base §16's second window, **shipped 2026-08-30**
+
+`/whats-new/` and `/gr/whats-new/` are a full-page iframe of the bot's `/new`,
+which renders a card stack of the videos Nick marks `blog=yes` in the sheet.
+Same model as the ask panel and for the same reason: **the list is the bot's**,
+and this repo is a window onto it rather than a second copy. One index, one
+place it is curated, and anything he adds to the sheet appears here without a
+deploy on either side.
+
+**It cost this repo no CSP change at all.** `frame-src https://askcarnivore.com`
+is host-only, so it already covered a second page on that host. If a frame is
+ever pointed at a *different* host, that is when the header moves.
+
+**Zero JavaScript on these two pages.** Unlike the panel, this is a page rather
+than a control, so there is nothing to open or close — a plain `<iframe>` with a
+`src`, no launcher, no lazy-load. `ask.v1.js` is still the site's only script
+and it is not loaded here.
+
+The iframe carries **no `sandbox`**, the same rule as the panel's but for a
+different reason: this page runs no fetch, so there is no `Origin` to break.
+What a sandbox would break is the links — every card opens YouTube with
+`target="_blank"`, and without `allow-popups` none of them would open.
+
+**The launcher is deliberately absent from this page, and from the story
+pages.** Decided 2026-08-30: they are content, and a floating button over
+content competes with it. Asking is the *directory's* action, and the directory
+is one tap away in the menu. So the launcher lives on `/` and `/gr/` only. This
+is a decision, not an inconsistency to tidy up — do not add it "for symmetry".
+
+**What is still open:** the framed page is English, like `/embed`, so a Greek
+visitor gets a Greek page around an English list. Same call as the panel, same
+reasoning — this audience already operates in English for this material — and
+the fix, if it is ever wanted, belongs on the bot's side.
 
 ### The bot's index went video-level — nothing to do here, and one thing not to do
 

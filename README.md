@@ -1,6 +1,6 @@
 # askcarnivores.com
 
-Static community portal for the carnivore world. Four pages, one stylesheet, one
+Static community portal for the carnivore world. Six pages, one stylesheet, one
 small script, no build step, no dependencies.
 
 The script is the ask panel (Concept Base v3.1 §16), shipped 2026-08-30: it opens
@@ -20,8 +20,10 @@ index.html              English directory (default)
 gr/index.html           Greek directory
 about/index.html        English "My Story"
 gr/about/index.html     Greek "My Story"
+whats-new/index.html    English "What's New" — an iframe of the bot's /new
+gr/whats-new/index.html Greek mirror of it
 404.html                Real 404 (Pages serves it with a 404 status)
-assets/style.v4.css     All styling. Versioned filename = cache-busting.
+assets/style.v5.css     All styling. Versioned filename = cache-busting.
 assets/ask.v1.js        The ask panel (§16). The only script on the site.
 assets/favicon.v2.svg   Favicon — "AC", light + dark via a media query inside the SVG
 assets/og.v1.png        Social share card (1200×630)
@@ -459,13 +461,14 @@ What that means in practice:
 
 ## Changing the look
 
-The whole palette is CSS custom properties at the top of `assets/style.v4.css`
+The whole palette is CSS custom properties at the top of `assets/style.v5.css`
 — one `:root` block for light, one for dark. Change those tokens and nothing
 else.
 
 If you edit the stylesheet, **bump the version in the filename**
-(`style.v4.css` → `style.v5.css`) and update the `<link>` in **all five** HTML
-files — the two directory pages, the two story pages and `404.html`. Assets are
+(`style.v5.css` → `style.v6.css`) and update the `<link>` in **all seven** HTML
+files — the two directory pages, the two story pages, the two What's New pages
+and `404.html`. Assets are
 cached for a year by `_headers` as `immutable`, so a same-name edit may never
 reach anyone who has already loaded the old one. Delete the previous file in the
 same commit; the edge keeps serving it for a while regardless, which is harmless
@@ -595,9 +598,15 @@ window. Details are in PENDING.md, "The bot, embedded".
 in any case. Which page may be framed is the bot's call, enforced by its own
 per-page `frame-ancestors`.
 
-**A preview deploy cannot show you the frame.** The bot's `frame-ancestors` names
-`askcarnivores.com` and `www.` only, so on a `*.pages.dev` preview the browser
-blocks the frame and the panel opens empty. That is correct behaviour, not a bug.
+`frame-src` is **host-only**, which is why the second framed page cost no CSP
+change at all: `/whats-new/` frames the bot's `/new` under the same directive
+the ask panel already had. A frame to a *different* host is when the header
+would have to move.
+
+**A preview deploy cannot show you either frame.** The bot's `frame-ancestors`
+names `askcarnivores.com` and `www.` only, so on a `*.pages.dev` preview the
+browser blocks the frame: the panel opens empty and What's New is a blank
+rectangle. That is correct behaviour, not a bug.
 Check the panel, the CSP and the script on a preview; check the frame itself
 after the deploy, with Rollback as the net.
 

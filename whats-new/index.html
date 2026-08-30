@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What's New — AskCarnivores</title>
+<meta name="description" content="Recently added videos from the creators in the directory — picked by hand, newest first.">
+<link rel="canonical" href="https://askcarnivores.com/whats-new/">
+<link rel="alternate" hreflang="en" href="https://askcarnivores.com/whats-new/">
+<link rel="alternate" hreflang="el" href="https://askcarnivores.com/gr/whats-new/">
+<link rel="alternate" hreflang="x-default" href="https://askcarnivores.com/whats-new/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://askcarnivores.com/whats-new/">
+<meta property="og:site_name" content="AskCarnivores">
+<meta property="og:title" content="What's New — AskCarnivores">
+<meta property="og:description" content="Recently added videos from the creators in the directory.">
+<meta property="og:image" content="https://askcarnivores.com/assets/og.v1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="el_GR">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/favicon.v2.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.v2.png">
+<meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
+
+<!-- Same pattern as the ask panel (§16) and for the same reason: the list is
+     the bot's, and this page is a window onto it rather than a second copy.
+     One index, one place it is curated. The difference is that this one is a
+     page rather than a panel, so it needs no JavaScript at all — a plain
+     iframe, no launcher, no open/close.
+
+     The stylesheet went v4 -> v5 for the .frame-page rules below; assets here
+     are cached immutable, so changing one means renaming it and moving every
+     page's <link> with it. -->
+<link rel="stylesheet" href="/assets/style.v5.css">
+</head>
+<body class="frame-body">
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">Ask<span>Carnivores</span></a>
+    <!-- The site menu. Mirror any change into /index.html, /gr/index.html,
+         /about/, /gr/about/ and /gr/whats-new/. -->
+    <nav class="site-nav" aria-label="Sections">
+      <a href="/about/">My Story</a>
+      <a href="/whats-new/" aria-current="page">What's New</a>
+    </nav>
+    <!-- The language pair points at the two halves of THIS page, not at the two
+         index pages: someone switching language here wants this page in the
+         other language, not to be sent back to the directory. -->
+    <nav class="lang" aria-label="Language">
+      <a href="/whats-new/" aria-current="true" hreflang="en">EN</a>
+      <span aria-hidden="true">/</span>
+      <a href="/gr/whats-new/" hreflang="el">ΕΛ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="frame-main">
+  <!-- NO sandbox attribute, and that is deliberate — the same rule as the ask
+       panel's iframe, for a different reason here. This page runs no fetch of
+       its own, so there is no Origin to break; what a sandbox would break is
+       the links. Every card opens YouTube with target="_blank", and without
+       allow-popups none of them would open at all. The isolation comes from
+       the origin boundary and from frame-src naming exactly one host in
+       _headers. Don't add it.
+
+       The frame is not lazy: unlike the panel, this page IS the content, so
+       deferring it would just show an empty screen to someone who asked for
+       exactly this. -->
+  <iframe class="frame-page__frame"
+          src="https://askcarnivore.com/new"
+          title="What's New — recently added videos"></iframe>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h2>Disclaimer</h2>
+    <div class="footer-disclaimer">
+      <p>
+        AskCarnivores is a community guide. It presents the opinions and experiences of
+        members of the carnivore community and of public creators — <strong>it is not
+        medical advice</strong>. Personal experiences are not expected results. For
+        anything involving a medical condition, medication, or a change you're unsure
+        about, talk to a doctor.
+      </p>
+      <p>
+        We are not affiliated with the people listed here and we don't speak for them.
+        Every link goes to content they published themselves.
+      </p>
+    </div>
+
+    <div class="footer-meta">
+      <span>© 2026 AskCarnivores</span>
+      <a href="/gr/whats-new/" hreflang="el">Ελληνικά</a>
+      <a href="https://askcarnivore.com" target="_blank" rel="noopener">askcarnivore.com</a>
+      <!-- The address is shown in full, not hidden behind "Contact": a visible
+           address can be copied by anyone whose browser has no mail handler.
+           No target/rel — mailto: hands off to a mail client, it is not an
+           external page, so rule 1 does not apply. Mirror any change into
+           /index.html, /gr/index.html, /about/, /gr/about/,
+           /gr/whats-new/ and 404.html. -->
+      <!--email_off--><a href="mailto:info@askcarnivores.com">info@askcarnivores.com</a><!--/email_off-->
+
+      <!-- The "/>" is the studio's mark, not punctuation — decorative here,
+           so it stays out of the accessible name ("A NOUSTELOS_STUDIO PROJECT").
+           rel is "noopener" only, deliberately: noreferrer would hide that the
+           traffic came from here, and attribution is the point of the credit. -->
+      <a class="by" href="https://noustelos.gr/" target="_blank" rel="noopener">A <span class="by__name">NOUSTELOS_STUDIO</span> PROJECT<span class="by__mark" aria-hidden="true">/&gt;</span></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
