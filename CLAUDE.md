@@ -10,15 +10,17 @@ an agent needs on top of those.
 ## What this is
 
 `askcarnivores.com` — a static community portal for the carnivore world. Four
-pages (EN + EL of two), one stylesheet, **zero JavaScript**, no build step, no
-dependencies, no backend.
+pages (EN + EL of two), one stylesheet, **one small script**, no build step, no
+dependencies, no backend. The script is the ask panel (§16), shipped
+2026-08-30 — the site's zero-JS run ended there, on purpose and once.
 
 ```
 index.html            English directory (default)
 gr/index.html         Greek directory — mirror of index.html
 about/index.html      English "My Story"
 gr/about/index.html   Greek "My Story" — mirror of about/index.html
-assets/style.v3.css   All styling; versioned filename = cache-busting
+assets/style.v4.css   All styling; versioned filename = cache-busting
+assets/ask.v1.js      The ask panel (§16) — the only script on the site
 _headers              Cloudflare Pages security + cache headers
 404.html              Real 404 (Pages serves it with a 404 status)
 robots.txt, sitemap.xml
@@ -57,6 +59,12 @@ A deploy preview has both, and a real URL to hand to Nick. **Rollback**
 (Pages → Deployments → ⋯ → Rollback) is still the net, but it is a net rather
 than a plan.
 
+**One thing a preview still cannot show you: the bot panel's frame.** The bot's
+`frame-ancestors` names `askcarnivores.com` and `www.` only, so on a
+`*.pages.dev` preview the browser blocks the frame and the panel opens empty.
+Check the chrome, the CSP and the script there; check the frame itself once it
+is live. That is expected behaviour, not a bug to chase.
+
 Nick also previews locally with the VS Code **Go Live** button (Live Server).
 Any static server works and one is required — the pages use absolute
 `/assets/...` paths, so opening the file directly leaves it unstyled:
@@ -88,9 +96,9 @@ Small, obvious edits — a typo, one card's wording — may still go straight to
    change the other, and say so in the commit message.
 
    **"Copy, don't link" covers static elements — never the bot's engine.** The
-   planned bot panel (Concept Base v3 §16) is an **iframe of the public bot URL**
-   wrapped in portal-side chrome: the component styles and opens it, and it must
-   **never** `fetch` the bot's worker. Never copy the bot's code, worker, key or
+   bot panel (Concept Base v3.1 §16, shipped) is an **iframe of the public bot
+   URL** wrapped in portal-side chrome: `assets/ask.v1.js` styles and opens it,
+   and it must **never** `fetch` the bot's worker. Never copy the bot's code, worker, key or
    index into this repo — one bot, one index; this site is a window onto it. Full
    consequences in `PENDING.md`, "The bot, embedded".
 
@@ -141,12 +149,13 @@ Small, obvious edits — a typo, one card's wording — may still go straight to
 ## Things that will bite you
 
 - **Bump the CSS filename version** when editing the stylesheet
-  (`style.v3.css` → `style.v4.css`) and update the `<link>` in **all five** HTML
+  (`style.v4.css` → `style.v5.css`) and update the `<link>` in **all five** HTML
   files — two directory pages, two story pages, `404.html`. `_headers` caches
   `/assets/*` for a year as `immutable`; a same-name edit may never reach anyone
   who already has the old one. Delete the old file in the same commit. The edge
   keeps serving it for a while afterwards, which is harmless once nothing links
-  to it — do not let that fool you into thinking the bump did not work.
+  to it — do not let that fool you into thinking the bump did not work. The same
+  rule governs `assets/ask.v1.js`.
 - **Mirror across the language pair, and now across four pages.** A change to
   chrome — header menu, status strip, footer — belongs in every page that has
   it, with the right language. The mirror comments in the markup name their
@@ -157,11 +166,25 @@ Small, obvious edits — a typo, one card's wording — may still go straight to
   apply on localhost either, so the failure only appears in production. Extend
   the header and ship the feature in the same commit; the per-case directives are
   in `README.md`, "The CSP".
+- **Never put a `sandbox` attribute on the bot's iframe.** It is absent on
+  purpose and there is a comment next to the tag saying so. `sandbox` without
+  `allow-same-origin` gives the framed page an **opaque origin**, so the bot's
+  own `chat.js` calls `/api/ask` with `Origin: null`, the worker's origin check
+  rejects it, and the panel shows a flawless chat that answers **403 to every
+  question**. It looks like our bug and is not. `allow-scripts allow-same-origin`
+  together is close to no sandbox at all for a cross-origin frame, so the
+  attribute buys nothing and costs that. The isolation is the origin boundary
+  plus `frame-src` naming exactly one host.
+- **Keep the CSP comments *outside* the `/*` block in `_headers`.** An indented
+  `#` line inside a block is not reliably parsed as a comment; the surrounding
+  file puts every comment above its block, and so should you.
 - **`frame-ancestors` is not `frame-src`.** `frame-ancestors 'none'` (plus
-  `X-Frame-Options: DENY`) stops *us being framed* and stays. Putting the bot in a
-  frame *here* needs `frame-src`, which is absent, so `default-src 'none'` denies
-  it. The bot's side needs its own `frame-ancestors` for this domain, set in the
-  bot's repo — not here.
+  `X-Frame-Options: DENY`) stops *us being framed* and stays exactly as it is.
+  Putting the bot in a frame *here* is `frame-src`, which now names
+  `https://askcarnivore.com` — **host-only**, because Pages serves that page as
+  both `/embed` and `/embed.html` and a path in `frame-src` is skipped after a
+  redirect anyway. The bot's side has its own `frame-ancestors` for this domain,
+  set in the bot's repo — never here.
 - **Verify every YouTube handle *and* every domain by opening it.** A plausible
   handle proves nothing and neither does a plausible domain: `@DaveMac` is a
   speaking coach, `@PrimalEdge` is woodworking, `@BartKayNutritionScience` does
@@ -213,6 +236,9 @@ later, and it comes with locked rules — curated-first, static, commission neve
 solicited and never deciding order. Read `PENDING.md`, "Events calendar", before
 touching it.
 
-The **embedded bot panel** (Concept Base v3 §16, unchanged from v2) is planned but
-not now — it waits on the bot itself, which is still a placeholder. It would also
-end the site's zero-JS run, so it is a deliberate later step, not an oversight.
+The **embedded bot panel** (Concept Base v3.1 §16) is **built and shipped**
+(2026-08-30) — launcher, panel, and an iframe of the bot's public `/embed` page,
+driven by `assets/ask.v1.js`. It is no longer out of scope and no longer waiting
+on anything: the bot is live, with a real worker, a 16-topic × 27-creator
+curation, scan and sheet layers, and its own About page. Read `PENDING.md`,
+"The bot, embedded", before changing any part of it.

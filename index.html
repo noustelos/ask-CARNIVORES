@@ -27,7 +27,7 @@
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
 
-<link rel="stylesheet" href="/assets/style.v3.css">
+<link rel="stylesheet" href="/assets/style.v4.css">
 </head>
 <body>
 
@@ -53,7 +53,8 @@
      promise and stays there — never move it up here, because this strip can be
      dismissed and that one must not be.
 
-     The checkbox is the dismiss: no JavaScript on this site, by CSP. It has to
+     The checkbox is the dismiss, and it stays a checkbox: the only script here
+     is the ask panel, and this strip must work without it. It has to
      precede the strip for the sibling selector to reach it. Mirror any change
      into /gr/index.html. -->
 <input class="status-dismiss" type="checkbox" id="status-dismiss">
@@ -619,10 +620,12 @@
           <p>
             This page is for looking at the people. AskCarnivore — singular — is for
             asking the thing: type a question in plain words and it points you at the
-            source. No app, no sign-up. Coming soon.
+            source. No app. No sign-up. Just ask.
           </p>
         </div>
-        <a class="btn btn-primary" href="https://askcarnivore.com" target="_blank" rel="noopener">Just Ask →</a>
+        <!-- data-ask: the panel's second entry point. Same link as before, so
+             with no JavaScript it still opens the bot's own page. -->
+        <a class="btn btn-primary" href="https://askcarnivore.com" target="_blank" rel="noopener" data-ask>Just Ask →</a>
       </div>
     </div>
   </section>
@@ -666,6 +669,39 @@
     </div>
   </div>
 </footer>
+
+<!-- ============ ASK PANEL (Concept Base v3.1 §16) ============
+     The bot, embedded — so nobody has to leave the page to ask. Three layers,
+     and the boundary between them is the point: this repo owns the launcher,
+     the panel and the styling; the iframe points at the bot's public /embed
+     URL; the bot itself is untouched, on its own origin, in its own repo.
+
+     Progressive enhancement: with no JavaScript the launcher below is an
+     ordinary link to askcarnivore.com — exactly what this site shipped before
+     — and /assets/ask.v1.js upgrades it into a panel. Nothing here ever
+     fetches the bot's worker. A frame IS a public hyperlink, in a window.
+
+     Mirror any change into /gr/index.html. -->
+<a class="ask-launcher" href="https://askcarnivore.com" target="_blank" rel="noopener" data-ask>Ask a question</a>
+
+<button class="ask-backdrop" id="ask-backdrop" type="button" tabindex="-1" aria-hidden="true"></button>
+
+<div class="ask-panel" id="ask-panel" role="dialog" aria-modal="true" aria-label="Ask AskCarnivore" aria-hidden="true">
+  <div class="ask-panel__head">
+    <p class="ask-panel__title">Ask a question</p>
+    <button class="ask-panel__x" id="ask-close" type="button" aria-label="Close">&times;</button>
+  </div>
+  <!-- NO sandbox attribute, and that is deliberate. `sandbox` without
+       `allow-same-origin` gives the framed page an opaque origin, so its own
+       fetch to /api/ask arrives carrying `Origin: null`, the bot's origin
+       check rejects it, and this panel renders a perfect chat that answers
+       403 to every question. The isolation here comes from the origin
+       boundary and from `frame-src` naming exactly one host in `_headers` —
+       not from this attribute. Don't add it back. -->
+  <iframe class="ask-panel__frame" id="ask-frame" title="Ask Carnivore Ai"></iframe>
+</div>
+
+<script src="/assets/ask.v1.js" defer></script>
 
 </body>
 </html>

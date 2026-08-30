@@ -34,7 +34,7 @@
      so changing one means renaming it. Note there is no escape hatch — the
      CSP is style-src 'self' with no 'unsafe-inline', so a <style> block on
      the page would be blocked outright. -->
-<link rel="stylesheet" href="/assets/style.v3.css">
+<link rel="stylesheet" href="/assets/style.v4.css">
 </head>
 <body>
 
@@ -63,7 +63,8 @@
      promise and stays there — never move it up here, because this strip can be
      dismissed and that one must not be.
 
-     The checkbox is the dismiss: no JavaScript on this site, by CSP. It has to
+     The checkbox is the dismiss, and it stays a checkbox: the only script here
+     is the ask panel, and this strip must work without it. It has to
      precede the strip for the sibling selector to reach it. Mirror any change
      into /index.html, /gr/index.html and /gr/about/index.html. -->
 <input class="status-dismiss" type="checkbox" id="status-dismiss">
@@ -132,9 +133,9 @@
     <div class="wrap">
       <h2>Why I built it</h2>
 
-      <p>The idea for the AI bot and the site came from a need to give something back to the community and help spread the carnivore lifestyle. Having faced the chaos of the information ocean myself — and precious lost hours until I found the right creators with credible content every time I wanted to learn something, e.g. what exactly the Randle Cycle is — I thought of building a tool that would help people like me, as well as those who don't know where to start.</p>
+      <p>The idea for the guide and the site came from a need to give something back to the community and help spread the carnivore lifestyle. Having faced the chaos of the information ocean myself — and precious lost hours until I found the right creators with credible content every time I wanted to learn something, e.g. what exactly the Randle Cycle is — I thought of building a tool that would help people like me, as well as those who don't know where to start.</p>
 
-      <p>So what you have in your hands is a <strong>directory of creators</strong> and an <strong>AI bot</strong> that pulls, on the topic you care about, links from their YouTube channels — and can point you to credible content from people the carnivore community loves and recognizes. Most of them are the very scientists who laid the solid foundations it was built on.</p>
+      <p>So what you have in your hands is a <strong>directory of creators</strong> and a <strong>guide</strong> that pulls, on the topic you care about, links from their YouTube channels — and can point you to credible content from people the carnivore community loves and recognizes. Most of them are the very scientists who laid the solid foundations it was built on.</p>
 
       <p>It wasn't made to pose as the new authority, nor to replace doctors. It's a clean switchboard: it brings you straight to the right video, the right source, the right depth — with no friction and no paywalls.</p>
     </div>
@@ -158,7 +159,7 @@
 
       <div class="hero-actions">
         <a class="btn btn-primary" href="/">Browse the directory</a>
-        <a class="btn btn-secondary" href="https://askcarnivore.com" target="_blank" rel="noopener">Ask the bot</a>
+        <a class="btn btn-secondary" href="https://askcarnivore.com" target="_blank" rel="noopener">Just Ask</a>
       </div>
     </div>
   </section>

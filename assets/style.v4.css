@@ -425,3 +425,145 @@ p { margin: 0 0 1em; max-width: var(--measure); }
 @media (prefers-reduced-motion: reduce) {
   .by { transition: none; }
 }
+
+/* ---------- ask panel (Concept Base v3.1 §16) ----------
+   The bot, embedded: a launcher, a panel, and an iframe of the bot's public
+   /embed page. Cosmetics only — nothing here knows anything about the bot
+   beyond one URL, and no script on this site ever calls its worker.
+
+   Built for the audience §16 names: 50+, most of them managing something
+   medical. That is why the launcher carries WORDS instead of a chat glyph,
+   why the targets are large, and why the panel is full-screen on a phone.
+   Closing the panel IS the back button, so the × outranks everything else
+   in the panel for size and contrast. */
+
+.ask-launcher {
+  position: fixed;
+  z-index: 40;
+  right: var(--space);
+  bottom: var(--space);
+  display: inline-flex;
+  align-items: center;
+  min-height: 3.5rem;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid var(--accent);
+  border-radius: 2rem;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: inherit;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 14px rgb(0 0 0 / 0.22);
+}
+
+/* Never hidden on scroll. A launcher that disappears is a launcher this
+   audience does not find again — the whole point is that asking is always
+   one visible step away. */
+
+.ask-launcher:hover { filter: brightness(1.1); }
+
+/* Full width on a phone, where a corner pill is a small target. */
+@media (max-width: 30rem) {
+  .ask-launcher {
+    left: var(--space);
+    justify-content: center;
+  }
+}
+
+/* The launcher floats over the page, so the last thing on it would sit
+   underneath — and the last thing on it is the disclaimer. Buy back its
+   height, but only on the pages that actually carry a launcher: 404.html
+   shares this stylesheet and has none. */
+body:has(.ask-launcher) { padding-bottom: 6rem; }
+
+/* Open state hides the launcher: the × is the only control that matters
+   while the panel is up, and two competing buttons is how people miss it. */
+.ask-open .ask-launcher { display: none; }
+
+/* Scroll lock. The panel owns the viewport while it is open. */
+.ask-open body { overflow: hidden; }
+
+.ask-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: rgb(0 0 0 / 0.45);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.ask-panel {
+  position: fixed;
+  z-index: 50;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-raised);
+}
+
+@media (min-width: 40rem) {
+  .ask-panel {
+    inset: auto var(--space) var(--space) auto;
+    width: min(27.5rem, 92vw);
+    height: min(44rem, 88vh);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgb(0 0 0 / 0.3);
+  }
+}
+
+.ask-panel__head {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.6rem 0.6rem 0.6rem 1.1rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.ask-panel__title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ask-panel__x {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.9rem;
+  min-height: 2.9rem;
+  border: 1px solid var(--rule);
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.ask-panel__x:hover { background: var(--wash); }
+
+/* The framed page sets its own height and scrolls its thread internally
+   (see the bot's embed.html), so the panel must not add a scrollbar of
+   its own — the iframe just fills what is left. */
+.ask-panel__frame {
+  flex: 1;
+  min-height: 0;
+  width: 100%;
+  border: 0;
+  display: block;
+}
+
+/* No JS, no panel: the launcher and the banner button stay ordinary links
+   to the bot's own page, so the frame is an upgrade and never a gate. */
+.ask-panel, .ask-backdrop { display: none; }
+.ask-open .ask-panel, .ask-open .ask-backdrop { display: flex; }

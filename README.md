@@ -1,7 +1,12 @@
 # askcarnivores.com
 
-Static community portal for the carnivore world. Four pages, one stylesheet, no
-JavaScript, no build step, no dependencies.
+Static community portal for the carnivore world. Four pages, one stylesheet, one
+small script, no build step, no dependencies.
+
+The script is the ask panel (Concept Base v3.1 §16), shipped 2026-08-30: it opens
+a panel holding an iframe of the bot's public `/embed` page, so a visitor can ask
+without leaving the site. It is the only JavaScript here, it is ~60 lines, and it
+never calls the bot's worker — see "The bot, embedded" in PENDING.md.
 
 > **Siloing rule:** this project is completely separate from `askcarnivore.com`
 > (the bot). Separate repo, separate Cloudflare Pages project, separate secrets.
@@ -16,7 +21,8 @@ gr/index.html           Greek directory
 about/index.html        English "My Story"
 gr/about/index.html     Greek "My Story"
 404.html                Real 404 (Pages serves it with a 404 status)
-assets/style.v3.css     All styling. Versioned filename = cache-busting.
+assets/style.v4.css     All styling. Versioned filename = cache-busting.
+assets/ask.v1.js        The ask panel (§16). The only script on the site.
 assets/favicon.v2.svg   Favicon — "AC", light + dark via a media query inside the SVG
 assets/og.v1.png        Social share card (1200×630)
 assets/apple-touch-icon.v2.png
@@ -453,17 +459,17 @@ What that means in practice:
 
 ## Changing the look
 
-The whole palette is CSS custom properties at the top of `assets/style.v3.css`
+The whole palette is CSS custom properties at the top of `assets/style.v4.css`
 — one `:root` block for light, one for dark. Change those tokens and nothing
 else.
 
 If you edit the stylesheet, **bump the version in the filename**
-(`style.v3.css` → `style.v4.css`) and update the `<link>` in **all five** HTML
+(`style.v4.css` → `style.v5.css`) and update the `<link>` in **all five** HTML
 files — the two directory pages, the two story pages and `404.html`. Assets are
 cached for a year by `_headers` as `immutable`, so a same-name edit may never
 reach anyone who has already loaded the old one. Delete the previous file in the
 same commit; the edge keeps serving it for a while regardless, which is harmless
-once nothing links to it.
+once nothing links to it. The same rule governs `assets/ask.v1.js`.
 
 ### The icons
 
@@ -569,20 +575,31 @@ is inert in production with nothing in the logs to say why.
 
 ### `frame-ancestors` and `frame-src` point in opposite directions
 
-Two directives look alike and do opposite jobs, and the planned bot panel
-(Concept Base §16) needs one of them:
+Two directives look alike and do opposite jobs, and the bot panel
+(Concept Base §16, shipped) needs one of them:
 
 - **`frame-ancestors 'none'`** — backed by `X-Frame-Options: DENY` — says *nobody
   may put this site inside a frame*. It is about **us being framed**, and it stays
   as it is.
 - **`frame-src`** says *which sites a page here may put inside a frame of its
-  own*. It is absent today, so `default-src 'none'` denies all of them.
+  own*. It now names one host: `https://askcarnivore.com`.
 
 Framing the bot needs `frame-src https://askcarnivore.com` on **this** site and a
 matching `frame-ancestors https://askcarnivores.com` on **the bot's** side — the
-bot's own header, set in the bot's own repo. Neither is a shared secret and
-neither breaks the siloing rule: an iframe is a public URL in a window. Details
-and the rest of what it costs are in PENDING.md, "The bot, embedded".
+bot's own header, set in the bot's own repo. Both are in place. Neither is a
+shared secret and neither breaks the siloing rule: an iframe is a public URL in a
+window. Details are in PENDING.md, "The bot, embedded".
+
+`frame-src` here is **host-only**, not `…/embed`. Pages serves that page as both
+`/embed` and `/embed.html`, and a path in `frame-src` is skipped after a redirect
+in any case. Which page may be framed is the bot's call, enforced by its own
+per-page `frame-ancestors`.
+
+**A preview deploy cannot show you the frame.** The bot's `frame-ancestors` names
+`askcarnivores.com` and `www.` only, so on a `*.pages.dev` preview the browser
+blocks the frame and the panel opens empty. That is correct behaviour, not a bug.
+Check the panel, the CSP and the script on a preview; check the frame itself
+after the deploy, with Rollback as the net.
 
 ## Rollback
 

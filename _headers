@@ -1,14 +1,33 @@
 # Cloudflare Pages — https://developers.cloudflare.com/pages/configuration/headers/
 
+# The CSP below carries two directives for the ask panel (§16), and they belong
+# in this one /* block rather than in a rule of their own. Pages MERGES every
+# rule that matches a request, the two policies are then evaluated together, and
+# the STRICTER wins — so a frame-src declared in a separate block would be
+# silently vetoed by this block's `default-src 'none'`, and the panel would
+# render an empty box with nothing in any log to explain it.
+#
+#   script-src 'self'  — for /assets/ask.v1.js. Never 'unsafe-inline'.
+#   frame-src          — the bot's origin, host-only on purpose: Pages serves
+#                        that page as both /embed and /embed.html, and a path in
+#                        frame-src is skipped after a redirect anyway. WHICH
+#                        page may be framed is enforced on the bot's side, by
+#                        its per-page frame-ancestors.
+#
+# frame-ancestors 'none' and X-Frame-Options point the opposite way — who may
+# frame US — and stay exactly as they are.
+#
+# Comments live outside the blocks, not inside them: a `#` line indented into a
+# block is not reliably treated as a comment here.
 /*
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: DENY
   Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
-  Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
+  Content-Security-Policy: default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; font-src 'self'; frame-src https://askcarnivore.com; base-uri 'none'; form-action 'none'; frame-ancestors 'none'
 
-# Assets carry a version in the filename (style.v2.css), so they can be cached hard.
-# Bump the version in the filename when you change one.
+# Assets carry a version in the filename (style.v4.css, ask.v1.js), so they can
+# be cached hard. Bump the version in the filename when you change one.
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
