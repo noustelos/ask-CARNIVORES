@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Επιλογές — AskCarnivores</title>
+<meta name="description" content="Επιλεγμένα βίντεο από τους δημιουργούς του καταλόγου.">
+<link rel="canonical" href="https://askcarnivores.com/gr/highlights/">
+<link rel="alternate" hreflang="en" href="https://askcarnivores.com/highlights/">
+<link rel="alternate" hreflang="el" href="https://askcarnivores.com/gr/highlights/">
+<link rel="alternate" hreflang="x-default" href="https://askcarnivores.com/highlights/">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://askcarnivores.com/gr/highlights/">
+<meta property="og:site_name" content="AskCarnivores">
+<meta property="og:title" content="Επιλογές — AskCarnivores">
+<meta property="og:description" content="Επιλεγμένα βίντεο από τους δημιουργούς του καταλόγου.">
+<meta property="og:image" content="https://askcarnivores.com/assets/og.v1.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="el_GR">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/favicon.v2.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.v2.png">
+<meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#161513" media="(prefers-color-scheme: dark)">
+
+<!-- Ίδιο μοτίβο με το panel του §16 και για τον ίδιο λόγο: η λίστα ανήκει στο
+     bot, και αυτή η σελίδα είναι παράθυρο πάνω της, όχι δεύτερο αντίγραφο.
+     Ένα index, ένα σημείο όπου γίνεται η επιμέλεια. Η διαφορά είναι ότι εδώ
+     έχουμε σελίδα και όχι panel, οπότε δεν χρειάζεται καθόλου JavaScript —
+     σκέτο iframe, χωρίς launcher, χωρίς άνοιγμα/κλείσιμο.
+
+     Το stylesheet πήγε v4 -> v5 για τους κανόνες .frame-page· τα assets εδώ
+     είναι cached immutable, οπότε αλλαγή σημαίνει μετονομασία και μετακίνηση
+     του <link> σε κάθε σελίδα. -->
+<link rel="stylesheet" href="/assets/style.v5.css">
+</head>
+<body class="frame-body">
+
+<a class="skip-link" href="#main">Στο περιεχόμενο</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/gr/">Ask<span>Carnivores</span></a>
+    <!-- Το μενού του site. Κάθε αλλαγή εδώ, ίδια στο /index.html,
+         /gr/index.html, /about/, /gr/about/ και /highlights/. -->
+    <nav class="site-nav" aria-label="Ενότητες">
+      <a href="/gr/about/">Η ιστορία μου</a>
+      <a href="/gr/highlights/" aria-current="page">Επιλογές</a>
+    </nav>
+    <!-- Το ζευγάρι γλωσσών δείχνει στα δύο μισά ΑΥΤΗΣ της σελίδας, όχι στις
+         δύο αρχικές: όποιος αλλάζει γλώσσα εδώ θέλει αυτή τη σελίδα στην άλλη
+         γλώσσα, όχι να γυριστεί πίσω στον κατάλογο. -->
+    <nav class="lang" aria-label="Γλώσσα">
+      <a href="/highlights/" hreflang="en">EN</a>
+      <span aria-hidden="true">/</span>
+      <a href="/gr/highlights/" aria-current="true" hreflang="el">ΕΛ</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" class="frame-main">
+  <!-- ΧΩΡΙΣ sandbox attribute, και είναι σκόπιμο — ίδιος κανόνας με το iframe
+       του panel, για διαφορετικό λόγο εδώ. Αυτή η σελίδα δεν κάνει κανένα
+       fetch, άρα δεν υπάρχει Origin να σπάσει· αυτό που θα έσπαγε ένα sandbox
+       είναι τα links. Κάθε κάρτα ανοίγει YouTube με target="_blank", και χωρίς
+       allow-popups δεν θα άνοιγε καμία. Η απομόνωση έρχεται από το όριο του
+       origin και από το frame-src που ονομάζει έναν ακριβώς host στο _headers.
+       Μην το βάλεις.
+
+       Το frame δεν είναι lazy: σε αντίθεση με το panel, αυτή η σελίδα ΕΙΝΑΙ το
+       περιεχόμενο, οπότε η αναβολή του θα έδειχνε λευκή οθόνη σε κάποιον που
+       ζήτησε ακριβώς αυτό. -->
+  <iframe class="frame-page__frame"
+          src="https://askcarnivore.com/highlights"
+          title="Επιλογές — επιλεγμένα βίντεο"></iframe>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <h2>Αποποίηση ευθύνης</h2>
+    <div class="footer-disclaimer">
+      <p>
+        Το AskCarnivores είναι κοινοτικός οδηγός. Παρουσιάζει απόψεις και εμπειρίες μελών
+        της carnivore κοινότητας και δημόσιων δημιουργών — <strong>δεν είναι ιατρική
+        συμβουλή</strong>. Οι προσωπικές εμπειρίες δεν είναι αναμενόμενα αποτελέσματα.
+        Για ιατρικά θέματα, φάρμακα ή παθήσεις, συμβουλέψου γιατρό.
+      </p>
+      <p>
+        Δεν έχουμε σχέση συνεργασίας με τα πρόσωπα που αναφέρονται εδώ και δεν μιλάμε εκ
+        μέρους τους. Κάθε link οδηγεί σε περιεχόμενο που δημοσίευσαν οι ίδιοι.
+      </p>
+    </div>
+
+    <div class="footer-meta">
+      <span>© 2026 AskCarnivores</span>
+      <a href="/highlights/" hreflang="en">English</a>
+      <a href="https://askcarnivore.com" target="_blank" rel="noopener">askcarnivore.com</a>
+      <!-- Η διεύθυνση φαίνεται ολόκληρη, όχι πίσω από «Επικοινωνία»: έτσι
+           αντιγράφεται κι από όποιον δεν έχει mail client. Χωρίς target/rel —
+           το mailto: δίνει τη σκυτάλη στο mail app, δεν είναι εξωτερική σελίδα,
+           οπότε ο κανόνας 1 δεν ισχύει. Κάθε αλλαγή εδώ, ίδια στο /index.html,
+           /gr/index.html, /about/, /gr/about/, /highlights/ και στο 404.html. -->
+      <!--email_off--><a href="mailto:info@askcarnivores.com">info@askcarnivores.com</a><!--/email_off-->
+
+      <!-- The "/>" is the studio's mark, not punctuation — decorative here,
+           so it stays out of the accessible name ("A NOUSTELOS_STUDIO PROJECT").
+           rel is "noopener" only, deliberately: noreferrer would hide that the
+           traffic came from here, and attribution is the point of the credit. -->
+      <a class="by" href="https://noustelos.gr/" target="_blank" rel="noopener">A <span class="by__name">NOUSTELOS_STUDIO</span> PROJECT<span class="by__mark" aria-hidden="true">/&gt;</span></a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

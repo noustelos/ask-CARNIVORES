@@ -38,7 +38,7 @@ Closed by Concept Base v3 §17. Moved to "Done, recorded so it isn't re-litigate
 ### Logo and brand direction
 Brief §11 lists these as open. None supplied, so the site uses a plain type
 wordmark and a self-designed palette: bone, deep charcoal, one muted rust accent.
-Every colour is a CSS custom property at the top of `assets/style.v4.css`, so a
+Every colour is a CSS custom property at the top of `assets/style.v5.css`, so a
 rebrand is a token swap, not a rewrite.
 
 **To close:** supply logo/colours, or leave as is.
@@ -286,6 +286,60 @@ bot, no — the bot stays a clean interface and never fills up with commerce.
   frame itself cannot be checked on a preview** — the bot's `frame-ancestors`
   names `askcarnivores.com` and `www.` only, so `*.pages.dev` is blocked and the
   panel opens empty there. Expected, not a bug.
+
+### Highlights — Concept Base §16's second window, **shipped 2026-08-30**
+
+`/highlights/` and `/gr/highlights/` are a full-page iframe of the bot's `/highlights`,
+which renders a card stack of the videos Nick marks `blog=yes` in the sheet.
+Same model as the ask panel and for the same reason: **the list is the bot's**,
+and this repo is a window onto it rather than a second copy. One index, one
+place it is curated, and anything he adds to the sheet appears here without a
+deploy on either side.
+
+**It cost this repo no CSP change at all.** `frame-src https://askcarnivore.com`
+is host-only, so it already covered a second page on that host. If a frame is
+ever pointed at a *different* host, that is when the header moves.
+
+**Zero JavaScript on these two pages.** Unlike the panel, this is a page rather
+than a control, so there is nothing to open or close — a plain `<iframe>` with a
+`src`, no launcher, no lazy-load. `ask.v1.js` is still the site's only script
+and it is not loaded here.
+
+The iframe carries **no `sandbox`**, the same rule as the panel's but for a
+different reason: this page runs no fetch, so there is no `Origin` to break.
+What a sandbox would break is the links — every card opens YouTube with
+`target="_blank"`, and without `allow-popups` none of them would open.
+
+**The launcher is deliberately absent from this page, and from the story
+pages.** Decided 2026-08-30: they are content, and a floating button over
+content competes with it. Asking is the *directory's* action, and the directory
+is one tap away in the menu. So the launcher lives on `/` and `/gr/` only. This
+is a decision, not an inconsistency to tidy up — do not add it "for symmetry".
+
+**The name.** It was "What's New" until review on 2026-08-30, when the name and
+the sort turned out to disagree: `pin` lifts a video above the calendar, so the
+order is editorial first and chronological second, and a name promising recency
+promised something the page does not keep. Renamed to Highlights / Επιλογές, and
+the routes moved with it — `/highlights/`, `/gr/highlights/`, and the bot's
+`/highlights`. No redirects: neither path had ever been live.
+
+**No dates on the cards**, also from that review. The sheet's `date` is the day
+Nick added the row, not the day the video came out, so on a card it answered a
+question nobody asked with a number a reader would misread. It stays in the
+sheet, orders the page — pinned first, then newest — and never appears on it.
+
+**A trap this feature uncovered.** The bot's Pages project falls back to its
+`index.html` for any unknown path and returns **200**, so a wrong iframe path
+does not fail: it quietly frames the bot's chat instead. That is exactly how
+this nearly shipped — the portal preview framed `/new` before the bot's branch
+was merged, and showed a working chat panel where the list should have been. A
+green status code proves nothing about a frame; after changing a framed URL,
+look inside it on the live page.
+
+**What is still open:** the framed page is English, like `/embed`, so a Greek
+visitor gets a Greek page around an English list. Same call as the panel, same
+reasoning — this audience already operates in English for this material — and
+the fix, if it is ever wanted, belongs on the bot's side.
 
 ### The bot's index went video-level — nothing to do here, and one thing not to do
 

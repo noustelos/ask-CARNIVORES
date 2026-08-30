@@ -20,6 +20,18 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://askcarnivores.com/about/"/>
   </url>
   <url>
+    <loc>https://askcarnivores.com/highlights/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://askcarnivores.com/highlights/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://askcarnivores.com/gr/highlights/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://askcarnivores.com/highlights/"/>
+  </url>
+  <url>
+    <loc>https://askcarnivores.com/gr/highlights/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://askcarnivores.com/highlights/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://askcarnivores.com/gr/highlights/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://askcarnivores.com/highlights/"/>
+  </url>
+  <url>
     <loc>https://askcarnivores.com/gr/about/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://askcarnivores.com/about/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://askcarnivores.com/gr/about/"/>
