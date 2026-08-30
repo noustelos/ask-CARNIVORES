@@ -79,41 +79,26 @@
           title="Επιλογές — επιλεγμένα βίντεο"></iframe>
 </main>
 
-<footer class="site-footer">
-  <div class="wrap">
-    <h2>Αποποίηση ευθύνης</h2>
-    <div class="footer-disclaimer">
-      <p>
-        Το AskCarnivores είναι κοινοτικός οδηγός. Παρουσιάζει απόψεις και εμπειρίες μελών
-        της carnivore κοινότητας και δημόσιων δημιουργών — <strong>δεν είναι ιατρική
-        συμβουλή</strong>. Οι προσωπικές εμπειρίες δεν είναι αναμενόμενα αποτελέσματα.
-        Για ιατρικά θέματα, φάρμακα ή παθήσεις, συμβουλέψου γιατρό.
-      </p>
-      <p>
-        Δεν έχουμε σχέση συνεργασίας με τα πρόσωπα που αναφέρονται εδώ και δεν μιλάμε εκ
-        μέρους τους. Κάθε link οδηγεί σε περιεχόμενο που δημοσίευσαν οι ίδιοι.
-      </p>
-    </div>
+<!-- ΧΩΡΙΣ footer σε αυτή τη σελίδα, σκόπιμα.
 
-    <div class="footer-meta">
-      <span>© 2026 AskCarnivores</span>
-      <a href="/highlights/" hreflang="en">English</a>
-      <a href="https://askcarnivore.com" target="_blank" rel="noopener">askcarnivore.com</a>
-      <!-- Η διεύθυνση φαίνεται ολόκληρη, όχι πίσω από «Επικοινωνία»: έτσι
-           αντιγράφεται κι από όποιον δεν έχει mail client. Χωρίς target/rel —
-           το mailto: δίνει τη σκυτάλη στο mail app, δεν είναι εξωτερική σελίδα,
-           οπότε ο κανόνας 1 δεν ισχύει. Κάθε αλλαγή εδώ, ίδια στο /index.html,
-           /gr/index.html, /about/, /gr/about/, /highlights/ και στο 404.html. -->
-      <!--email_off--><a href="mailto:info@askcarnivores.com">info@askcarnivores.com</a><!--/email_off-->
+     Η σελίδα μέσα στο frame έχει ήδη το δικό της disclaimer — «Positions and
+     personal experience, not medical advice» στο κάτω μέρος του /highlights
+     του bot — οπότε το footer του portal στοίβαζε ένα δεύτερο ακριβώς από
+     κάτω, σπάζοντας και τη ροή της λίστας. Εδώ το frame ΕΙΝΑΙ το περιεχόμενο·
+     παίρνει την οθόνη.
 
-      <!-- The "/>" is the studio's mark, not punctuation — decorative here,
-           so it stays out of the accessible name ("A NOUSTELOS_STUDIO PROJECT").
-           rel is "noopener" only, deliberately: noreferrer would hide that the
-           traffic came from here, and attribution is the point of the credit. -->
-      <a class="by" href="https://noustelos.gr/" target="_blank" rel="noopener">A <span class="by__name">NOUSTELOS_STUDIO</span> PROJECT<span class="by__mark" aria-hidden="true">/&gt;</span></a>
-    </div>
-  </div>
-</footer>
+     Είναι ο ΜΟΝΟΣ τύπος σελίδας που το χάνει. Οι σελίδες με τις κάρτες, οι
+     σελίδες της ιστορίας και το 404.html κρατάνε ολόκληρο το footer: εκεί το
+     disclaimer είναι η υπόσχεση της ίδιας της σελίδας και δεν το λέει κανείς
+     άλλος. Μην το «επαναφέρεις» εδώ για συνέπεια — ο λόγος που έφυγε είναι
+     ότι λεγόταν δύο φορές.
+
+     Τι φεύγει μαζί του, και πού ζει το καθένα: η διεύθυνση επικοινωνίας είναι
+     στα footers των /, /gr/, /about/, /gr/about/ και 404.html· το ζευγάρι
+     γλωσσών είναι στο header αυτής της σελίδας· το studio credit είναι σε κάθε
+     άλλο footer.
+
+     Κάθε αλλαγή εδώ, ίδια στο /highlights/index.html. -->
 
 </body>
 </html>

@@ -336,6 +336,17 @@ was merged, and showed a working chat panel where the list should have been. A
 green status code proves nothing about a frame; after changing a framed URL,
 look inside it on the live page.
 
+**No footer on these two pages** (2026-08-30, after the live check). The framed
+page ends with its own "Positions and personal experience, not medical advice",
+so the portal's footer put a second disclaimer immediately below the first and
+cut the list off visually. The frame is the content on this page, so it gets the
+screen. Every other page — directory, story, 404 — keeps the full footer, where
+the disclaimer is the page's own promise and nothing else is making it.
+
+The **chat panel does not have this problem** and needs no equivalent change: it
+is an overlay, not a page, so the footer sits *behind* it rather than stacked
+below it, and there is no separate chat page in this repo.
+
 **What is still open:** the framed page is English, like `/embed`, so a Greek
 visitor gets a Greek page around an English list. Same call as the panel, same
 reasoning — this audience already operates in English for this material — and

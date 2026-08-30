@@ -125,8 +125,10 @@ Small, obvious edits — a typo, one card's wording — may still go straight to
 
 6. **Both languages, always.** Every content change to `index.html` must be
    mirrored into `gr/index.html`. Cards live between the `DIRECTORY — EDIT HERE`
-   comment markers. The footer contact line, `info@askcarnivores.com`, is the one
-   thing that lives in **three** files — both index pages *and* `404.html`.
+   comment markers. The footer contact line, `info@askcarnivores.com`, lives in
+   **five** files — both index pages, both story pages and `404.html`. It is
+   deliberately **not** on the two Highlights pages, which carry no footer at
+   all; see the bite below.
 
 7. **The directory order is mechanical.** Dave Mac is pinned first (structural —
    he is the testimonials backbone). Everyone else is alphabetical **by surname**,
@@ -167,6 +169,13 @@ Small, obvious edits — a typo, one card's wording — may still go straight to
   a floating button over content competes with it; asking is the directory's
   action and the menu is one tap away. Do not "fix" the inconsistency by adding
   it everywhere — the decision is in `PENDING.md`.
+- **The two Highlights pages carry no footer, and that is deliberate.** The
+  framed page states its own "not medical advice" line, so the portal's footer
+  stacked a second disclaimer right under the first and broke the run of the
+  list. Every other page keeps the full footer — there the disclaimer is the
+  page's own promise and nothing else is making it. Do not add one back "for
+  consistency": the reason it is gone is that it was being said twice. Each
+  page says so in a comment where the footer used to be.
 - **A wrong iframe path does not 404 — it silently shows the bot's chat.**
   Found on 2026-08-30, on a preview, one step from going live. The bot's Pages
   project falls back to its `index.html` for any unknown path and answers
