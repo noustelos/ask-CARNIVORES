@@ -86,11 +86,14 @@ moment it ships, because he keeps recording. "2K" is a floor phrased as a round
 figure, so it stays true for a while, but it is not maintenance-free the way
 "well over a thousand" was. It will want revisiting.
 
-**Not changed, and it now disagrees with the card:** the Stories section further
-down both index pages still says *"Dave Mac has recorded well over a thousand
-conversations"*. That was outside the instructed scope — the instruction was two
-cards, nothing else — so it stands until Nick says otherwise. Two numbers for the
-same thing on the same page is the kind of detail a reader notices.
+**The Stories section was brought in line the same day.** It said *"well over a
+thousand conversations"* and now says *"2K conversations"*, so the number appears
+once, in one form, on each page. It was outside the first instruction and Nick
+extended the scope after it was flagged.
+
+**Both places move together from now on** — the card's bio and the Stories
+paragraph, in both languages. Four lines, one number. That is the maintenance
+cost the round figure brings with it.
 
 ### Directory size — twenty-seven, and the grid no longer drives it
 **Twenty-seven cards, as of 2026-08-17** (24 until then). A multiple of three but
