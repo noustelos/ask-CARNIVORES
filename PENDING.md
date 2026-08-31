@@ -47,9 +47,15 @@ rebrand is a token swap, not a rewrite.
 
 ## 2. Open decisions
 
-### Bart Kay's title — sources disagree
-Nick referred to him as "καθηγητή" (professor). The card says **"Former academic
-· physiology and nutrition"**, which avoids taking a side.
+### ~~Bart Kay's title~~ — **settled 2026-08-31: "Former professor"**
+Nick instructed the change; he owned this question and closed it. The cards read
+**"Former professor · nutrition science"** / **«Πρώην καθηγητής · διατροφική
+επιστήμη»**, and an HTML comment on each records that the hedge was deliberate
+and was lifted on purpose — so nobody reinstates it after reading a third-party
+bio. The history below is kept because that is exactly the argument someone
+would make.
+
+Previously the card said **"Former academic"**, which avoided taking a side:
 
 | Source | Says |
 | --- | --- |
@@ -62,23 +68,29 @@ where he taught. A site whose entire pitch is *"we point you to the source, judg
 it yourself"* cannot afford to hand someone a rank the record doesn't clearly
 support — that is the fastest way to hand a critic a free hit.
 
-"Former academic" is true under every version, so the card uses that. An HTML
-comment on the card records why, so it doesn't get "corrected" later.
+"Former academic" was true under every version, so the card used that while the
+question was open — the reasoning above still holds for any *other* name whose
+rank is contested. It stopped applying here on 2026-08-31, when the owner of the
+question answered it.
 
-**Owner: Nick**, as of 2026-08-14 — asking Bart Kay directly. His own answer
-settles it better than any third-party bio, and the card can then name the rank
-precisely. Until then the card stays as it is.
+### ~~Dave Mac's interview count~~ — **settled 2026-08-31: "already 2K conversations"**
+Nick instructed the number; he owned this question and closed it. The cards read
+**"already 2K conversations"** / **«ήδη 2K συζητήσεις»**.
 
-### Dave Mac's interview count
-The card says "well over a thousand". Public sources range from 1,000+ to 1,900+;
-the channel's own framing is higher still. The lowest verifiable figure was
-chosen because it does not age and cannot be challenged.
+The card previously said "well over a thousand" — public sources ranged from
+1,000+ to 1,900+, and the lowest verifiable figure was chosen because it does not
+age and cannot be challenged.
 
-**Owner: Nick**, as of 2026-08-14 — asking Dave Mac directly.
+**One consequence, accepted rather than overlooked:** a hard number dates the
+moment it ships, because he keeps recording. "2K" is a floor phrased as a round
+figure, so it stays true for a while, but it is not maintenance-free the way
+"well over a thousand" was. It will want revisiting.
 
-Note when the answer comes back: a hard number dates the moment it ships, because
-he keeps recording. Either phrase it as of a date ("1,900+ as of 2026") or keep a
-floor like "well over a thousand" that stays true without maintenance.
+**Not changed, and it now disagrees with the card:** the Stories section further
+down both index pages still says *"Dave Mac has recorded well over a thousand
+conversations"*. That was outside the instructed scope — the instruction was two
+cards, nothing else — so it stands until Nick says otherwise. Two numbers for the
+same thing on the same page is the kind of detail a reader notices.
 
 ### Directory size — twenty-seven, and the grid no longer drives it
 **Twenty-seven cards, as of 2026-08-17** (24 until then). A multiple of three but
