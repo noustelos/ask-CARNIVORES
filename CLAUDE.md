@@ -267,6 +267,6 @@ touching it.
 The **embedded bot panel** (Concept Base v3.1 §16) is **built and shipped**
 (2026-08-30) — launcher, panel, and an iframe of the bot's public `/embed` page,
 driven by `assets/ask.v1.js`. It is no longer out of scope and no longer waiting
-on anything: the bot is live, with a real worker, a 16-topic × 27-creator
+on anything: the bot is live, with a real worker, a 19-topic × 27-creator
 curation, scan and sheet layers, and its own About page. Read `PENDING.md`,
 "The bot, embedded", before changing any part of it.
