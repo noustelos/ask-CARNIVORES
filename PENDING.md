@@ -465,6 +465,40 @@ and anything commercially sensitive out of them.
 - **Paul Saladino** — permanently excluded. See `README.md`, "Do not list". Nick
   has confirmed he is fine with that note being readable in the page source.
 
+### SEO and `llms.txt` — shipped 2026-09-06
+
+The head of every page was already carrying title, description, canonical, a
+reciprocal `hreflang` triple, Open Graph and a Twitter card, so this was
+addition rather than repair: `/llms.txt`, `Organization` + `WebSite` JSON-LD on
+the two directory pages, AI crawlers named explicitly in `robots.txt`, and
+`sitemap.xml` reordered into language pairs. How each works is in `README.md`,
+"Search engines and language models". Recorded here are the three things that
+were decided against, so they are not proposed again as gaps:
+
+- **No `Person` entries and no `ItemList` in the structured data**, and **no
+  creator list in `llms.txt`.** Nick chose the narrow option in both on
+  2026-09-06. Publishing the twenty-seven as a machine-readable list of named
+  individuals is a different act from listing them on a page: "not a ranking,
+  not an endorsement" is a promise this site makes in prose, and `ItemList`'s
+  `itemListOrder: ItemListUnordered` is a field in the data, not a guarantee
+  about how anything downstream renders it. The wider version is a real SEO
+  gain and it was turned down knowingly, not overlooked. It stays available if
+  he ever changes his mind — it is not blocked on anything.
+- **No `<lastmod>` in the sitemap.** Nothing in a repo with no build step keeps
+  the dates honest, and a stale one is discounted. It becomes worth adding the
+  day something maintains it, and not before.
+- **No email in the JSON-LD.** Cloudflare's Email Address Obfuscation rewrites
+  addresses in markup and `<!--email_off-->` cannot wrap the inside of a script
+  block, so an address there could be silently rewritten into
+  `[email protected]` inside valid-looking JSON — invisible on localhost, exactly
+  like the 2026-08-16 breakage. Contact stays in the footer and in `llms.txt`.
+
+One thing worth knowing rather than deciding: a `<script type="application/ld+json">`
+block is **not** governed by `script-src 'self'`, because a script
+whose type is not a JavaScript MIME type is never executed. The CSP needed no
+change and must not be loosened for it. `assets/ask.v1.js` remains the only
+executable script on the site.
+
 ### "My Story" and the header menu — shipped 2026-08-29
 
 The site said what it is and who is on it, and never who made it or why.

@@ -30,6 +30,7 @@ assets/og.v1.png        Social share card (1200×630)
 assets/apple-touch-icon.v2.png
 _headers                Cloudflare Pages security + cache headers
 robots.txt, sitemap.xml
+llms.txt                The site summarised for language models — see below
 ```
 
 ## Local preview
@@ -609,6 +610,93 @@ browser blocks the frame: the panel opens empty and Highlights is a blank
 rectangle. That is correct behaviour, not a bug.
 Check the panel, the CSP and the script on a preview; check the frame itself
 after the deploy, with Rollback as the net.
+
+## Search engines and language models
+
+Shipped 2026-09-06. Four small pieces, and the reason they are small is that
+the head of every page was already doing the heavy lifting — title, meta
+description, canonical, a reciprocal `hreflang` triple, Open Graph, a Twitter
+card. None of that changed. What follows is what sat on top of it.
+
+### `llms.txt`
+
+A Markdown summary of the site at `/llms.txt`, addressed to a model rather
+than a crawler: what the site is, the six pages, the Greek mirrors, and the
+relationship to `askcarnivore.com`. It is the one file whose *whole job* is to
+be quoted back by something that read it, which is why the four rules — not
+medical advice, not a ranking, openly one-sided, not affiliated — are stated
+near the top in the site's own voice, before any link. A model that reads only
+the first screen still gets them.
+
+`robots.txt` disallows `/*.md$`; `llms.txt` is a `.txt` and is not caught by
+it, which is deliberate on both sides. Do not "tidy" that rule into something
+broader.
+
+**It names no creators.** Listing the twenty-seven here was considered and
+decided against on 2026-09-06, for the same reason as the structured data
+below: it would publish the roster as a machine-readable list of named
+individuals. The file describes the site; the site lists the people.
+
+Keep it true. It is prose, nothing validates it, and it goes stale silently —
+if the page set changes, or one of the four rules is ever reworded, this file
+changes with them.
+
+### Structured data
+
+`Organization` + `WebSite`, as one `@graph`, in the head of the two directory
+pages only. The `Organization` `@id` is shared between them — one organisation,
+two language editions — and each `WebSite` carries its own `@id`, `url` and
+`inLanguage`. It is a language-pair mirror like everything else here.
+
+Nothing else is described, and the omissions are the decision:
+
+- **No `Person` entries and no `ItemList`.** Publishing the directory as a
+  structured list of named individuals is a different act from listing them on
+  a page, and "not a ranking, not an endorsement" is a promise better kept in
+  the one place it is already written than restated in a field. `ItemList` has
+  an `itemListOrder` of `ItemListUnordered`, which is a claim about the data
+  and not a guarantee about how anything renders it.
+- **No `SearchAction`.** There is no site search to point it at.
+- **No ratings, no `aggregateRating`.** There is nothing being rated.
+- **No `sameAs`.** `askcarnivore.com` is a separate project, and `sameAs`
+  would assert it is the same entity. The link between the two sites is a
+  hyperlink in the UI and stays one.
+- **No email.** See the trap below.
+
+**A `<script type="application/ld+json">` is not blocked by our CSP, and does
+not need it loosened.** A block whose type is not a JavaScript MIME type is
+never executed, so `script-src 'self'` does not apply to it at all. This is
+worth knowing precisely because the instinct on this site is that a `<script>`
+tag means a CSP change — here it does not, and the fix for "my structured data
+isn't showing up" is never to touch `_headers`.
+
+**The contact address is deliberately not in the JSON-LD.** Cloudflare's Email
+Address Obfuscation rewrites addresses it finds in markup, and the footer
+survives it only because of the `<!--email_off-->` markers around it — markers
+that cannot wrap the inside of a script block. An address in there could be
+rewritten into `[email protected]` inside otherwise valid JSON, and the failure
+would be invisible on localhost, exactly like the 2026-08-16 one. Contact lives
+in the footer and in `llms.txt`.
+
+### `robots.txt`
+
+The wildcard block already allowed every crawler, AI ones included. They are
+now named explicitly — GPTBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot,
+PerplexityBot, Google-Extended, Applebot-Extended — so that allowing them is a
+decision on the record rather than a default nobody looked at. The site exists
+to send people to the creators it lists, and a model that has read it sends
+people the same way.
+
+To exclude one later, flip its own `Allow` to `Disallow`. Leave the wildcard
+block alone; that one is search engines, and this site wants those.
+
+### `sitemap.xml`
+
+Reordered into three language pairs and commented, with no change to what it
+contains. **It carries no `<lastmod>`, on purpose:** nothing in this repo would
+keep the dates honest, and a stale `<lastmod>` is discounted as noise, which is
+worse than not claiming one. Add them only alongside something that maintains
+them.
 
 ## Rollback
 

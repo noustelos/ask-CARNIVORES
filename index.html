@@ -22,6 +22,53 @@
 <meta property="og:locale:alternate" content="el_GR">
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- Structured data — Organization + WebSite only, and deliberately nothing
+     more. An ItemList of the 27 people was considered and decided against: it
+     would publish the directory as a machine-readable list of named
+     individuals, and "not a ranking, not an endorsement" is a promise we would
+     rather keep in the one place it is already written. No aggregate ratings,
+     no Person entries, no SearchAction (there is no site search).
+
+     This is a <script> tag on a site with one script, and that is fine: a
+     block of type application/ld+json is never executed, so `script-src 'self'`
+     in _headers does not apply to it and cannot block it. Do not "fix" this by
+     loosening the CSP — nothing here needs loosening.
+
+     The email is NOT in here on purpose. Cloudflare's Email Address
+     Obfuscation is on for this zone, and an address inside markup is exactly
+     what it rewrites; the footer survives only because of its email_off
+     markers (spelled without their angle brackets here — a comment cannot
+     contain another comment's terminator), and those cannot wrap the inside
+     of a script. Contact stays in the
+     footer and in /llms.txt.
+
+     Mirror any change into /gr/index.html, with inLanguage and the WebSite @id
+     pointing at that page. The Organization @id is shared — one organisation,
+     two language editions of one site. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://askcarnivores.com/#organization",
+      "name": "AskCarnivores",
+      "url": "https://askcarnivores.com/",
+      "logo": "https://askcarnivores.com/assets/apple-touch-icon.v2.png",
+      "description": "A free, community-first directory of carnivore creators, doctors and real experiences. It points at sources rather than hosting or ranking them, and it is not medical advice."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://askcarnivores.com/#website",
+      "url": "https://askcarnivores.com/",
+      "name": "AskCarnivores",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://askcarnivores.com/#organization" }
+    }
+  ]
+}
+</script>
+
 <link rel="icon" href="/assets/favicon.v2.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.v2.png">
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">

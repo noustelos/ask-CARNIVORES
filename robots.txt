@@ -10,4 +10,36 @@ Disallow: /PENDING.md
 Disallow: /.gitignore
 Disallow: /*.md$
 
+# The rule above is deliberately scoped to .md, which is why /llms.txt is not
+# caught by it. That file is a summary of this site written for language
+# models, and it is meant to be fetched: see https://askcarnivores.com/llms.txt
+
+# AI crawlers are named explicitly and allowed, which the wildcard above
+# already did — the point is that it is now a decision on the record rather
+# than a default nobody looked at. This site exists to send people to the
+# creators it lists, and a model that has read it sends people the same way.
+# The four rules it must carry with the content are stated in /llms.txt.
+# To exclude one of these later, change its Allow to Disallow here; do not
+# touch the wildcard block, which serves search engines.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
 Sitemap: https://askcarnivores.com/sitemap.xml

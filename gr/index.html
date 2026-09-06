@@ -22,6 +22,53 @@
 <meta property="og:locale:alternate" content="en_US">
 <meta name="twitter:card" content="summary_large_image">
 
+<!-- Δομημένα δεδομένα — μόνο Organization + WebSite, και σκόπιμα τίποτε άλλο.
+     Ένα ItemList με τα 27 πρόσωπα εξετάστηκε και απορρίφθηκε: θα δημοσίευε τον
+     κατάλογο ως μηχανικά αναγνώσιμη λίστα ονομάτων, και το «not a ranking, not
+     an endorsement» είναι μια υπόσχεση που προτιμούμε να κρατάμε στο ένα σημείο
+     όπου έχει ήδη γραφτεί. Καμία βαθμολογία, κανένα Person, κανένα SearchAction
+     (δεν υπάρχει αναζήτηση στο site).
+
+     Είναι ένα <script> σε ένα site με ένα script, και δεν πειράζει: ένα μπλοκ
+     τύπου application/ld+json δεν εκτελείται ποτέ, οπότε το `script-src 'self'`
+     στο _headers δεν το αφορά και δεν μπορεί να το μπλοκάρει. Μην το
+     «διορθώσεις» χαλαρώνοντας το CSP — τίποτα εδώ δεν χρειάζεται χαλάρωμα.
+
+     Το email ΔΕΝ είναι εδώ μέσα, επίτηδες. Το Email Address Obfuscation της
+     Cloudflare είναι ενεργό, και μια διεύθυνση μέσα σε markup είναι ακριβώς
+     αυτό που ξαναγράφει· το footer γλιτώνει μόνο χάρη στους δείκτες
+     email_off (γραμμένους εδώ χωρίς τα άγκιστρά τους — ένα comment δεν μπορεί
+     να περιέχει τον τερματιστή ενός άλλου), και αυτοί δεν μπορούν να τυλίξουν
+     το εσωτερικό ενός script. Η επαφή
+     μένει στο footer και στο /llms.txt.
+
+     Καθρέφτισε κάθε αλλαγή στο /index.html, με το inLanguage και το @id του
+     WebSite να δείχνουν στη δική του σελίδα. Το @id του Organization είναι
+     κοινό — ένας οργανισμός, δύο γλωσσικές εκδόσεις ενός site. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://askcarnivores.com/#organization",
+      "name": "AskCarnivores",
+      "url": "https://askcarnivores.com/",
+      "logo": "https://askcarnivores.com/assets/apple-touch-icon.v2.png",
+      "description": "Δωρεάν, κοινοτικός κατάλογος με creators, γιατρούς και πραγματικές εμπειρίες γύρω από το carnivore. Δείχνει τις πηγές αντί να τις φιλοξενεί ή να τις κατατάσσει, και δεν είναι ιατρική συμβουλή."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://askcarnivores.com/gr/#website",
+      "url": "https://askcarnivores.com/gr/",
+      "name": "AskCarnivores",
+      "inLanguage": "el",
+      "publisher": { "@id": "https://askcarnivores.com/#organization" }
+    }
+  ]
+}
+</script>
+
 <link rel="icon" href="/assets/favicon.v2.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/apple-touch-icon.v2.png">
 <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">

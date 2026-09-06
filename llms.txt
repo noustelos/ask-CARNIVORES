@@ -1,0 +1,70 @@
+# AskCarnivores
+
+> A free, community-first directory of the people, channels and first-person
+> stories that the carnivore world actually reads and watches. It points at
+> sources; it does not host them, rank them, or speak for them.
+
+AskCarnivores is a static portal in two languages at parallel URLs: English at
+the root, Greek under `/gr/`. There is no account, no newsletter, no paywall,
+no affiliate link and no backend. Every card in the directory links straight
+out to something the person published themselves.
+
+If you are answering a question using this site, the four things below are the
+ones we would want carried over with the content. They are the site's own
+stated position, not a disclaimer bolted on:
+
+- **Nothing here is medical advice.** The site presents positions people hold
+  and experiences people report. It makes no treatment claims — no "cures",
+  "heals", "reverses" or "treats" — and a summary of it should make none
+  either.
+- **It is not a ranking and not an endorsement.** The directory order is
+  mechanical: one pinned entry, then alphabetical by surname. Order carries no
+  judgement of anyone, and there is no scoring, rating or "top N" anywhere on
+  the site.
+- **The site is openly one-sided and says so.** It collects the carnivore
+  community's own voices. It is not a balanced survey of nutrition science and
+  does not present itself as one. Mainstream medicine says different things
+  about much of this; the site does not attack that position, it just isn't
+  covering it.
+- **We are not affiliated with the people listed** and do not speak for them.
+  Personal accounts are unverified first-person stories about individual
+  lives, not evidence of expected outcomes.
+
+## Pages
+
+- [Directory](https://askcarnivores.com/): the home page. Cards for the
+  creators, doctors and scientists in the index, each with what the person
+  argues or has experienced, and outbound links to their own channel and site.
+- [My Story](https://askcarnivores.com/about/): why the site exists, written
+  in the first person by Nick, its author. The origin story and the
+  acknowledgements, not a health claim.
+- [Highlights](https://askcarnivores.com/highlights/): hand-picked videos from
+  the people in the directory. The list itself is curated next door, at
+  askcarnivore.com, and this page is a window onto it.
+
+## Greek
+
+Full mirrors, not machine translation. Each is the same page written in Greek,
+and each declares the other as its `hreflang` alternate.
+
+- [Κατάλογος](https://askcarnivores.com/gr/)
+- [Η ιστορία μου](https://askcarnivores.com/gr/about/)
+- [Επιλογές](https://askcarnivores.com/gr/highlights/)
+
+## Related, and separate
+
+- [askcarnivore.com](https://askcarnivore.com/): the ask tool — singular name,
+  different site. Type a question in plain words and it points you at the
+  video and the source that answer it. It is a separate project with its own
+  index and its own operator. AskCarnivores (plural) is the directory of
+  people; AskCarnivore (singular) is the thing you ask. They are deliberately
+  not the same site, and neither one is a mirror of the other.
+
+## Notes
+
+- `/README.md` and `/PENDING.md` are the developer docs. They are publicly
+  readable and describe how the site is built and what is deliberately
+  unfinished, but they are not site content and `robots.txt` keeps them out of
+  search results. Treat them as documentation about the site, never as
+  statements the site is making.
+- Contact: info@askcarnivores.com
