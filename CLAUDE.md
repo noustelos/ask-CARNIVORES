@@ -79,6 +79,27 @@ python3 -m http.server 8000
 Small, obvious edits — a typo, one card's wording — may still go straight to
 `main`. The rule is about size and risk, not ceremony.
 
+### Merged branches — record the tip, then delete it
+
+A merged branch gets deleted, local and remote, so the branch list stays a list
+of work in flight rather than a graveyard. The merge commit keeps the history,
+but the *branch tip* is what `git reflog` and a bare `git checkout` want, and it
+becomes unreachable by name the moment the branch is gone. So write it down here
+before deleting, with a one-line note of what it was:
+
+```sh
+git rev-parse --short <branch>   # the tip — record it below
+git branch -d <branch> && git push origin --delete <branch>
+```
+
+Recovering one is then `git checkout -b <name> <hash>`. Cloudflare also keeps
+the branch's preview deployments, and Rollback is still the net for anything
+that reached `main`.
+
+| Branch | Tip | Merge | What it was |
+| --- | --- | --- | --- |
+| `seo-llms` | `2bd94ad` | `0be340d` | `llms.txt`, `Organization` + `WebSite` JSON-LD, AI crawlers named in `robots.txt`, sitemap reordered. 2026-09-06. |
+
 ## Hard rules — do not violate these
 
 1. **Siloing.** `askcarnivores.com` (this portal) and `askcarnivore.com` (the
