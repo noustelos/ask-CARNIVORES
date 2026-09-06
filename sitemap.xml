@@ -1,4 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Six pages, three language pairs, listed pair after pair so the structure is
+  readable here as well as in the tree. Every <url> carries the SAME three
+  alternates as the <head> of the page it names — en, el, x-default — because
+  an hreflang set has to be declared reciprocally or it is ignored.
+
+  There is no <lastmod>, on purpose. A date here has to be true to be worth
+  anything, and nothing in this repo updates one automatically; a stale
+  <lastmod> is treated as noise and discounted, which is worse than none at
+  all. Add them only alongside something that keeps them honest.
+
+  404.html is absent for the obvious reason, and carries <meta name="robots"
+  content="noindex"> of its own.
+-->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
@@ -20,6 +34,12 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://askcarnivores.com/about/"/>
   </url>
   <url>
+    <loc>https://askcarnivores.com/gr/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://askcarnivores.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="el" href="https://askcarnivores.com/gr/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://askcarnivores.com/about/"/>
+  </url>
+  <url>
     <loc>https://askcarnivores.com/highlights/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://askcarnivores.com/highlights/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://askcarnivores.com/gr/highlights/"/>
@@ -30,11 +50,5 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://askcarnivores.com/highlights/"/>
     <xhtml:link rel="alternate" hreflang="el" href="https://askcarnivores.com/gr/highlights/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://askcarnivores.com/highlights/"/>
-  </url>
-  <url>
-    <loc>https://askcarnivores.com/gr/about/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://askcarnivores.com/about/"/>
-    <xhtml:link rel="alternate" hreflang="el" href="https://askcarnivores.com/gr/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://askcarnivores.com/about/"/>
   </url>
 </urlset>

@@ -26,6 +26,7 @@ assets/ask.v1.js      The ask panel (§16) — the only script on the site
 _headers              Cloudflare Pages security + cache headers
 404.html              Real 404 (Pages serves it with a 404 status)
 robots.txt, sitemap.xml
+llms.txt              The site summarised for language models (§SEO, 2026-09-06)
 ```
 
 Pages come in language pairs at parallel URLs (`/x/` and `/gr/x/`), with
@@ -228,6 +229,32 @@ Small, obvious edits — a typo, one card's wording — may still go straight to
   flush on desktop only. Twenty-four (current) happens to be flush at every
   width. That is a nice-to-have, **not** a constraint: rule 7 above wins, so
   never add, drop or move a card to make the last row come out even.
+- **`llms.txt` and the JSON-LD are content, and go stale silently.** Shipped
+  2026-09-06. `/llms.txt` restates the site's four rules — not medical advice,
+  not a ranking, openly one-sided, not affiliated — and lists the six pages;
+  the `Organization` + `WebSite` JSON-LD in the head of the two directory pages
+  restates the site's own description. Nothing validates either against the
+  pages. Change the page set, or reword one of those rules, and both change
+  with it. The JSON-LD is a **language-pair mirror** like every other piece of
+  chrome: edit one index page's block, edit the other's.
+- **Neither of them names a creator, and that is the decision.** `llms.txt`
+  describes the site rather than listing the twenty-seven, and the structured
+  data carries no `Person` and no `ItemList`. Publishing the roster as a
+  machine-readable list of named individuals is a different act from listing
+  them on a page, and it was decided against on 2026-09-06 — the same day and
+  for the same reason in both files. Do not "complete" either one by adding the
+  names. Also absent on purpose: `SearchAction` (no site search), any rating,
+  `sameAs` (the bot is a separate entity), and the contact address (Cloudflare
+  would rewrite it, and `<!--email_off-->` cannot wrap the inside of a script).
+- **A `<script type="application/ld+json">` needs no CSP change.** It is the
+  one `<script>` on this site that `script-src 'self'` does not govern: a block
+  whose type is not a JavaScript MIME type is never executed, so the directive
+  does not apply. If structured data is not showing up, the answer is never to
+  touch `_headers`. `assets/ask.v1.js` is still the only *executable* script
+  here.
+- **`sitemap.xml` has no `<lastmod>` on purpose.** Nothing keeps the dates
+  honest, and a stale one is discounted as noise — worse than not claiming one.
+  Add them only alongside something that maintains them.
 - **Never delete the `<!--email_off-->` markers** around the footer address.
   Cloudflare's Email Address Obfuscation is on by default, rewrites the address
   into `[email protected]`, and injects a decoder script that our CSP blocks — so
