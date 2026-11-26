@@ -147,7 +147,7 @@ that reached `main`.
 
 6. **Both languages, always.** Every content change to `index.html` must be
    mirrored into `gr/index.html`. Cards live between the `DIRECTORY — EDIT HERE`
-   comment markers. The footer contact line, `info@askcarnivores.com`, lives in
+   comment markers. The footer contact line, `info@noustelos.gr`, lives in
    **five** files — both index pages, both story pages and `404.html`. It is
    deliberately **not** on the two Highlights pages, which carry no footer at
    all; see the bite below.

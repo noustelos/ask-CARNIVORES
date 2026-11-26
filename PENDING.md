@@ -522,7 +522,7 @@ or the cache headers. See `README.md` and `CLAUDE.md`.
 
 ### Contact address — shipped 2026-08-16
 
-`info@askcarnivores.com` is live in the footer of `index.html`, `gr/index.html`
+`info@noustelos.gr` is live in the footer of `index.html`, `gr/index.html`
 **and `404.html`**.
 
 The site launched with no address at all: `hello@askcarnivores.com` was written

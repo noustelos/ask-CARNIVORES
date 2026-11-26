@@ -67,4 +67,4 @@ and each declares the other as its `hreflang` alternate.
   unfinished, but they are not site content and `robots.txt` keeps them out of
   search results. Treat them as documentation about the site, never as
   statements the site is making.
-- Contact: info@askcarnivores.com
+- Contact: info@noustelos.gr

@@ -105,7 +105,7 @@ Four rules, all non-negotiable:
    Sending creators traffic they can *see* is the whole relationship play. It is
    what makes the outreach email land, and it is why the referrer stays on.
 
-   **The footer `mailto:` is the one link with neither.** `info@askcarnivores.com`
+   **The footer `mailto:` is the one link with neither.** `info@noustelos.gr`
    hands off to a mail client rather than opening a page, so there is no opener to
    sever and no referrer to send. `target="_blank"` on it produces a stray blank
    tab on some setups. Don't "fix" it into consistency with the rule above.
@@ -330,7 +330,7 @@ handle proves nothing.
 
 ## The footer contact line
 
-`info@askcarnivores.com` sits in `.footer-meta` on **three** pages —
+`info@noustelos.gr` sits in `.footer-meta` on **three** pages —
 `index.html`, `gr/index.html` and `404.html`. Change it in all three or they
 drift; the 404 is the one that gets forgotten, and it is the page where a
 contact line matters most, since that is where someone lands when a link breaks.
