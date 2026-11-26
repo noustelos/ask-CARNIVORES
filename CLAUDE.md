@@ -99,6 +99,7 @@ that reached `main`.
 | Branch | Tip | Merge | What it was |
 | --- | --- | --- | --- |
 | `seo-llms` | `2bd94ad` | `0be340d` | `llms.txt`, `Organization` + `WebSite` JSON-LD, AI crawlers named in `robots.txt`, sitemap reordered. 2026-09-06. |
+| `highlights-back-el` | `9ad66ed` | `7bc4958` | The Greek Highlights frames the bot's `/highlights?lang=el`, so its back link is Greek and goes to `/gr/`. Bot side in its own repo. 2026-11-26. |
 
 ## Hard rules — do not violate these
 
